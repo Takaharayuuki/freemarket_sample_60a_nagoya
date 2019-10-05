@@ -21,13 +21,13 @@ application up and running.
 
 
 ### Association
-- has_many :items
-- has_many :comments
+- has_many :items, dependent: :destroy
+- has_many :comments, dependent: :destroy
 - has_many :statuses
-- has_many :evalutions
-- has_many :likes
-- has_many :credit_cards
-- has_one :address
+- has_many :evalutions, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :credit_cards, dependent: :destroy
+- has_one :address, dependent: :destroy
 
 
 ## itemsテーブル
@@ -48,9 +48,9 @@ application up and running.
 
 
 ### Association
-- has_many :images
-- has_many :comments
-- has_many :likes
+- has_many :images, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
 - has_many :categories
 - belongs_to :user
 - belongs_to :status
@@ -111,7 +111,7 @@ application up and running.
 |brand|string|
 
 ### Association
-- has_many :brands
+- has_many :items
 
 ## categoriesテーブル
 
@@ -159,4 +159,4 @@ application up and running.
 
 
 ### Association
-- has_many :items
+- belong_to :item
