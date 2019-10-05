@@ -35,7 +35,7 @@ application up and running.
 
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|
+|item_name|string|index:true|
 |price|integer|
 |size|string|
 |condition|string|
@@ -87,18 +87,6 @@ application up and running.
 ### Association
 - belongs_to :user
 
-## evalutionsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|good|string|
-|normal|string|
-|bad|string|
-
-
-### Association
-- belongs_to :user
-
 ## addressテーブル
 
 |Column|Type|Options|
@@ -126,7 +114,7 @@ application up and running.
 
 |Column|Type|Options|
 |------|----|-------|
-|path|integer|
+|path|string|
 |category|string|
 
 
@@ -157,3 +145,15 @@ application up and running.
 ### Association
 - has_many :item
 - belongs_to :user
+
+## likesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|like|string|
+|item_id|integer|
+|user_id|integer|
+
+
+### Association
+- has_many :item
