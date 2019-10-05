@@ -17,25 +17,24 @@ application up and running.
 |birth_month|integer|
 |birth_day|integer|
 |buyer_id|integer|
-|seller|integer|
+|seller_id|integer|
 
 
 ### Association
 - has_many :items
-- has_many :images
 - has_many :comments
-- has_many :status
+- has_many :statuses
 - has_many :evalutions
 - has_many :likes
 - has_many :credit_cards
-- belongs_to :address
+- has_one :address
 
 
 ## itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|index:true|
+|name|string|index:true|
 |price|integer|
 |size|string|
 |condition|string|
@@ -43,6 +42,9 @@ application up and running.
 |shipping_method|string|
 |indication|string|
 |description|text|
+|user_id|integer|foreign_key:true|
+|item_id|integer|foreign_key:true|
+|category_id|integer|foreign_key:true|
 
 
 ### Association
@@ -59,6 +61,7 @@ application up and running.
 |Column|Type|Options|
 |------|----|-------|
 |image|string|
+|item_id|integer|foreign_key:true|
 
 
 ### Association
@@ -143,7 +146,7 @@ application up and running.
 
 
 ### Association
-- has_many :item
+- has_many :items
 - belongs_to :user
 
 ## likesテーブル
@@ -151,9 +154,9 @@ application up and running.
 |Column|Type|Options|
 |------|----|-------|
 |like|string|
-|item_id|integer|
-|user_id|integer|
+|item_id|integer|foreign_key:true|
+|user_id|integer|foreign_key:true|
 
 
 ### Association
-- has_many :item
+- has_many :items
