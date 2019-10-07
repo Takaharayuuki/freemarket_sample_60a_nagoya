@@ -15,8 +15,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'font-awesome-sass'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
 gem 'devise'
-
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -34,6 +36,10 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+end
+
+group :production, :staging do
+  gem 'unicorn', '5.4.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
