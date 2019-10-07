@@ -19,11 +19,17 @@ body {
   margin-top: 7px;
 }
 
-.ta-container {
-  height: 1000px;
+.ta-container_signin {
+  height: 1100px;
   width:100%;
   background-color: #f5f5f5;
-  overflow: hidden;
+
+}
+.ta-container {
+  height: 900px;
+  width:100%;
+  background-color: #f5f5f5;
+
 }
 
 .ta-single__header {
@@ -38,7 +44,7 @@ body {
 }
 
 .ta-single__main {
-  height: 800px;
+  height: 700px;
   &__signup {
     width:450px;
     height: 130px;
@@ -105,12 +111,13 @@ body {
       border: 1px solid #ccc;
     }
     &__submit {
-      width: 330px;
+      width: 335px;
       height: 45px;
       background-color: #ea352d;
       color: white;
       font-size: 15px;
       margin: 20px 20px 20px 60px ;
+      border: 1px solid #ea352d;
     }
   }
 }
@@ -134,7 +141,7 @@ body {
 
 .ta-single__footer {
   width: 425px;
-  height: 280px;
+  height: 230px;
   margin: 0 auto;
   &__a {
     text-align: center;

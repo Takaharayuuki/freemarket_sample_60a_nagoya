@@ -1,5 +1,5 @@
 %body
-  .ta-container
+  .ta-container_signin
     %header.ta-single__header
       %h1.ta-single__header__logo
         %a{href:"#"} 
@@ -20,7 +20,7 @@
           %p.login__font
             Facebookでログイン
         %button#google-login.ta-single__main__login__google
-          %i.ta.fab.fa-google
+          = image_tag "google.jpg",size: "27x27",class:"ta_google"
           %p.login__font
             Googleでログイン
          
