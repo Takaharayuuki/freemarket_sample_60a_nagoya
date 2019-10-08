@@ -1,0 +1,38 @@
+%header
+  .m-container
+    .m-container__top
+      .m-container__top__box
+        .m-container__top__box__logo= link_to (image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"), root_path
+      = form_tag('#', method: :post, class: "m-container__top__search") do
+        %input.m-container__top__search--form(type="text" placeholder="何かお探しですか？")
+        %button.m-container__top__search--btn(type="submit")
+          %i.fas.fa-search.m-container__top__search--btn__icon
+
+    .m-container__bottom
+      .m-container__bottom__left
+        .m-container__bottom__left__category
+          = link_to "#" do
+            %i.fas.fa-list-ul
+            カテゴリーから探す
+        .m-container__bottom__left__brand
+          = link_to "#" do
+            %i.fas.fa-tag
+            ブランドから探す
+          
+      %ul.m-container__bottom__right
+        %li.m-container__bottom__right__likes
+          = link_to "#" do
+            %i.far.fa-heart
+            いいね！一覧
+        %li.m-container__bottom__right__notice
+          = link_to "#" do
+            %i.far.fa-bell
+            お知らせ
+        %li.m-container__bottom__right__list
+          = link_to "#" do
+            %i.fas.fa-check
+            やることリスト
+        %li.m-container__bottom__right__my-page
+          = link_to "#" do
+            = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', class: "my-icon", size: "32x32"
+            マイページ
