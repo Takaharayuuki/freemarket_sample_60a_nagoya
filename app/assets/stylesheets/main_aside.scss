@@ -1,0 +1,16 @@
+.m-aside {
+  height: 260px;
+  width: 100vw;
+  color: rgb(255, 255, 255);
+  background: url("https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg");
+  background-position: center;
+  background-size: cover;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    &__left {
+      display: flex;
+    }
+  }
+}
