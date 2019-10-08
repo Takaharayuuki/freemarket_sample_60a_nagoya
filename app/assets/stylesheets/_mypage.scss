@@ -1,0 +1,74 @@
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  border-width: 0;
+  box-sizing: inherit;
+}
+
+body{
+  position: relative;
+  min-height: 100%;
+  background:#f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: 14px;
+  line-height: 1;
+}
+
+.y-bread-crumbs{
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  ul{
+    overflow: visible;
+    width: 700px;
+    padding: 16px o;
+    margin: 0 auto;
+    white-space: normal;
+  }
+  li{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  a{
+    color: #333;
+  }
+  y-icon-arrow-right{
+    margin: 0 8px;
+    font-size: 9px;
+    color: #888;
+  }
+}
+
+.center-list{
+  font-weight: 600;
+}
+
+main{
+  display: block;
+}
+
+.y-container{
+  width: 700px;
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  y-content{
+    float: none;
+    width: 700px;
+  }
+  .mypage-user-icon{
+    height: 200px;
+    position: relative;
+    padding: 20px;
+    background: url;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+  }
+}
