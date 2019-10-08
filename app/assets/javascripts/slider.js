@@ -3,6 +3,8 @@ $(document).on('turbolinks:load', function() {
     autoplay: true,
     infinite: true,
     dots: true,
-    autoplaySpeed: 5000
+    autoplaySpeed: 5000,
+    centerMode: true,
+    arrows: true
   })
 });
