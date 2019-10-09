@@ -4,7 +4,7 @@
       .m-container__top__box
         .m-container__top__box__logo= link_to (image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"), root_path
       = form_tag('#', method: :post, class: "m-container__top__search") do
-        %input.m-container__top__search--form(type="text" placeholder="何かお探しですか？")
+        %input#input-box.m-container__top__search--form(type="text" placeholder="何かお探しですか？")
         %button.m-container__top__search--btn(type="submit")
           %i.fas.fa-search.m-container__top__search--btn__icon
 

@@ -5,6 +5,7 @@ $(document).on('turbolinks:load', function() {
     dots: true,
     autoplaySpeed: 5000,
     centerMode: true,
-    arrows: true
+    arrows: true,
+    centerPadding: '0px'
   })
 });
