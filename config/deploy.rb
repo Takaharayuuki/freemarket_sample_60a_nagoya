@@ -8,7 +8,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/freemarket-sample-60a.pem']  ※例：~/.ssh/key_pem.pem
+                  keys: ['~/.ssh/freemarket-sample-60a.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
