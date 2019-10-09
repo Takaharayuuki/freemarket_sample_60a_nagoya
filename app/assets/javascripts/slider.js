@@ -4,7 +4,6 @@ $(document).on('turbolinks:load', function() {
     infinite: true,
     dots: true,
     autoplaySpeed: 5000,
-    centerMode: true,
     arrows: true,
     centerPadding: '0px'
   })

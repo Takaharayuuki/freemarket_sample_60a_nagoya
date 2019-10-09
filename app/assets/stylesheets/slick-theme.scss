@@ -41,6 +41,8 @@ $slick-opacity-not-active: 0.25 !default;
 //   }
 // }
 
+
+
 /* Slider */
 
 .slick-list {
@@ -83,33 +85,15 @@ $slick-opacity-not-active: 0.25 !default;
   z-index: 5;
   background-position: center;
   background-repeat: no-repeat;
-
-
-
-
-
-  &.slick-disabled:before {
-    opacity: $slick-opacity-not-active;
-  }
-
-  &:before {
-    font-family: $slick-font-family;
-    font-size: 20px;
-    line-height: 1;
-    color: $slick-arrow-color;
-    opacity: $slick-opacity-default;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 }
 
 .slick-prev {
-  left: 50px;
+  left: 45px;
   background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca886ce42c4c02610cd15421ddcad.png");
 
   [dir="rtl"] & {
     left: auto;
-    right: 50px;
+    right: 45px;
   }
 
   &:before {
@@ -122,11 +106,11 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-next {
-  right: 50px;
+  right:45px;
   background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-next-bc3a1438a1435e953bc67d720cd05c61.png");
 
   [dir="rtl"] & {
-    left: 50px;
+    left: 45px;
     right: auto;
   }
 
@@ -164,6 +148,7 @@ $slick-opacity-not-active: 0.25 !default;
     padding: 0;
     cursor: pointer;
 
+
     button {
       border: 0;
       background: transparent;
@@ -177,14 +162,7 @@ $slick-opacity-not-active: 0.25 !default;
       padding: 5px;
       cursor: pointer;
 
-      &:hover,
-      &:focus {
-        outline: none;
-
-        &:before {
-          opacity: $slick-opacity-on-hover;
-        }
-      }
+   
 
       &:before {
         position: absolute;
@@ -197,7 +175,7 @@ $slick-opacity-not-active: 0.25 !default;
         font-size: 50px;
         line-height: 20px;
         text-align: center;
-        color: $slick-dot-color;
+        color: #cac7c7d2;
         opacity: $slick-opacity-not-active;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -205,7 +183,7 @@ $slick-opacity-not-active: 0.25 !default;
     }
 
     &.slick-active button:before {
-      color: $slick-dot-color-active;
+      color: white;
       opacity: $slick-opacity-default;
     }
   }
