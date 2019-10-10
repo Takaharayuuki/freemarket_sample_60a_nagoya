@@ -25,6 +25,27 @@
         %li
           = link_to "#" do
             おもちゃ・ホビー・グッズ
+  
+  = render "list"
+
+  .m-wrapper__popular-brands
+    %h2 人気のブランド
+    .m-wrapper__popular-brands__box
+      %ul
+        %li
+          = link_to "#" do
+            シャネル
+        %li
+          = link_to "#" do
+            ルイヴィトン
+        %li
+          = link_to "#" do
+            シュプリーム
+        %li
+          = link_to "#" do
+            ナイキ
+  = render "list"
+
   = render "exhibit_btn"
   = render "main_aside"
   = render "layouts/main_footer"

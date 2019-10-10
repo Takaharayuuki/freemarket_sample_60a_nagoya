@@ -1,4 +1,4 @@
-.m-wrapper__popular-categories {
+.m-wrapper__popular-categories,.m-wrapper__popular-brands {
   height: 85px;
   width: 100%;
   padding: 56px 0 30px 0;
@@ -24,6 +24,29 @@
         cursor: pointer;
         border-radius: 15px;
         padding: 8px 16px;
+      }
+    }
+  }
+}
+
+.m-items {
+  height: 400px;
+  &__container {
+    padding: 42px 0 100px 0;
+    margin: 0 auto;
+    height: 100%;
+    &__list {
+      width: 1020px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      &__new {
+        margin-bottom: 16px;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 1.4em;
+        
       }
     }
   }

@@ -9,4 +9,15 @@ $(document).on('turbolinks:load', function() {
       'border-color': 'rgb(204, 204, 204'
     })
   })
+
+  $("#likes-box").on("mouseover", function() {
+    $(".fa-heart").css({
+      "color": "#038de3"
+    }).on('mouseout', function() {
+      $(".fa-heart").css({
+        "color": "rgb(204, 204, 204)"
+      })
+    })
+
+  })
 })
