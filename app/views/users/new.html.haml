@@ -1,8 +1,9 @@
 %body
   %header.ta-re-header
     %h1.ta-re-header__logo
-      %a(href="#")
-      %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}
+      = link_to image_tag src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"
+      
+
     .ta-re-header__progress
       %ul.progress
         %li.active
@@ -31,25 +32,25 @@
               ニックネーム
             %span
               必須
-            %input{:placeholder => "例) メルカリ太郎"}
+            %input{placeholder: "例) メルカリ太郎"}
           .ta-re-main__container__form__content__group
             %label  
               メールアドレス
             %span
               必須
-            %input{:placeholder => "PC・携帯どちらでも可"}
+            %input{placeholder: "PC・携帯どちらでも可"}
           .ta-re-main__container__form__content__group
             %label  
               パスワード
             %span
               必須
-            %input{:placeholder => "7文字以上"}
+            %input{placeholder: "7文字以上"}
           .ta-re-main__container__form__content__group
             %label  
               パスワード(確認)
             %span
               必須
-            %input{:placeholder => "7文字以上"}
+            %input{placeholder: "7文字以上"}
           .ta-re-main__container__form__content__group
             %h3
               本人確認
@@ -63,16 +64,16 @@
                 お名前(全角)
               %span
                 必須
-            %input{:placeholder => "例) 山田"}
-            %input{:placeholder => "例) 彩"}
+            %input{placeholder: "例) 山田"}
+            %input{placeholder: "例) 彩"}
           .ta-re-main__container__form__content__half
             %div
               %label  
                 お名前カナ(全角)
               %span
                 必須
-            %input{:placeholder => "例) ヤマダ"}
-            %input{:placeholder => "例) アヤ"}
+            %input{placeholder: "例) ヤマダ"}
+            %input{placeholder: "例) アヤ"}
           .ta-re-main__container__form__content__birth
             %div
               %label  
@@ -117,6 +118,6 @@
         = link_to "プライバシーポリシー","#",class: "ta-single__footer__c"
         = link_to "メルカリ利用規約","#",class: "ta-single__footer__c"
         = link_to "特定商取引に関する表記","#",class: "ta-single__footer__c"
-    %a{href:"#"}
-      %img.ta-re__footer__logo{alt:"mercari-footer", src:"//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567"}
+    = link_to "#" do
+      = image_tag src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567", class: "ta-re__footer__logo"
     %p.ta-re__footer__b 2019 Mercari

@@ -1,8 +1,8 @@
 %body
   %header.ta-ad-header
     %h1.ta-ad-header__logo
-      %a(href="#")
-      %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}
+      = link_to image_tag src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"
+      
 
     .ta-ka-header__progress
       %ul.progress
@@ -33,51 +33,51 @@
               お名前
             %span
               必須
-            %input{:placeholder => "例) 山田"}
-            %input{:placeholder => "例) 彩"}
+            %input{placeholder: "例) 山田"}
+            %input{placeholder: "例) 彩"}
           .ta-ad-main__container__form__content__group
             %label  
               お名前カナ
             %span
               必須
-            %input{:placeholder => "例) ヤマダ"}
-            %input{:placeholder => "例) アヤ"}
+            %input{placeholder: "例) ヤマダ"}
+            %input{placeholder: "例) アヤ"}
           .ta-ad-main__container__form__content__group
             %label  
               郵便番号
             %span
               必須
-            %input{:placeholder => "例) 123-4567"}
+            %input{placeholder: "例) 123-4567"}
           .ta-ad-main__container__form__content__group
             %label  
               都道府県
             %span
               必須
-            %input{:placeholder => "北海道"}    
+            %input{placeholder: "北海道"}    
           .ta-ad-main__container__form__content__group
             %label  
               市区町村
             %span
               必須
-            %input{:placeholder => "例) 横浜市緑区"}
+            %input{placeholder: "例) 横浜市緑区"}
           .ta-ad-main__container__form__content__group
             %label  
               番地
             %span
               必須
-            %input{:placeholder => "例) 青山1-1-1"}    
+            %input{placeholder: "例) 青山1-1-1"}    
           .ta-ad-main__container__form__content__group__grey
             %label  
               建物名
             %span
               任意
-            %input{:placeholder => "例) 柳ビル103"}
+            %input{placeholder: "例) 柳ビル103"}
           .ta-ad-main__container__form__content__group__grey
             %label  
               電話
             %span
               任意
-            %input{:placeholder => "例) 09012345678"}   
+            %input{placeholder: "例) 09012345678"}   
 
           %button.ta-ad-main__container__form__content__btnred
             次へ進む
@@ -88,7 +88,7 @@
         = link_to "プライバシーポリシー","#",class: "ta-single__footer__c"
         = link_to "メルカリ利用規約","#",class: "ta-single__footer__c"
         = link_to "特定商取引に関する表記","#",class: "ta-single__footer__c"
-    %a{href:"#"}
-      %img.ta-ad__footer__logo{alt:"mercari-footer", src:"//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567"}
+    = link_to "#" do
+      = image_tag src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567",class: "ta-ad__footer__logo"
     %p.ta-ad__footer__b 2019 Mercari
  
