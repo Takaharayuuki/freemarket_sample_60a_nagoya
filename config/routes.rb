@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :users
 
   root "items#index"
+  get "/credit1", to: "items#credit1"
+
 end

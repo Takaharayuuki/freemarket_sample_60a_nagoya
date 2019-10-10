@@ -19,6 +19,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'devise'
+# gem 'payjp'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
