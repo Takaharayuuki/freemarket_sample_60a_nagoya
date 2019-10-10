@@ -1,4 +1,5 @@
-%body
+.y-default-container
+  = render "layouts/main_header"
   %nav.y-bread-crumbs
     %ul
       %li.y-left-list{itemscope: "", itemtype: "#"}
@@ -9,20 +10,18 @@
         %a{href: "https:", itemprop: "url"}
           %span{itemprop: "title"} マイページ
 
-  %main.y-container.clearfix
+  %main.y-container
     .y-content
       %section.y-mypage-user-icon
         %a{href: "#"}
           %figure
-            %img{alt: "", heigth: "60", src: "hoge", :width => "60"}/
+            %img{ src: "https://static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", height: "60" }/
           %h2.y-bold 山本修二
           .y-mypage-number
-            %div
-              評価
-              %span.bold 0
-            %div
-              出品数
-              %span.bold 0
+            %p.y-left-string 評価
+            %span.y-bold 0
+            %p.y-right-string 出品数
+            %span.y-bold 0
       %section.y-mypage-tab-container-notification-todo
         %ul.y-mypage-tabs
           %li.active
@@ -60,7 +59,8 @@
           %ul#y-mypage-tab-transaction-old.y-mypage-item-list.tab-pane
             %li.y-mypage-item-not-found.bold 過去に取引した商品がありません
 
-    .y-side
-      = render 'y_side'
-
-
+    .y-sidebar
+      = render "mypage_sidebar"
+  = render "items/exhibit_btn"
+  = render "items/main_aside"
+  = render "layouts/main_footer" 
