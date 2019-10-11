@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   root "items#index"
   get "/payment", to: "items#payment"
-  get "/input", to: "items#input"
+  get "/card_input", to: "items#card_input"
 
 end

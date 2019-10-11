@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   def payment
   end
 
-  def input
+  def card_input
   end
 
   
