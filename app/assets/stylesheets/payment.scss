@@ -1,6 +1,11 @@
 .m-payment-container {
   width: 1020px;
   margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  .y-mypage-nav {
+    width: 280px;
+  }
 
   &__content {
     height: 358px;
