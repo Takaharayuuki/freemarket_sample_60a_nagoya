@@ -54,6 +54,10 @@ main{
   display: block;
 }
 
+h3{
+  font-size:22px;
+}
+
 .y-container{
   width: 1020px;
   margin: 40px auto 0;
@@ -63,7 +67,7 @@ main{
   float: right;
   width: 700px;
 }
-.y-mypage-user-icon{
+.y-mypage-user{
   height: 200px;
   position: relative;
   padding: 20px;
@@ -94,7 +98,7 @@ main{
     font-size: 14px;
     font-weight: 600;
   }
-  .y-mypage-number{
+  &__number{
     margin: 8px 0 0;
     font-size: 0;
     span{
@@ -113,13 +117,47 @@ main{
   }
 }
 
-.y-mypage-tab-container-notification-todo{
-  margin: 0;
-  background: 0;
+// ここからお知らせ、やることリスト部分
+.fal.fa-clock{
+  font-family: 'Font Awesome 5 Free';
 }
 
-.y-mypage-tabs{
-  border: 0;
-  background: #eee;
-  font-size: 0;
+.y-information{
+  margin: 0;
+  background: #fff;
+  &__header{
+    border: 0;
+    background: #fff;
+    font-size: 0;
+  }
+  &__notification{
+    background: #fff;
+     a{
+       font-weight: bold;
+       position: relative;
+       display: block;
+       color: #333;
+       font-size: 16px;
+       line-height: 72px;
+       text-decoration: none;
+     }
+  }
+  &_todo{
+    background: #eee;
+    a{
+      font-weight: bold;
+      position: relative;
+      display: block;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      text-decoration: none;
+    }
+  }
+  li{
+     width: 50%;
+     display: inline-block;
+     text-align: center;
+     vertical-align: top;
+  }
 }
