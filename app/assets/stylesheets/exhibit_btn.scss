@@ -1,0 +1,38 @@
+.m-wrapper__exhibit-container {
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  position: fixed;
+  background: rgb(234, 53, 45);
+  border-radius: 50%;
+  z-index: 10;
+
+  &__link {
+    display: block;
+    text-decoration: none;
+
+    &__box {
+      width: 160px;
+      height: 160px;
+      padding-top: 32px;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      box-sizing: border-box;
+
+      &__text {
+        font-size: 22px;
+        margin: 0;
+
+      }
+
+      &__icon {
+        font-size: 60px;
+        line-height: 60px;
+        margin-top: 8px;
+      }
+    }
+
+  }
+}

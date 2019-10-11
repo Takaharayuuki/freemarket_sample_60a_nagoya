@@ -1,0 +1,123 @@
+.m-footer {
+  padding: 0 20px 10px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  background-color: rgb(34, 34, 34);
+
+  li {
+    margin-top: 16px;
+    height: 16px;
+    
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    opacity: .7;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    height: 22px;
+  }
+
+  &__nav {
+
+    &__contents {
+      width: 1020px;
+      height: 296px;
+      margin: 0 190px;
+      display: flex;
+
+      &__about {
+        margin-top: 18px;
+        padding-right: 40px;
+        height: 240px;
+
+        .sns {
+          display: flex;
+          margin-top: 30px;
+
+          a {
+            opacity: 1;
+          }
+
+          .fa-twitter {
+            display: inline-block;
+            font-size: 30px;
+            margin-right: 20px;
+          }
+
+          .fa-facebook-square {
+            font-size: 30px;
+            opacity: 1;
+          }
+        }
+      }
+
+      &__guide {
+        margin-top: 18px;
+        padding-right: 40px;
+      }
+
+      &__privacy {
+        margin-top: 18px;
+        margin-right: 40px;
+        width: 398.594px;
+
+
+        &__box {
+          display: flex;
+
+          &--left {
+            width: 50%;
+            padding-right: 10px;
+            display: inline-block;
+            li:nth-child(3) {
+              line-height: 1.4em;
+              height: 32px;
+            }
+          }
+
+          &--right {
+            width: 50%;
+            padding-left: 10px;
+            display: inline-block;
+            li:first-child {
+              height: 32px;
+              line-height: 1.4em;
+            }
+          }
+        }
+      }
+      &__country {
+        margin-top: 18px;
+        padding-right: 40px;
+      }
+    }
+  }
+  &__bottom {
+    margin: 30px 190px 20px;
+    width: 1020px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    a {
+      opacity: 1;
+      &:hover {
+        opacity: .7;
+      }
+    }
+    span {
+      padding-left: 15px;
+      height: 12px;
+      width: 750px;
+      text-align: center;
+    }
+  }
+}
