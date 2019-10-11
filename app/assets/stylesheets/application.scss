@@ -1,4 +1,3 @@
-@import './mypage';
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -17,3 +16,5 @@
 @import "main_footer";
 @import "payment";
 @import "card_input";
+@import './mypage_sidebar';
+@import './mypage';
