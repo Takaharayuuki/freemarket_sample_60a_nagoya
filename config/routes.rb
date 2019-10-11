@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/payment", to: "items#payment"
   get "/card_input", to: "items#card_input"
 
+  get "users/logout", to: "users#logout"
 end
