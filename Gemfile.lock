@@ -282,6 +282,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicorn (5.4.1)
       kgio (~> 2.6)
+      rack (>= 2.0.6)
       raindrops (~> 0.7)
     warden (1.2.8)
       rack (>= 2.0.6)
