@@ -8,4 +8,11 @@
           %i.fa.fa-chevron-right
     .m-items__container__products
       - (1..15).each do
-        .m-items__container__products__product
+        = link_to "#" do
+          .m-items__container__products__product
+            .m-items__container__products__product__image
+              = image_tag 'https://static.mercdn.net/thumb/photos/m84431990341_1.jpg?1570765723', height: '188px', width: '188px'
+              %span.price ¥38
+            .m-items__container__products__product__caption
+              .m-items__container__products__product__caption__text
+                鯖缶
