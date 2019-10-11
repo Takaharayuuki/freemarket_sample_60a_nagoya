@@ -3,7 +3,12 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def credit1
+  def payment
   end
+
+  def input
+  end
+
+  
 
 end
