@@ -69,7 +69,7 @@
           .m-card-information-container__chapter__inner__content__code-group
             = f.label :security_code, "セキュリティコード"
             %span 必須
-            = f.text_field :security_code, class: "form-group", placeholder: "カード背面4桁もしくは3桁の番号"
+            = f.text_field :security_code, class: "form-group", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"
 
           .m-card-information-container__chapter__inner__content__help
             %i.fas.fa-question-circle
@@ -77,16 +77,10 @@
 
           .m-card-information-container__chapter__inner__content__btn
             = f.submit "追加する", id: "token_submit", class: "btn-default" 
+
+    
+
                      
-
-
-
-
-
-
-
-
-
 = render 'exhibit_btn'
 = render 'main_aside'
 = render 'layouts/main_footer'
