@@ -47,6 +47,7 @@
                   %option{value: "10"}10
                   %option{value: "11"}11
                   %option{value: "12"}12
+                %i.fas.fa-chevron-down
                 %span 月
             .m-card-information-container__chapter__inner__content__expire-group__half-wrap
               .m-card-information-container__chapter__inner__content__expire-group__half-wrap--year
@@ -62,26 +63,30 @@
                   %option{value: "2027"}27
                   %option{value: "2028"}28
                   %option{value: "2029"}29
+                %i.fas.fa-chevron-down
                 %span 年
-
-         
-
-
-
 
           .m-card-information-container__chapter__inner__content__code-group
             = f.label :security_code, "セキュリティコード"
             %span 必須
             = f.text_field :security_code, class: "form-group", placeholder: "カード背面4桁もしくは3桁の番号"
 
+          .m-card-information-container__chapter__inner__content__help
+            %i.fas.fa-question-circle
+            カード裏面の番号とは？
+
+          .m-card-information-container__chapter__inner__content__btn
+            = f.submit "追加する", id: "token_submit", class: "btn-default" 
+                     
 
 
 
 
 
 
-= form_with url: "#" do |f|
-  = f.text_field :search
+
+
+
 = render 'exhibit_btn'
 = render 'main_aside'
 = render 'layouts/main_footer'

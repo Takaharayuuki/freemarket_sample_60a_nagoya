@@ -103,6 +103,7 @@
               cursor: pointer;
               font-size: 16px;
               outline: none;
+              -webkit-appearance: none;
 
               &:focus {
                 border-color: #038de3;
@@ -111,7 +112,12 @@
 
             &--month {
               margin-top: 8px;
-
+              i {
+                font-size: 19px;
+                margin: 0 21px 0 -30px;
+                color: #888;
+                transform: translate(0, 18%);
+              }
               span {
                 font-size: 14px;
                 background: 0;
@@ -119,6 +125,8 @@
                 margin: 0;
                 color: black;
                 vertical-align: middle;
+                display: inline-block;
+                width: 19px;
               }
 
               #exp_month {
@@ -127,6 +135,12 @@
             }
 
             &--year {
+              i {
+                font-size: 19px;
+                margin: 0 21px 0 -30px;
+                color: #888;
+                transform: translate(0, 18%);
+              }
               span {
                 font-size: 14px;
                 background: 0;
@@ -134,12 +148,31 @@
                 margin: 0;
                 color: black;
                 vertical-align: middle;
+                display: inline-block;
+                width: 19px;
+                
               }
               #exp_year {
                 width: calc(100% - 38px);
 
               }
             }
+          }
+        }
+        &__help {
+          margin-top: 8px;
+          text-align: right;
+          color: #0099e8;
+        }
+        &__btn {
+          margin-top: 32px;
+          .btn-default {
+            background: #ea253d;
+            color: #fff;
+            height: 50px;
+            border: solid 1px #ea352d;
+            width: 100%;
+            outline: none;
           }
         }
       }
