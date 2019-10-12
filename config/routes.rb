@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :user
 
   root "items#index"
+  get "users/logout", to: "users#logout"
 end
