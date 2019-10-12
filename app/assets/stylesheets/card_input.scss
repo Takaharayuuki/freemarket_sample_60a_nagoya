@@ -30,6 +30,7 @@
       height: 512px;
       padding: 40px 40px 64px;
       box-sizing: border-box;
+      position: relative;
 
       &__content {
         width: 343px;
@@ -168,6 +169,8 @@
           margin-top: 8px;
           text-align: right;
           color: #0099e8;
+          position: relative;
+
         }
 
         &__btn {
@@ -183,6 +186,33 @@
           }
         }
       }
+      &__help-fig {
+        position: absolute;
+        left: 179px;
+        transform: translateY(-64px);
+      
+        &__content {
+          width: 343px;
+          height: 166px;
+          padding: 16px;
+          border-radius: 6px;
+          background: #eee;
+          text-align: center;
+          position: relative;
+      
+          &:before {
+            content: "";
+            position: absolute;
+            content: '';
+            border-bottom: 8px solid #eee;
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+            bottom: 100%;
+            right: 32px;
+          }
+        }
+      }
     }
   }
+  
 }
