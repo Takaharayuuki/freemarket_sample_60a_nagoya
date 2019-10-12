@@ -18,7 +18,8 @@
 
 .y-chapter-head{
   font-size: 24px;
-  padding: 8px 24px;
+  padding: 12px 24px;
+  font-weight: bold;
 }
 
 .input{
@@ -61,7 +62,6 @@
     min-height: 216px;
     display: block;
     width: 100%;
-    padding: 10px;
     border: 1px solid #ccc;
     background: #fff;
     font-size: 16px;
@@ -75,7 +75,7 @@
   }
 }
 
-.btn-default{
+.y-btn-dafault{
   display: block;
   width: 100%;
   line-height: 48px;
