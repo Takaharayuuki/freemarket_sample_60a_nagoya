@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   resources :user
 
   root "items#index"
-  get "/payment", to: "items#payment"
-  get "/card_input", to: "items#card_input"
+  resources :cards
 
   get "users/logout", to: "users#logout"
 end
