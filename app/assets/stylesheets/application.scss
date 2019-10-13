@@ -11,11 +11,12 @@
 @import "main_header";
 @import "slick";
 @import "slick-theme";
-@import "carousel";
 @import "top_contents";
 @import "exhibit_btn";
 @import "main_aside";
 @import "main_footer";
-@import './mypage_sidebar';
-@import './mypage';
-
+@import "payment";
+@import "card_input";
+@import 'mypage_sidebar';
+@import 'mypage';
+@import 'mypage_edit';
