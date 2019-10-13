@@ -1,6 +1,20 @@
 = render "layouts/main_header"
 = render "bread"
 .y-identification-container
+  .y-identification-content
+    .y-identification-container
+      %h2.y-identification-head 本人情報の登録
+      %form.y-single-inner{ action: "#", method: "post" }
+        %div
+          %p お客さまの本人情報をご登録ください。<br>登録されたお名前・生年月日を変更する場合、本人確認書類が必要になります。
+          %p.y-text-right
+            = link_to "#", target: "_blank" do
+              本人確認書類のアップロードについて
+              %i.fas.fa-chevron-right
+        .y-identification-form
+          
+
+
 
   = render "mypage_sidebar"
 = render "items/main_aside"
