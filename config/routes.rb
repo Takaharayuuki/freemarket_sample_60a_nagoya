@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
+  resources :cards, only: %i[index new]
+
   get "users/logout", to: "users#logout"
 end

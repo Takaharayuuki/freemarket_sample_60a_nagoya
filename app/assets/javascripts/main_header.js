@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
     })
   }).focusout(function() {
     $(this).css({
-      'border-color': 'rgb(204, 204, 204'
+      'border-color': 'rgb(204, 204, 204)'
     })
   })
 
