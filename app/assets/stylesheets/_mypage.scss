@@ -168,6 +168,7 @@ h3{
 
 .y-mypage-tab__notification li{
   border-bottom: 1px solid #eee;
+  position: relative;
 }
 .y-mypage-item li:first-child{
   border-bottom: 1px solid #eee;
@@ -213,23 +214,23 @@ h3{
       transform: translate(0, -50%);
     }
   }
-   &__body{
-     margin: 0 40px 0 68px;
-   }
-   &__text{
-     overflow: hidden;
-     display: block;
-     display: -webkit-box;
-     max-height: 4.4em;
-     -webkit-line-clamp: 3;
-     -webkit-box-orient: vertical;
-     text-overflow: ellipsis;
-     line-height: 2.5;
-     time{
-       display: flex;
-       color: #888;
-       span{
-          vertical-align: middle;
+  &__body{
+    margin: 0 40px 0 68px;
+  }
+  &__text{
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    max-height: 4.4em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 2.5;
+    time{
+      display: block;
+      color: #888;
+      span{
+        vertical-align: middle;
       }
     }
   }
