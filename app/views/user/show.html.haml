@@ -1,26 +1,35 @@
 .y-default-container
   = render "layouts/main_header"
-  = render "bread"
+  
+  %nav.y-bread-crumbs
+    %ul
+      %li.y-left-list
+        = link_to "#" do
+          %span メルカリ
+          %i.fas.fa-chevron-right
+      %li.center-list
+         = link_to "#" do
+          %span マイページ
 
-  %main.y-container
-    .y-content
+  .y-mypage-container
+    .y-mypage-content
       %section.y-mypage-user
         = link_to "#" do
           %figure
             = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", height: "60"
           %h2.y-bold 山本修二
           .y-mypage-user__number
-            %p.y-left-string 評価
+            %p.y-mypage-user__evaluation 評価
             %span.y-bold 0
-            %p.y-right-string 出品数
+            %p.y-mypage-user__number-of-exhibits 出品数
             %span.y-bold 0
 
-      %section.y-information
-        %ul.y-information__header
-          %li.y-information__notification
+      %section.y-mypage-information
+        %ul.y-mypage-information__header
+          %li.y-mypage-information__notification
             =link_to '#' do
               お知らせ
-          %li.y-information_todo
+          %li.y-mypage-information_todo
             =link_to '#' do
               やることリスト
 
@@ -38,7 +47,7 @@
                   %time
                     %i.fal.fa-clock
                     %span 6時間前
-                  %i.fas.fa-chevron-right
+              %i.fas.fa-chevron-right
 
           %li
             = link_to "#", class: "y-mypage-item__link" do
@@ -52,13 +61,13 @@
                   %time
                     %i.fal.fa-clock
                     %span 6時間前
-                  %i.fas.fa-chevron-right
+              %i.fas.fa-chevron-right
 
-            .y-mypage-go-list
-              = link_to '#' do
-                一覧を見る
+          .y-mypage-go-list
+            = link_to '#' do
+              一覧を見る
 
-      %section.y-mypage-tab-container
+      .y-mypage-tab-container
         .y-mypage-tab-head 購入した商品
         %ul.y-mypage-tabs
           %li.y-mypage-tabs-left
@@ -67,11 +76,12 @@
           %li.y-mypage-tabs-right
             = link_to "#" do
               過去の取引
-        .y-tab-content
+        .y-mypage-tab-content
           %ul.y-mypage-item-list
             %li.y-mypage-item-list__not-found 取引中の商品がありません
 
-    = render "mypage_sidebar"
+    .y-sidebar
+      = render "mypage_sidebar"
   = render "items/main_aside"
-  = render "layouts/main_footer"
+  = render "layouts/main_footer" 
   = render "items/exhibit_btn"

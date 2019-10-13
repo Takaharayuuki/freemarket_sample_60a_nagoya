@@ -58,12 +58,12 @@ h3{
   font-size:22px;
 }
 
-.y-container{
+.y-mypage-container{
   width: 1020px;
   margin: 40px auto 0;
   padding: 0 0 40px;
 }
-.y-content{
+.y-mypage-content{
   float: right;
   width: 700px;
 }
@@ -94,7 +94,7 @@ h3{
     border-radius: 50%;
   }
   .y-bold{
-    margin: 8px;
+    margin: 8px 0 0;
     font-size: 14px;
     font-weight: 600;
   }
@@ -105,11 +105,11 @@ h3{
       margin: 0 0 0 8px;
       font-size: 16px;
     }
-    .y-left-string{
+    .y-mypage-user__evaluation{
       display: inline-block;
       font-size: 14px;
     }
-    .y-right-string{
+    .y-mypage-user__number-of-exhibits{
       display: inline-block;
       font-size: 14px;
       margin: 0 0 0 16px;
@@ -117,11 +117,12 @@ h3{
   }
 }
 
+// ここからお知らせ、やることリスト部分
 .fal.fa-clock{
   font-family: 'Font Awesome 5 Free';
 }
 
-.y-information{
+.y-mypage-information{
   margin: 0;
   background: #fff;
   &__header{
@@ -131,7 +132,7 @@ h3{
   }
   &__notification{
     background: #fff;
-    a{
+     a{
        font-weight: bold;
        position: relative;
        display: block;
@@ -139,8 +140,7 @@ h3{
        font-size: 16px;
        line-height: 72px;
        text-decoration: none;
-       border-top: 2px solid #ea352d;
-    }
+     }
   }
   &_todo{
     background: #eee;
@@ -168,6 +168,7 @@ h3{
 
 .y-mypage-tab__notification li{
   border-bottom: 1px solid #eee;
+  position: relative;
 }
 .y-mypage-item li:first-child{
   border-bottom: 1px solid #eee;
@@ -213,23 +214,23 @@ h3{
       transform: translate(0, -50%);
     }
   }
-   &__body{
-     margin: 0 40px 0 68px;
-   }
-   &__text{
-     overflow: hidden;
-     display: block;
-     display: -webkit-box;
-     max-height: 4.4em;
-     -webkit-line-clamp: 3;
-     -webkit-box-orient: vertical;
-     text-overflow: ellipsis;
-     line-height: 2.5;
-     time{
-       display: flex;
-       color: #888;
-       span{
-          vertical-align: middle;
+  &__body{
+    margin: 0 40px 0 68px;
+  }
+  &__text{
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    max-height: 4.4em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 2.5;
+    time{
+      display: block;
+      color: #888;
+      span{
+        vertical-align: middle;
       }
     }
   }
