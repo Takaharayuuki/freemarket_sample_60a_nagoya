@@ -1,6 +1,15 @@
 .y-default-container
   = render "layouts/main_header"
-  = render "bread"
+  
+  %nav.y-bread-crumbs
+    %ul
+      %li.y-left-list
+        = link_to "#" do
+          %span メルカリ
+          %i.fas.fa-chevron-right
+      %li.center-list
+         = link_to "#" do
+          %span マイページ
 
   .y-mypage-container
     .y-mypage-content
@@ -71,7 +80,8 @@
           %ul.y-mypage-item-list
             %li.y-mypage-item-list__not-found 取引中の商品がありません
 
-    = render "mypage_sidebar"
+    .y-sidebar
+      = render "mypage_sidebar"
   = render "items/main_aside"
-  = render "layouts/main_footer"
+  = render "layouts/main_footer" 
   = render "items/exhibit_btn"
