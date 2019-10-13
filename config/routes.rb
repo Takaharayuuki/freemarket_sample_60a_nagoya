@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
-  resources :cards, only: %i[index new]
+  get "confirm", to: "items#confirm"
+  resources :cards, only: %i[index new create destroy]
 
   get "users/logout", to: "users#logout"
 end
