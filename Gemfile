@@ -20,10 +20,11 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'devise'
 gem 'payjp'
+gem 'dotenv-rails'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'dotenv-rails'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
