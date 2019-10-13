@@ -94,7 +94,7 @@ h3{
     border-radius: 50%;
   }
   .y-bold{
-    margin: 8px;
+    margin: 8px 0 0;
     font-size: 14px;
     font-weight: 600;
   }
@@ -117,6 +117,7 @@ h3{
   }
 }
 
+// ここからお知らせ、やることリスト部分
 .fal.fa-clock{
   font-family: 'Font Awesome 5 Free';
 }
@@ -131,7 +132,7 @@ h3{
   }
   &__notification{
     background: #fff;
-    a{
+     a{
        font-weight: bold;
        position: relative;
        display: block;
@@ -139,8 +140,7 @@ h3{
        font-size: 16px;
        line-height: 72px;
        text-decoration: none;
-       border-top: 2px solid #ea352d;
-    }
+     }
   }
   &_todo{
     background: #eee;
@@ -159,153 +159,5 @@ h3{
      display: inline-block;
      text-align: center;
      vertical-align: top;
-  }
-}
-
-.y-mypage-tab-content{
-  background: #fff;
-}
-
-.y-mypage-tab__notification li{
-  border-bottom: 1px solid #eee;
-}
-.y-mypage-item li:first-child{
-  border-bottom: 1px solid #eee;
-}
-
-.y-mypage-tab li{
-  position: relative;
-  border-bottom: 1px solid #eee;
-  height: 80px;
-}
-
-.y-mypage-item{
-  &__image{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-  }
-  &__link{
-    display: block;
-    min-height: 80px;
-    padding: 16px;
-    color: #333;
-    text-decoration: none;
-    figure{
-      position: relative;
-      overflow: hidden;
-      float: left;
-      width: 48px;
-      height: 48px;
-    }
-    .fal.fa-clock{
-      margin: 8px;
-    }
-    .fas.fa-chevron-right{
-      position: absolute;
-      top: 50%;
-      right: 16px;
-      -webkit-transform: translate(0, -50%);
-      transform: translate(0, -50%);
-    }
-  }
-   &__body{
-     margin: 0 40px 0 68px;
-   }
-   &__text{
-     overflow: hidden;
-     display: block;
-     display: -webkit-box;
-     max-height: 4.4em;
-     -webkit-line-clamp: 3;
-     -webkit-box-orient: vertical;
-     text-overflow: ellipsis;
-     line-height: 2.5;
-     time{
-       display: flex;
-       color: #888;
-       span{
-          vertical-align: middle;
-      }
-    }
-  }
-}
-
-.y-mypage-go-list{
-  padding: 16px;
-  a{
-    display: block;
-    height: 56px;
-    margin: 0 auto;
-    background: #eee;
-    color: #333;
-    line-height: 56px;
-    text-align: center;
-    text-decoration: none;
-  }
-}
-
-
-.y-mypage-tab-container{
-  margin: 40px 0 0;
-  background: #fff;
-}
-
-.y-mypage-tab-head{
-  padding: 0 16px;
-  background: #fafafa;
-  font-size: 16px;
-  line-height: 72px;
-  font-weight: bold;
-}
-
-.y-mypage-tabs{
-  border: 0;
-  background: #eee;
-  font-size: 0;
-  li{
-    width: 50%;
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-  }
-}
-
-.y-mypage-tabs-left{
-  background: #fff;
-  a{
-  position: relative;
-  display: block;
-  color: #333;
-  font-size: 16px;
-  line-height: 72px;
-  text-decoration: none;
-  border-top: 2px solid #ea352d;
-  }
-}
-.y-mypage-tabs-right a{
-  position: relative;
-  display: block;
-  color: #333;
-  font-size: 16px;
-  line-height: 72px;
-  text-decoration: none;
-}
-
-.y-mypage-item-list{
-  display: block;
-  &__not-found{
-    padding: 160px 0 60px;
-    background: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?39597161");
-    background-repeat: no-repeat;
-    background-position: center 40px;
-    background-size: 78px 85px;
-    text-align: center;
-    font-size: 16px;
-    color: #ccc;
   }
 }
