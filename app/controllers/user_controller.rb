@@ -7,4 +7,7 @@ class UserController < ApplicationController
 
   def update
   end
+
+  def identification
+  end
 end
