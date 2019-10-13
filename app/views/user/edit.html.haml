@@ -1,0 +1,20 @@
+= render "layouts/main_header"
+= render "bread"
+.y-profile-container
+  .y-profile-content
+    .y-chapter-container
+      %h2.y-chapter-head プロフィール
+      %form{ action: "#", method: "#", class: "profile-icon" }
+        %input{ name: "__csrf_value", type: "hidden", value: "" }/
+        .y-setting-profile-icon
+          %figure
+            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", height: "60"
+          %input{ name: "nickname", type: "text", value: "山本修二", placeholder: "例）AYA☆セール中", class: "y-input-default" }
+        .y-setting-profile-content
+          %textarea.y-text-content{ name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" }
+          %input{ name: "after_save_callback", type: "hidden", value: "#" }
+          %button.y-btn-dafault.btn-red{ type: "submit" } 変更する
+  = render "mypage_sidebar"
+= render "items/main_aside"
+= render "layouts/main_footer"
+= render "items/exhibit_btn"
