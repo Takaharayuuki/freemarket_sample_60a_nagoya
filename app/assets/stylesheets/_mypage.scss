@@ -94,7 +94,7 @@ h3{
     border-radius: 50%;
   }
   .y-bold{
-    margin: 8px;
+    margin: 8px 0 0;
     font-size: 14px;
     font-weight: 600;
   }
@@ -117,6 +117,7 @@ h3{
   }
 }
 
+// ここからお知らせ、やることリスト部分
 .fal.fa-clock{
   font-family: 'Font Awesome 5 Free';
 }
@@ -131,7 +132,7 @@ h3{
   }
   &__notification{
     background: #fff;
-    a{
+     a{
        font-weight: bold;
        position: relative;
        display: block;
@@ -139,8 +140,7 @@ h3{
        font-size: 16px;
        line-height: 72px;
        text-decoration: none;
-       border-top: 2px solid #ea352d;
-    }
+     }
   }
   &_todo{
     background: #eee;
