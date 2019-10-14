@@ -1,0 +1,15 @@
+.m-purchase-container {
+  height: 764px;
+  &__content {
+    width: 700px;
+    margin: 0 auto;
+    &__head {
+      height: 65px;
+      padding: 16px;
+      text-align: center;
+      line-height: 65px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+  }
+}

@@ -9,6 +9,9 @@ class ItemsController < ApplicationController
   def card_input
   end
 
+  def purchase
+  end
+
   
 
 end
