@@ -26,7 +26,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        render :show
+        redirect_to card_path(current_user.id)
       else
         render :new
       end
@@ -60,6 +60,7 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
+      render :index
     end
   end
 
