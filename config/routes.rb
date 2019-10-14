@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   root "items#index"
   resources :cards, only: %i[index new]
-  get "purchase", to: "items#purchase"
+
   get "users/logout", to: "users#logout"
 end
