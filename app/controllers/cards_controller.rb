@@ -31,18 +31,6 @@ class CardsController < ApplicationController
         render :new
       end
     end
-    # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    # session[:payjp_token] = params['payjp-token']
-    # customer = Payjp::Customer.create(
-    #   card: session[:payjp_token],
-    #   metadata: { user_id: current_user.id }
-    # )
-    # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    # if @card.save
-    #   redirect_to edit_card_path(current_user.id)
-    # else
-    #   render :new
-    # end
 
   end
 
