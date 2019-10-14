@@ -1,6 +1,10 @@
 .y-default-container
   = render "layouts/main_header"
-  = render "bread"
+  .y-bread
+    %span
+      - breadcrumb :user
+      = render "bread"
+      
   .y-mypage-container
     .y-mypage-content
       %section.y-mypage-user

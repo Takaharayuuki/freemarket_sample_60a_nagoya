@@ -1,5 +1,8 @@
 = render "layouts/main_header"
-= render "bread"
+.y-bread
+  %span
+    - breadcrumb :profile
+    = render "bread"
 
 .y-profile-container
   .y-profile-content

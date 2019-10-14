@@ -1,5 +1,8 @@
 = render "layouts/main_header"
-= render "bread"
+.y-bread
+  %span
+    - breadcrumb :person_registration
+    = render "bread"
 
 .y-identification-container
   .y-identification-container__content

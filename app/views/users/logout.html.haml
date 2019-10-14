@@ -1,4 +1,8 @@
 = render "layouts/main_header"
+.y-bread
+  %span
+    - breadcrumb :logout
+    = render "user/bread"
 %main.ta-side-bar
   = render "user/mypage_sidebar"
   .ta-right-cotainer
