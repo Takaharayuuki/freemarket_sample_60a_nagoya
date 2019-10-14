@@ -3,6 +3,9 @@ class CardsController < ApplicationController
 
   def index
     card = Card.where(user_id: params[:id]).first
+    if card
+      render :show
+    end
   end
 
   def new
@@ -23,7 +26,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        render :index
+        render :show
       else
         render :new
       end
@@ -41,6 +44,13 @@ class CardsController < ApplicationController
     #   render :new
     # end
 
+  end
+
+  def show
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @card_information = customer.cards.retrieve(card.card_id)
   end
 
   def destroy
