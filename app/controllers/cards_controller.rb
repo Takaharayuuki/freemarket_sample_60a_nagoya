@@ -49,7 +49,7 @@ class CardsController < ApplicationController
 
   private
   def set_card
-    @card = Card.find_by(user_id: current_user.id)
+    @card = current_user.card
   end
 
 end
