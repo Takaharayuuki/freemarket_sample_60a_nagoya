@@ -1,0 +1,49 @@
+renderで持ってくるheader
+.m-purchase-container
+  .m-purchase-container__content
+    .m-purchase-container__content__head
+      購入内容の確認
+    .m-purchase-container__content__buy-item
+      .m-purchase-container__content__buy-item__inner
+        %h3
+          = image_tag 'https://static.mercdn.net/thumb/photos/m84431990341_1.jpg?1570765723', width: '64px'
+        %p.m-purchase-container__content__buy-item__inner__item-name
+          item-nameitem-nameitem-nameitem-nameitem-nameitem-nameitem-nameitem-name
+        %p.m-purchase-container__content__buy-item__inner__item-price
+          ¥1,000
+          %span 送料込み
+        .m-purchase-container__content__buy-item__inner__point
+          ポイントはありません
+        .m-purchase-container__content__buy-item__inner__price-table
+          .m-purchase-container__content__buy-item__inner__price-table__price-left
+            支払い金額
+          .m-purchase-container__content__buy-item__inner__price-table__price-right
+            ¥1,000
+        .m-purchase-container__content__buy-item__inner__purchase-btn
+          = link_to "#" do
+            購入する
+    .m-purchase-container__content__buy-user-info
+      .m-purchase-container__content__buy-user-info__inner
+        %h3 配送先
+        .m-purchase-container__content__buy-user-info__address
+          〒111-1111
+          %br address**********
+          name
+        .m-purchase-container__content__buy-user-info__change
+          = link_to "#" do
+            変更する
+            %i.fa.fa-chevron-right
+    .m-purchase-container__content__buy-user-info-last
+      .m-purchase-container__content__buy-user-info__inner
+        %h3 支払い方法
+        ************4242
+        %br 01/22
+        = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3466462615', height: '20px', width: '34px'
+        .m-purchase-container__content__buy-user-info__change
+          = link_to "#" do
+            変更する
+            %i.fa.fa-chevron-right
+renderで持ってくるfooter
+
+
+
