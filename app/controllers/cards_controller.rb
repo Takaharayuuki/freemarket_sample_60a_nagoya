@@ -1,16 +1,13 @@
 class CardsController < ApplicationController
+  before_action :set_card, only: %i[index new show destroy]
   require "payjp"
 
   def index
-    card = Card.where(user_id: params[:id]).first
-    if card
-      render :show
-    end
+    redirect_to card_path(current_user.id) if @card
   end
 
   def new
-    card = Card.where(user_id: params[:id]).first
-    redirect_to action: "index" if card.present?
+    redirect_to action: "index" if @card.present?
   end
 
   def create
@@ -35,21 +32,24 @@ class CardsController < ApplicationController
   end
 
   def show
-    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @card_information = customer.cards.retrieve(card.card_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @card_information = customer.cards.retrieve(@card.card_id)
   end
 
   def destroy
-    card = Card.where(user_id: current_user.id).first
-    if card
+    if @card
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
       render :index
     end
+  end
+
+  private
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
   end
 
 end
