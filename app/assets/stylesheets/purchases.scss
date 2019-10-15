@@ -93,7 +93,7 @@
         }
       }
     }
-    &__buy-user-info {
+    &__buy-user-info, &__buy-user-info-last {
       width: 100%;
       box-sizing: border-box;
       padding: 40px 87.5px 0;
@@ -120,6 +120,9 @@
           padding: 5px 16px 5px 5px;
         }
       }
+    }
+    &__buy-user-info-last {
+      padding: 24px 87.5px 40px; 
     }
   }
 } 
