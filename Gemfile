@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '~> 5.2.3'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
@@ -20,7 +21,6 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'devise'
 gem 'payjp'
-gem 'dotenv-rails'
 
 
 group :development, :test do
