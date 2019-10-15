@@ -9,13 +9,18 @@ application up and running.
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |image|string|
 |birth_year|integer|
 |birth_month|integer|
 |birth_day|integer|
+|first_name|integer|
+|last_name|integer|
+|first_name_kana|integer|
+|last_name_kana|integer|
+|tel|string|
 |buyer_id|integer|
 |seller_id|integer|
 
