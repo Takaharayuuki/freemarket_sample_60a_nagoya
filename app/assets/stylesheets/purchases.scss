@@ -79,6 +79,46 @@
             font-size: 28px;
           }
         }
+        &__purchase-btn {
+          width: 100%;
+          height: 50px;
+          background: #ea352d;
+          text-align: center;
+          line-height: 50px;
+          & a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    &__buy-user-info {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 40px 87.5px 0;
+      margin-top: 40px;
+      border-top: solid 1px rgb(245, 245, 245);
+      &__inner {
+        width: 320px;
+        margin: 0 auto;
+      }
+      & h3 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      &__address {
+        margin-top: 8px;
+      }
+      &__change {
+        margin-top: 8px;
+        font-size: 14px;
+        text-align: right;
+        a {
+          color: #0095ee;
+          text-decoration: none;
+          padding: 5px 16px 5px 5px;
+        }
       }
     }
   }

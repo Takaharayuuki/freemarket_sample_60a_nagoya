@@ -19,3 +19,20 @@ renderで持ってくるヘッダー
             支払い金額
           .m-purchase-container__content__buy-item__inner__price-table__price-right
             ¥1,000
+        .m-purchase-container__content__buy-item__inner__purchase-btn
+          = link_to "#" do
+            購入する
+    .m-purchase-container__content__buy-user-info
+      .m-purchase-container__content__buy-user-info__inner
+        %h3 配送先
+        .m-purchase-container__content__buy-user-info__address
+          〒111-1111
+          %br address**********
+          name
+        .m-purchase-container__content__buy-user-info__change
+          = link_to "#" do
+            変更する
+            %i.fa.fa-chevron-right
+
+
+
