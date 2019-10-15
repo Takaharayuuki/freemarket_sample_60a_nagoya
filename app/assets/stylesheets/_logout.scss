@@ -1,0 +1,32 @@
+body {
+  background-color: #f5f5f5;
+}
+
+.ta-right-cotainer {
+  height: 180px;
+  width: 700px;
+  background-color: white;
+  float: right;
+}
+
+.ta-button {
+  height: 50px;
+  width: 320px;
+  background-color: #ea352d;
+  border: 1px solid #ea352d;
+  color: white;
+  font-size: 13px;
+  margin: 65px 0 0 190px;
+}
+
+.ta-side-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-left: 210px;
+  margin-right: 210px;
+  margin-bottom: 40px;
+  .y-mypage-nav {
+    width: 280px;
+  }
+}

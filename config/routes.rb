@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
   devise_for :users
+  resources :user do
+    member do
+      get 'identification'
+    end
+  end
 
   resources :registrations, only: [:new, :edit, :update] do
     collection do
@@ -21,5 +26,8 @@ Rails.application.routes.draw do
   resources :user
   resources :users
   root "items#index"
-  
+  resources :cards, only: %i[index new]
+  resources :purchases, only: %i[new]
+
+  get "users/logout", to: "users#logout"
 end
