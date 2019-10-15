@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :registrations, only: [:new, :edit, :update] do
     collection do
+      get :new
       get :new1
       get :new2
       get :new3
@@ -14,11 +15,6 @@ Rails.application.routes.draw do
     end
     collection do
       post :create
-      post :create1
-      post :create2
-      post :create3
-      post :create4
-      post :create5
     end
   end
 
