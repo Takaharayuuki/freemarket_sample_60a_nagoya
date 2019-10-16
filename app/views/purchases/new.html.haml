@@ -20,7 +20,7 @@ renderで持ってくるheader
           .m-purchase-container__content__buy-item__inner__price-table__price-right
             ¥1,000
         .m-purchase-container__content__buy-item__inner__purchase-btn
-          = link_to "#" do
+          = link_to purchases_path, method: :post do
             購入する
     .m-purchase-container__content__buy-user-info
       .m-purchase-container__content__buy-user-info__inner
