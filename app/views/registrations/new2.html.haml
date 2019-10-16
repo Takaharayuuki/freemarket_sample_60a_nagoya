@@ -27,6 +27,7 @@
       %h2.ta-tere-main__container__logo
         電話番号の確認
       = form_for @user, url: new3_registrations_path,method: :get, class: "ta-tere-main__container__form" do |f|
+        = render "layouts/error_message"
         %div.ta-tere-main__container__form__content
           %div.ta-tere-main__container__form__content__group
             %label 携帯電話の番号

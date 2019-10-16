@@ -106,7 +106,7 @@ class RegistrationsController < ApplicationController
       birth_year: session[:birth_year],
       birth_month: session[:birth_month],
     )
-    render new1_registrations_path unless @user.valid?
+    render new1_registrations_path unless @user.valid?(:validates_step1)
   end
 
   def validates_step2
@@ -126,13 +126,10 @@ class RegistrationsController < ApplicationController
       birth_month: session[:birth_month],
       tel: session[:tel]
     )
-    render new2_registrations_path unless @user.valid?
+    render new2_registrations_path unless @user.valid?(:validates_step2)
   end
 
-
-
-
-
+  
 
   private
 

@@ -93,6 +93,7 @@ body {
   &__container {
     width: 700px;
     height: 1280px;
+    
     margin: 0 auto;
     background-color: white;
     &__logo {
@@ -305,6 +306,7 @@ body {
 }
 
 .chat-group-form__errors {
+  margin-bottom: 20px;
   & h1 {
     color: red;
   }
