@@ -1,0 +1,5 @@
+= form_with url: "#" do
+  :plain
+    <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f12cc94f427825310e4afc1c"></script>
+%p= current_user.id
+= link_to "消す", card_path(current_user.id), method: :delete

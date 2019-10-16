@@ -82,6 +82,33 @@
           text-decoration: none;
         }
       }
+      &__card {
+        width: 572px;
+        height: 117px;
+        padding: 24px 0;
+        border-bottom: solid 1px #eee;
+        &__box {
+          margin: 0 126px;
+          position: relative;
+          &__info {
+            margin-top: 8px;
+          }
+          &__delete {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: solid 1px #ea352d;
+            border-radius: 3px;
+            height: 24px;
+            width: 70px;
+            padding: 4px 6px;
+            a {
+              text-decoration: none;
+              color: #ea352d;
+            }
+          }
+        }
+      }
     }
   }
 
