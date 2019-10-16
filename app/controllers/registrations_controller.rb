@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
-  # before_action :validates_step1, only: :new2
-  # before_action :validates_step2, only: :new3
+  before_action :validates_step1, only: :new2
+  before_action :validates_step2, only: :new3
 
   def new
   end
@@ -15,8 +15,6 @@ class RegistrationsController < ApplicationController
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
     session[:password_confirmation] = user_params[:password_confirmation]
-    # session[:reset_password_sent_at] = user_params[:reset_password_sent_at]
-    # session[:remember_created_at] = user_params[:remember_created_at]
     session[:last_name] = user_params[:last_name]
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]
@@ -58,10 +56,6 @@ class RegistrationsController < ApplicationController
       email: session[:email],
       password: session[:password],
       password_confirmation: session[:password_confirmation],
-      # encrypted_password: session[:encrypted_password],
-      # reset_password_token: session[:reset_password_token],
-      # reset_password_sent_at: session[:reset_password_sent_at],
-      # remember_created_at: session[:remember_created_at],
       last_name: session[:last_name],
       first_name: session[:first_name],
       last_name_kana: session[:last_name_kana],
@@ -70,20 +64,11 @@ class RegistrationsController < ApplicationController
       birth_year: session[:birth_year],
       birth_month: session[:birth_month],
       tel: session[:tel]
-      # tel: session[:tel]
-      # post_address: session[:post_address],
-      # prefecture: session[:prefecture],
-      # city: session[:city],
-      # house_number: session[:house_number],
-      # building_name: session[:building_name],
-      # tell: session[:tell]
-      
     )
     @user.build_address(user_params[:address_attributes])
   
     if @user.save
       session[:id] = @user.id
-      
       redirect_to  new5_registrations_path
     else
       render new1_registrations_path 
@@ -94,67 +79,57 @@ class RegistrationsController < ApplicationController
     sign_in User.find(session[:id]) unless user_signed_in?
   end
 
-  # def validates_step1
-  #   session[:id] = user_params[:id]
-  #   session[:nickname] = user_params[:nickname]
-  #   session[:email] = user_params[:email]
-  #   # session[:password] = user_params[:password]
-  #   # session[:password_confirmation] = user_params[:password_confirmation]
-  #   session[:encrypted_password] = user_params[:encrypted_password]
-  #   session[:reset_password_token] = user_params[:reset_password_token]
-  #   session[:reset_password_sent_at] = user_params[:reset_password_sent_at]
-  #   session[:remember_created_at] = user_params[:remember_created_at]
-  #   session[:last_name] = user_params[:last_name]
-  #   session[:first_name] = user_params[:first_name]
-  #   session[:last_name_kana] = user_params[:last_name_kana]
-  #   session[:first_name_kana] = user_params[:first_name_kana]
-  #   session[:birth_day] = user_params[:birth_day]
-  #   session[:birth_year] = user_params[:birth_year]
-  #   session[:birth_month] = user_params[:birth_month]
-  #   @user = User.new(
-  #     id: session[:id],
-  #     nickname: session[:nickname],
-  #     email: session[:email],
-  #     # password: session[:password],
-  #     # password_confirmation: session[:password_confirmation],
-  #     encrypted_password: session[:encrypted_password],
-  #     reset_password_token: session[:reset_password_token],
-  #     reset_password_sent_at: session[:reset_password_sent_at],
-  #     remember_created_at: session[:remember_created_at],
-  #     last_name: session[:last_name],
-  #     first_name: session[:first_name],
-  #     last_name_kana: session[:last_name_kana],
-  #     first_name_kana: session[:first_name_kana],
-  #     birth_day: session[:birth_day],
-  #     birth_year: session[:birth_year],
-  #     birth_month: session[:birth_month],
-  #   )
-  #   render new1_registrations_path unless @user.valid?
-  # end
+  def validates_step1
+    session[:id] = user_params[:id]
+    session[:nickname] = user_params[:nickname]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
+    session[:last_name] = user_params[:last_name]
+    session[:first_name] = user_params[:first_name]
+    session[:last_name_kana] = user_params[:last_name_kana]
+    session[:first_name_kana] = user_params[:first_name_kana]
+    session[:birth_day] = user_params[:birth_day]
+    session[:birth_year] = user_params[:birth_year]
+    session[:birth_month] = user_params[:birth_month]
+    @user = User.new(
+      id: session[:id],
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      birth_day: session[:birth_day],
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+    )
+    render new1_registrations_path unless @user.valid?
+  end
 
-  # def validates_step2
-  #   session[:tel] = user_params[:tel]
-  #   @user = User.new(
-  #     id: session[:id],
-  #     nickname: session[:nickname],
-  #     email: session[:email],
-  #     # password: session[:password],
-  #     # password_confirmation: session[:password_confirmation],
-  #     encrypted_password: session[:encrypted_password],
-  #     reset_password_token: session[:reset_password_token],
-  #     reset_password_sent_at: session[:reset_password_sent_at],
-  #     remember_created_at: session[:remember_created_at],
-  #     last_name: session[:last_name],
-  #     first_name: session[:first_name],
-  #     last_name_kana: session[:last_name_kana],
-  #     first_name_kana: session[:first_name_kana],
-  #     birth_day: session[:birth_day],
-  #     birth_year: session[:birth_year],
-  #     birth_month: session[:birth_month],
-  #     tel: session[:tel]
-  #   )
-  #   render new2_registrations_path unless @user.valid?
-  # end
+  def validates_step2
+    session[:tel] = user_params[:tel]
+    @user = User.new(
+      id: session[:id],
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      birth_day: session[:birth_day],
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+      tel: session[:tel]
+    )
+    render new2_registrations_path unless @user.valid?
+  end
+
+
 
 
 

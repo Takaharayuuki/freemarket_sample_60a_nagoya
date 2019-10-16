@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :user
-  resources :users
+  
   root "items#index"
   resources :cards, only: %i[index new]
   resources :purchases, only: %i[new]

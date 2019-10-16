@@ -29,13 +29,18 @@
       = form_for @user, url: new2_registrations_path,method: :get do |f| 
         .ta-re-main__container__form__content
           .ta-re-main__container__form__content__group
+            - if @user.errors.any?
+              .chat-group-form__errors
+                -# %h1= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
+                %ul
+                  - @user.errors.full_messages.each do |message|
+                    %li= message
             = f.label :nickname ,"ニックネーム"
             %span
               必須
             = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
           .ta-re-main__container__form__content__group
             = f.label :email ,"メールアドレス"
-              
             %span
               必須
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"

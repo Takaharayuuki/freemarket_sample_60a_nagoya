@@ -303,3 +303,12 @@ body {
   }
 
 }
+
+.chat-group-form__errors {
+  & h1 {
+    color: red;
+  }
+  & li {
+    color:red;
+  }
+}
