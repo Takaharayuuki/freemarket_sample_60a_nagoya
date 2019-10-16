@@ -1,7 +1,7 @@
 %body
-  .single-container
-    %header.ta-ad-header
-      %h1.ta-ad-header__logo
+  .ys-single-container
+    %header.ys-header
+      %h1.ys-header__logo
         = link_to root_path do
           = image_tag src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"
 
@@ -11,34 +11,41 @@
           .y-sell-container__reactroot
             .y-sell-container__inner
               .y-single-head 商品の情報を入力
+
               = form_with model: @item, url: items_path, class: "y-sell-form", method: :post, local: true do |f|
-                %h3.y-sell-container__upload-box
-                  .y-sell-container__upload-head 出品画像
-                  %span.y-form-require 必須
-                %p 最大10枚までアップロードできます
-                .y-sell-container__dropbox
-                  .y-sell-container__image-items
-                    .y-sell-container__file-area
-                      %p ドラッグアンドドロップ
-                      %br
-                      もしくはクリックしてアップロード
-                    = f.file_field :images,multiple: true, id: "upload-file", class: "upload-files"
-                    = f.file_field :file, class: "item_images_hidden", multiple: true
+                .y-sell-container__upload-box
+                  %h3.y-sell-container__upload-head
+                    出品画像
+                    %span.y-form-require 必須
+                  %p 最大10枚までアップロードできます
+                  .y-sell-container__dropbox.y-clearfix
+                    .y-sell-container__image-items
+                      .y-sell-container__file-area
+                        %ul
+                    .y-sell-upload-drop-box.have-item-0
+                      %label.y-sell-upload-drop-file
+                        = f.file_field :images, multiple: true, class: "y-upload-files"
+                      %pre.y-visible-pc
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード
                 .y-sell-content
                   .y-sell-content__form-group
-                    %label 商品名
-                    %span.y-form-require 必須
-                    %input.y-input-default{value: "", placeholder: "商品名(必須 40文字まで)"}
+                    %label
+                      商品名
+                      %span.y-form-require 必須
+                    %input.y-input-default-item{value: "", placeholder: "商品名(必須 40文字まで)"}
                   .y-sell-content__form-group
-                    %label 商品の説明
-                    %span.y-form-require 必須
+                    %label
+                      商品の説明
+                      %span.y-form-require 必須
                     %textarea.y-textarea-default{row: "5", placeholder: "商品の説明(必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"}
-                .y-sell-content.clearfix
+                .y-sell-content.y-clearfix
                   %h3.y-sell-content__head 商品の詳細
                   .y-sell-content__form-box
                     .y-sell-content__form-group
-                      %label カテゴリー
-                      %span.y-form-require 必須
+                      %label
+                        カテゴリー
+                        %span.y-form-require 必須
                     %div
                       .y-select-wrap
                         %i.fas.fa-chevron-down
@@ -58,8 +65,9 @@
                           %option{value: "1318"} 自動車・オートバイ
                           %option{value: "10"} その他
                     .y-sell-content__form-group
-                      %label 商品の状態
-                      %span.y-form-require 必須
+                      %label
+                        商品の状態
+                        %span.y-form-require 必須
                     .y-select-wrap
                       %i.fas.fa-chevron-down
                       %select.y-select-option
@@ -70,14 +78,15 @@
                         %option{value: "4"} やや傷や汚れあり
                         %option{value: "5"} 傷や汚れあり
                         %option{value: "6"} 全体的に状態が悪い
-                .y-sell-content.clearfix
+                .y-sell-content.y-clearfix
                   %h3.y-sell-content__head 配送について
                   = link_to "#", target: "__blank", class:"y-form-question" do
                     ?
                   .y-sell-content__form-box
                     .y-sell-content__form-group
-                      %label 配送料の負担
-                      %span.y-form-require 必須
+                      %label
+                        配送料の負担
+                        %span.y-form-require 必須
                       .y-select-wrap
                         %i.fas.fa-chevron-down
                         %select.y-select-option
@@ -85,8 +94,9 @@
                           %option{value: "2"} 送料込み（出品者負担）
                           %option{value: "1"} 着払い（購入者負担）
                     .y-sell-content__form-group
-                      %label 配送元の地域
-                      %span.y-form-require 必須
+                      %label
+                        配送元の地域
+                        %span.y-form-require 必須
                       .y-select-wrap
                         %i.fas.fa-chevron-down
                         %select.y-select-option
@@ -140,8 +150,9 @@
                           %option{value:"47"} 沖縄県
                           %option{value:"99"} 未定
                     .y-sell-content__form-group
-                      %label 配送までの日数
-                      %span.y-form-require 必須
+                      %label
+                        配送までの日数
+                        %span.y-form-require 必須
                       .y-select-wrap
                         %i.fas.fa-chevron-down
                         %select.y-select-option
@@ -149,7 +160,7 @@
                           %option{value:"1"} 1日〜2日で発送
                           %option{value:"2"} 2日〜3日で発送
                           %option{value:"3"} 4日〜7日で発送
-                .y-sell-content.clearfix
+                .y-sell-content.y-clearfix
                   %h3.y-sell-content__head 販売価格(300~9,999,999)
                   = link_to "#", target: "__blank", class:"y-form-question" do
                     ?
@@ -157,33 +168,37 @@
                     %ul.y-sell-price
                       %li.y-sell-content__form-group
                         .y-clearfix
-                          %label.y-left 価格
+                          %label.y-left
+                            価格
                             %span.y-form-require 必須
                           .y-right.y-sell-price-input
                             ¥
-                            %input.y-input-default{value:"", placeholder: "例）300"}
-                        %li.y-clearfix
-                          .y-left 販売手数料（10%）
-                          .y-right -
-                        %li.y-clearfix-bold
-                          .y-left 販売利益
-                          .y-right -
-                .y-sell-content__btn-box
-                  %p.y-sell-content__btn-box__attention
+                            %div
+                              %input.y-input-default{value:"", placeholder: "例）300"}
+                      %li.y-clearfix
+                        .y-left
+                          販売手数料（10%）
+                        .y-right -
+                      %li.y-clearfix
+                        .y-left-bold 販売利益
+                        .y-right-bold -
+                .y-sell-content.y-btn-box
+                  %p.y-sell-btn-box
                     = link_to "禁止されている出品", "#", target: "_blank"
                     、
                     = link_to "行為", "#", target: "_blank"
                     を必ずご確認ください。
-                    %br
-                      またブランド品でシリアルナンバー等がある場合はご記載ください。
-                      = link_to "偽ブランドの販売", "#"
-                      は犯罪であり処罰される可能性があります。
-                      %br
-                        また出品をもちまして
-                        = link_to "加盟店規約", "#"
-                        に同意したことになります。
-                  = f.submit "出品する", class: "y-item-submit"
-                  = link_to "もどる", :back, class: "y-page_back"
+                  %p
+                    またブランド品でシリアルナンバー等がある場合はご記載ください。
+                    = link_to "偽ブランドの販売", "#"
+                    は犯罪であり処罰される可能性があります。
+                  %p
+                    また出品をもちまして
+                    = link_to "加盟店規約", "#"
+                    に同意したことになります。
+                  %button.y-btn-default.y-btn-red{ type: "submit" }
+                    出品する
+                  = link_to "もどる", "#", class: "y-back-btn"
 
     %footer.ta-ad__footer
       %nav.ta-ad__footer__nav
