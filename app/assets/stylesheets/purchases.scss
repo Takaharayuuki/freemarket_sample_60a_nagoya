@@ -89,6 +89,7 @@
             text-decoration: none;
             color: #fff;
             font-weight: 600;
+            display: block;
           }
         }
       }
@@ -102,10 +103,20 @@
       &__inner {
         width: 320px;
         margin: 0 auto;
+        font-size: 14px;
+        &__num {
+          margin-top: 8px;
+        }
+   
       }
       & h3 {
         font-size: 14px;
         font-weight: 600;
+      }
+      & p {
+        margin-top: 8px;
+        height: 38px;
+        line-height: 1.4;
       }
       &__address {
         margin-top: 8px;

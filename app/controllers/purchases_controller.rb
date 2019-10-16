@@ -1,6 +1,9 @@
 class PurchasesController < ApplicationController
 
   def new
+    @card = current_user.card
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @card_information = customer.cards.retrieve(@card.card_id)
   end
 
   def create
@@ -11,7 +14,6 @@ class PurchasesController < ApplicationController
       customer: card.customer_id,
       currency: 'jpy'
     )
-    redirect_to 
   end
 
 end
