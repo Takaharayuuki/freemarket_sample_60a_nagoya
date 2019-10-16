@@ -20,4 +20,5 @@ class User < ApplicationRecord
   validates :birth_month, presence: true, on: :validates_step1
   validates :birth_year, presence: true, on: :validates_step1
 
+  has_one :card
 end
