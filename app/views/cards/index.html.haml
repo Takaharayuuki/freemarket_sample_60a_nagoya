@@ -1,0 +1,22 @@
+= render 'layouts/main_header'
+%main.m-payment-container
+  = render 'user/mypage_sidebar'
+  %section.m-payment-container__content
+    .m-payment-container__content__head
+      %h2 支払い方法
+    .m-payment-container__content__inner
+      .m-payment-container__content__inner__chapter
+        クレジットカード一覧
+      .m-payment-container__content__inner__add-card
+        .m-payment-container__content__inner__add-card__btn
+          = link_to new_card_path do
+            %i.far.fa-credit-card
+            クレジットカードを追加する
+      .m-payment-container__content__inner__about
+        = link_to "#" do
+          支払い方法について
+          %i.fa.fa-chevron-right
+
+= render 'items/exhibit_btn'
+= render 'items/main_aside'
+= render 'layouts/main_footer'

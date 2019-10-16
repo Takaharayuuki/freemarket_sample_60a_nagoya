@@ -1,66 +1,87 @@
-%body
+.y-default-container
+  = render "layouts/main_header"
+  
   %nav.y-bread-crumbs
     %ul
-      %li.y-left-list{itemscope: "", itemtype: "#"}
-        %a{href: "https:", itemprop: "url"}
-          %span{itemprop: "title"} メルカリ
+      %li.y-left-list
+        = link_to "#" do
+          %span メルカリ
           %i.fas.fa-chevron-right
-      %li.center-list{itemscope: "", itemtype: "#"}
-        %a{href: "https:", itemprop: "url"}
-          %span{itemprop: "title"} マイページ
+      %li.center-list
+         = link_to "#" do
+          %span マイページ
 
-  %main.y-container.clearfix
-    .y-content
-      %section.y-mypage-user-icon
-        %a{href: "#"}
+  .y-mypage-container
+    .y-mypage-content
+      %section.y-mypage-user
+        = link_to "#" do
           %figure
-            %img{alt: "", heigth: "60", src: "hoge", :width => "60"}/
+            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", height: "60"
           %h2.y-bold 山本修二
-          .y-mypage-number
-            %div
-              評価
-              %span.bold 0
-            %div
-              出品数
-              %span.bold 0
-      %section.y-mypage-tab-container-notification-todo
-        %ul.y-mypage-tabs
-          %li.active
-            %h3
-              %a{href: "#", "data-toggle" => "tab"}お知らせ
-          %li.active
-            %h3
-              %a{href: "#", "data-toggle" => "tab"}やることリスト
-        .y-tab-content
-          %ul#y-mypage-tab-notification.y-mypage-item-list.tab-pane
-            %li
-              %a.y-mypage-item-link{"data-modal" => "banner", "data-open" => "modal", href: ""}
-                %figure
-                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "メルカリの箱みたいなやつ"}/
-                .y-mypage-item-body
-                  .y-mypage-item-text 仮置き
-                  %time
-                    %i.icon-time
-                    %span ◯時間前
-                %i.y-icon-arrow-right
-          %ul#y-mypage-tab-todo.y-mypage-item-list.tab-pane
-            %li.y-mypage-item-not-found.bold 現在やることリストはありません
-      %section.y-mypage-tab-container
-        %h2.y-mypage-tab-head 購入した商品
-        %ul.mypage-tabs
+          .y-mypage-user__number
+            %p.y-mypage-user__evaluation 評価
+            %span.y-bold 0
+            %p.y-mypage-user__number-of-exhibits 出品数
+            %span.y-bold 0
+
+      %section.y-mypage-information
+        %ul.y-mypage-information__header
+          %li.y-mypage-information__notification
+            =link_to '#' do
+              お知らせ
+          %li.y-mypage-information_todo
+            =link_to '#' do
+              やることリスト
+
+      .y-mypage-tab-content
+        %ul.y-mypage-tab__notification
           %li
-            %h3
-              %a{href: "#mypage-tab-transaction-now", "data-toggle" => "tab"} 取引中
-          %li.active
-            %h3
-              %a{href: "#mypage-tab-transaction-old", "data-toggle" => "tab"} 過去の取引
-        .y-tab-content
-          %ul#y-mypage-tab-transaction-now.y-mypage-item-list.tab-pane
-            %li.y-mypage-item-not-found.bold 取引中の商品がありません
-          %ul#y-mypage-tab-transaction-old.y-mypage-item-list.tab-pane
-            %li.y-mypage-item-not-found.bold 過去に取引した商品がありません
+            = link_to "#", class: "y-mypage-item__link" do
+              %figure
+                .y-mypage-item
+                  .y-mypage-item__image
+                    = image_tag "mercari_profile.png", alt: "mercari", class: "default-image", height: "48px", width: "48px"
+              .y-mypage-item__body
+                %p.y-mypage-item__text
+                  《速報》今なら販売手数料が実質無料！出品が超お得♪
+                  %time
+                    %i.fal.fa-clock
+                    %span 6時間前
+              %i.fas.fa-chevron-right
 
-    .y-side
-      = render 'y_side'
+          %li
+            = link_to "#", class: "y-mypage-item__link" do
+              %figure
+                .y-mypage-item
+                  .y-mypage-item__image
+                    = image_tag "mercari_profile.png", alt: "mercari", class: "default-image", height: "48px", width: "48px"
+              .y-mypage-item__body
+                %p.y-mypage-item__text
+                  《今なら販売手数料実質無料！》詳しくはこちらから♪
+                  %time
+                    %i.fal.fa-clock
+                    %span 6時間前
+              %i.fas.fa-chevron-right
 
+          .y-mypage-go-list
+            = link_to '#' do
+              一覧を見る
 
+      .y-mypage-tab-container
+        .y-mypage-tab-head 購入した商品
+        %ul.y-mypage-tabs
+          %li.y-mypage-tabs-left
+            =link_to "#" do
+              取引中
+          %li.y-mypage-tabs-right
+            = link_to "#" do
+              過去の取引
+        .y-mypage-tab-content
+          %ul.y-mypage-item-list
+            %li.y-mypage-item-list__not-found 取引中の商品がありません
+
+    .y-sidebar
+      = render "mypage_sidebar"
+  = render "items/main_aside"
+  = render "layouts/main_footer" 
+  = render "items/exhibit_btn"
