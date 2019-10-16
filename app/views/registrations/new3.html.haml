@@ -27,12 +27,7 @@
     .ta-ad-main__container__logo
       住所入力
       = form_for @user , url: registrations_path ,method: :post, class: "ta-ad-main__container__form" do |f| 
-        - if @user.errors.any?
-          .chat-group-form__errors
-            %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
-            %ul
-              - @user.errors.full_messages.each do |message|
-                %li= message
+        = render "layouts/error_message"
         .ta-ad-main__container__form__content
           .ta-ad-main__container__form__content__group
             = f.fields_for :address, @user.address  do |a|
