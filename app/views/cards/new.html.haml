@@ -6,11 +6,11 @@
       クレジットカード情報入力
     .m-card-information-container__chapter__inner
       .m-card-information-container__chapter__inner__content
-        = form_with url: "#", class: "card-information-form" do |f|
+        = form_with url: cards_path, method: :post, class: "card-information-form", id: "card_form" do |f|
           .m-card-information-container__chapter__inner__content__number-group
             = f.label :card_number, "カード番号"
             %span 必須
-            = f.text_field :card_number, class: "form-group", placeholder: "半角数字のみ"
+            = f.text_field :card_number, class: "form-group", placeholder: "半角数字のみ", id: "card_number"
             .m-card-information-container__chapter__inner__content__number-group__icons
             %ul
               %li
@@ -69,7 +69,8 @@
           .m-card-information-container__chapter__inner__content__code-group
             = f.label :security_code, "セキュリティコード"
             %span 必須
-            = f.text_field :security_code, class: "form-group", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"
+            = f.text_field :security_code, class: "form-group", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+          #card_token
 
           .m-card-information-container__chapter__inner__content__help#help-text
             %i.fas.fa-question-circle
