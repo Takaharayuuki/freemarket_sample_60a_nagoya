@@ -93,6 +93,7 @@ body {
   &__container {
     width: 700px;
     height: 1280px;
+    
     margin: 0 auto;
     background-color: white;
     &__logo {
@@ -148,6 +149,13 @@ body {
         &__half {
           margin-top: 30px;
           margin-bottom: 30px;
+          & .box {
+            display: flex;
+            display: -webkit-flex;
+            & .right {
+              margin-left: 10px;
+            }
+          }
           & label {
             font-weight: bold;
             display: inline-block;
@@ -163,7 +171,7 @@ body {
             vertical-align: top;
           }
           & input {
-            margin: 8px 2px 0;
+            margin: 8px 0px 0;
             height: 27px;
             width: 130px;
             padding: 10px 16px 8px;
@@ -172,6 +180,7 @@ body {
             background: #fff;
             line-height: 1.5;
             font-size: 16px;
+            
           }
         }
         &__birth {
@@ -179,6 +188,27 @@ body {
           &__bigbox {
             display: flex;
             display: -webkit-flex;
+            & .year {
+              height: 50px;
+              background-color: white;
+              border: 1px solid #ccc;
+              width:99px;
+              margin-top: 8px;
+            }
+            & .month {
+              height: 50px;
+              background-color: white;
+              border: 1px solid #ccc;
+              width:85px;
+              margin-top: 8px;
+            }
+            & .day {
+              height: 50px;
+              background-color: white;
+              border: 1px solid #ccc;
+              width:85px;
+              margin-top: 8px;
+            }
           }
           
           & label {
@@ -273,4 +303,14 @@ body {
     font-size: 12px;
   }
 
+}
+
+.chat-group-form__errors {
+  margin-bottom: 20px;
+  & h1 {
+    color: red;
+  }
+  & li {
+    color:red;
+  }
 }
