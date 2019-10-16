@@ -20,6 +20,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'devise'
+gem 'gretel'
 gem 'rails-i18n'
 gem 'payjp'
 

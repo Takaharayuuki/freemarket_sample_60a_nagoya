@@ -1,5 +1,9 @@
 = render "layouts/main_header"
-= render "bread"
+.y-bread
+  %span
+    - breadcrumb :profile
+    = render "bread"
+
 .y-profile-container
   .y-profile-content
     .y-chapter-container
@@ -14,6 +18,7 @@
           %textarea.y-text-content{ name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" }
           %input{ name: "after_save_callback", type: "hidden", value: "#" }
           %button.y-btn-dafault.btn-red{ type: "submit" } 変更する
+
   = render "mypage_sidebar"
 = render "items/main_aside"
 = render "layouts/main_footer"
