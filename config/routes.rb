@@ -8,8 +8,6 @@ Rails.application.routes.draw do
 
   root "items#index"
   
-  get "confirm", to: "items#confirm"
-  post "confirm", to: "items#payment"
   resources :cards, only: %i[index new create destroy show]
 
   resources :purchases, only: %i[new create]
