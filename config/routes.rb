@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   resources :items
   resources :user do
@@ -7,6 +8,24 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :registrations, only: [:new, :edit, :update] do
+    collection do
+      get :new
+      get :new1
+      get :new2
+      get :new3
+      get :new4
+      get :new5
+      get :new6
+      get :done
+    end
+    collection do
+      post :create
+    end
+  end
+
+  resources :user
+  
   root "items#index"
   
   get "confirm", to: "items#confirm"
