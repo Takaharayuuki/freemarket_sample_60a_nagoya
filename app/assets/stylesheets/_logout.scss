@@ -14,9 +14,12 @@ body {
   width: 320px;
   background-color: #ea352d;
   border: 1px solid #ea352d;
-  color: white;
   font-size: 13px;
   margin: 65px 0 0 190px;
+  & a {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .ta-side-bar {
