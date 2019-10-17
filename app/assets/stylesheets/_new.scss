@@ -92,8 +92,7 @@ body {
   display: block;
   &__container {
     width: 700px;
-    height: 1280px;
-    
+    min-height: 1550px;
     margin: 0 auto;
     background-color: white;
     &__logo {
@@ -312,5 +311,6 @@ body {
   }
   & li {
     color:red;
+    list-style: none;
   }
 }
