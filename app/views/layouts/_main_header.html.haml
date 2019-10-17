@@ -18,7 +18,7 @@
           = link_to "#" do
             %i.fas.fa-tag
             ブランドから探す
-      - if user_signed_in?  
+      - if user_signed_in?    
         %ul.m-container__bottom__right
           %li.m-container__bottom__right__likes
             = link_to "#", id: "likes-box" do
@@ -37,4 +37,10 @@
               = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', class: "my-icon", size: "32x32"
               マイページ
       - else
-        
+        %ul.m-container__bottom__right
+          %li.m-container__bottom__right__signup-btn
+            = link_to registrations_path do
+              新規会員登録
+          %li.m-container__bottom__right__login-btn
+            = link_to new_user_session_path do
+              ログイン
