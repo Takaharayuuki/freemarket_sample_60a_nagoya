@@ -117,3 +117,14 @@
     }
   }
 }
+
+//スクロールフェードイン
+.fadein {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: 900ms;
+}
+.fadein.scrollin {
+  opacity: 1;
+  transform: translate(0, 0);
+}

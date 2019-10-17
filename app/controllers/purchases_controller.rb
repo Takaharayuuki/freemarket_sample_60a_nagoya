@@ -1,9 +1,13 @@
 class PurchasesController < ApplicationController
 
   def new
+    @item = Item.find(1)
+    @address = current_user.address
     @card = current_user.card
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    @card_information = customer.cards.retrieve(@card.card_id)
+    if @card
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def create

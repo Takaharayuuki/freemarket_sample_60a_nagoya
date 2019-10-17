@@ -7,8 +7,9 @@
   = render "user/mypage_sidebar"
   .ta-right-cotainer
     .ta-right-container__box
-      %button.ta-button 
-        ログアウト
+      %button.ta-button
+        = link_to destroy_user_session_path, method: :delete do
+          ログアウト
 = render "items/main_aside"
 = render "layouts/main_footer" 
 = render "items/exhibit_btn"
