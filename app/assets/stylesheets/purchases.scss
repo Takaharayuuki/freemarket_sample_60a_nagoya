@@ -1,3 +1,4 @@
+//購入確認
 .m-purchase-container {
   height: 764px;
   &__content {
@@ -136,4 +137,35 @@
       padding: 24px 87.5px 40px; 
     }
   }
-} 
+}
+
+//購入完了
+.m-purchase-confirm-container {
+  width: 700px;
+  margin: 0 auto;
+  &__head1 {
+    height: 110px;
+    box-sizing: border-box;
+    padding: 24px 8px;
+    background: #fff6de;
+    text-align: center;
+    & h3 {
+      color: #ea352d;
+      & i {
+        margin-right: 8px;
+        font-size: 32px;
+        vertical-align: middle;
+      }
+      & span {
+        vertical-align: middle;
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+    & p {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
