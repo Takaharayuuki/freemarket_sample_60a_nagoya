@@ -1,16 +1,10 @@
 .y-default-container
   = render "layouts/main_header"
-  
-  %nav.y-bread-crumbs
-    %ul
-      %li.y-left-list
-        = link_to "#" do
-          %span メルカリ
-          %i.fas.fa-chevron-right
-      %li.center-list
-         = link_to "#" do
-          %span マイページ
-
+  .y-bread
+    %span
+      - breadcrumb :user
+      = render "bread"
+      
   .y-mypage-container
     .y-mypage-content
       %section.y-mypage-user

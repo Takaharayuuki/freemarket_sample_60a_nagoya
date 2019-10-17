@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
  
-
+  resources :items
   resources :user do
     member do
       get 'identification'
