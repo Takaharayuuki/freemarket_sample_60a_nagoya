@@ -126,7 +126,7 @@ class RegistrationsController < ApplicationController
       birth_month: session[:birth_month],
       tel: session[:tel]
     )
-    render new2_registrations_path unless @user.valid?(:validates_step2)
+    render new3_registrations_path unless @user.valid?(:validates_step2)
   end
 
   
