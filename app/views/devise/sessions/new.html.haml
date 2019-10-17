@@ -17,8 +17,7 @@
       .ta-single__main__login
         %button#facebook-login.ta-single__main__login__facebook
           %i.ta.fab.fa-facebook-square
-          %p.login__font
-            Facebookでログイン
+          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path,class: "facebook_btn"
         %button#google-login.ta-single__main__login__google
           = image_tag "google.jpg",size: "27x27",class:"ta_google"
           %p.login__font

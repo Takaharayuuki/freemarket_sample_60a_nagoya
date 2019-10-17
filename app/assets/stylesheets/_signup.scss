@@ -52,11 +52,11 @@
     border-radius: 5px 5px;
     color: white;
     font-size: 13px;
-    margin-top: 15px;
+    margin-top: 20px;
     font-family:'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
     & i {
-      margin-right: 5px;
-      margin-top: 3px;
+      // margin-right: 5px;
+      // margin-top: 10px;
     }
   }
   &__google {
@@ -80,4 +80,17 @@
 }
 .ta-single__footer {
   padding: 100px 0 0 0;
+}
+
+.facebook_btn {
+ display: block;
+ margin-top: 15px;
+ color: white;
+ text-decoration: none;
+ height: 100px;
+ width: 300px;
+}
+.ta.fab.fa-facebook-square {
+  margin-right: 5px;
+  margin-top: 10px;
 }

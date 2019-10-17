@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   has_one :card
   has_one :address, dependent: :destroy
@@ -23,4 +23,24 @@ class User < ApplicationRecord
   validates :birth_month, presence: true, on: :validates_step1
   validates :birth_year, presence: true, on: :validates_step1
   validates :tel, presence: true, format: { with: VALID_PHONE_REGEX } ,on: :validates_step2
+
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+ 
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    auth.info.email,
+        password: Devise.friendly_token[0, 20]
+      )
+    end
+ 
+    user
+  end
+
+
+
+
+
 end
