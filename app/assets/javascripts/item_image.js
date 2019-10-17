@@ -35,9 +35,43 @@ $('.y-sell-container__file-area').on('drop',function(event){
     // 画像のurlを取得します。
     var loadedImageUri = event.target.result;
     // 取得したURLを利用して、ビューにHTMLを挿入する。
-    $(buildImage(loadedImageUri,)).appendTo(".item__images__container__preview ul").trigger("create");
+    $(buildImage(loadedImageUri,)).appendTo(".y-sell-container__file-area ul").trigger("create");
     };
     // ファイルの読み込みを行う。
     fileReader.readAsDataURL(files[i]);
   }
+});
+
+$(document).on('click','.y-sell-container__file-area a', function(){
+  // index関数を利用して、クリックされたaタグが、div内で何番目のものか特定する。
+  var index = $(".y-sell-container__file-area a").index(this);
+  // クリックされたaタグの順番から、削除すべき画像を特定し、配列から削除する。
+  files_array.splice(index - 1, 1);
+  // クリックされたaタグが含まれるli要素をHTMLから削除する。
+  $(this).parent().parent().parent().remove();
+});
+
+// submitボタンが押された際のイベント
+$('y-sell-form').on('submit', function(e){
+  e.preventDefault();
+  // そのほかのform情報を以下の記述でformDataに追加
+  var formData = new FormData($(this).get(0));
+  // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
+  files_array.forEach(function(file){
+   formData.append("image[images][]" , file)
+  });
+  $.ajax({
+    url:         '/items',
+    type:        "POST",
+    data:        formData,
+    contentType: false,
+    processData: false,
+    dataType:   'json',
+  })
+  .done(function(data){
+    alert('出品に成功しました！');
+  })
+  .fail(function(XMLHttpRequest, textStatus, errorThrown){
+    alert('出品に失敗しました！');
+  });
 });
