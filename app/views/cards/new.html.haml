@@ -1,6 +1,12 @@
 = render 'layouts/main_header'
+.y-bread
+  %span
+    - breadcrumb :new_credit
+    = render "user/bread"
+
 .m-card-information-container
-  = render 'user/mypage_sidebar'
+  .m-payment-container__side
+    = render 'user/mypage_sidebar'
   .m-card-information-container__chapter
     .m-card-information-container__chapter__head
       クレジットカード情報入力
