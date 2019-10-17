@@ -33,6 +33,6 @@
             %i.fas.fa-check
             やることリスト
         %li.m-container__bottom__right__my-page
-          = link_to "user/show" do
+          = link_to user_path(current_user) do
             = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', class: "my-icon", size: "32x32"
             マイページ
