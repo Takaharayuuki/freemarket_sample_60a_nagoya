@@ -10,7 +10,7 @@
           .m-card-information-container__chapter__inner__content__number-group
             = f.label :card_number, "カード番号"
             %span 必須
-            = f.text_field :card_number, class: "form-group", placeholder: "半角数字のみ", id: "card_number"
+            = f.text_field :card_number, class: "form-group", placeholder: "半角数字のみ", id: "card_number", maxlength: "16"
             .m-card-information-container__chapter__inner__content__number-group__icons
             %ul
               %li
