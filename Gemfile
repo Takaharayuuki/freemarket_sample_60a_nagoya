@@ -23,6 +23,7 @@ gem 'devise'
 gem 'gretel'
 gem 'rails-i18n'
 gem 'payjp'
+gem 'active_hash'
 
 
 
