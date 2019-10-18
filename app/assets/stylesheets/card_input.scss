@@ -175,6 +175,9 @@
 
         &__btn {
           margin-top: 32px;
+          & input {
+            cursor: pointer;
+          }
 
           .btn-default {
             background: #ea253d;

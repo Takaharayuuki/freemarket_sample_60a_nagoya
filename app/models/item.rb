@@ -4,6 +4,6 @@ class Item < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :categories
   belongs_to :user
-  belongs_to :status
-  belongs_to :brand
+  # belongs_to :status
+  # belongs_to :brand
 end

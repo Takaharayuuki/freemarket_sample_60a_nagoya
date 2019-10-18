@@ -6,6 +6,11 @@
   .y-mypage-nav {
     width: 280px;
   }
+  &__side {
+    & ul:first-child {
+      margin: 0 auto;
+    }
+  }
 
   &__content {
     height: 358px;
