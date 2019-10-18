@@ -1,1 +1,117 @@
-%card
+%body
+  %header.ta-ad-header
+    %h1.ta-ad-header__logo
+      = link_to image_tag src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"
+
+
+    .ta-ka-header__progress
+      %ul.progress
+        %li.through
+          会員情報
+          .bubble.bubble-first
+        %li.through
+          電話番号認証
+          .bubble
+        %li.through
+          お届け先住所入力
+          .bubble
+        %li.active
+          支払い方法
+          .bubble
+        %li
+          完了
+          .bubble.bubble-last
+  %main.ta-ad-main
+    %section.ta-ad-main__container.card
+      .m-card-information-container.sign-up
+        .m-card-information-container__chapter.sign-up
+          .m-card-information-container__chapter__head
+            クレジットカード情報入力
+          .m-card-information-container__chapter__inner
+            .m-card-information-container__chapter__inner__content
+              = form_with url: cards_path, method: :post, class: "card-information-form", id: "card_form" do |f|
+                .m-card-information-container__chapter__inner__content__number-group
+                  = f.label :card_number, "カード番号"
+                  %span 必須
+                  = f.text_field :card_number, class: "form-group", placeholder: "半角数字のみ", id: "card_number", maxlength: "16"
+                  .m-card-information-container__chapter__inner__content__number-group__icons
+                  %ul
+                    %li
+                      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615', height: '20px', width: '49px'
+                    %li
+                      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3466462615', height: '20px', width: '34px'
+                    %li
+                      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3466462615', height: '20px', width: '30px'
+                    %li
+                      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3466462615', height: '20px', width: '32px'
+                    %li
+                      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3466462615', height: '20px', width: '21px'
+                    %li
+                      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3466462615', height: '20px', width: '32px'
+                    %li
+                      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3466462615', height: '20px', width: '32px'
+
+                .m-card-information-container__chapter__inner__content__expire-group
+                  = f.label "有効期限"
+                  %span 必須
+                  %br
+                  .m-card-information-container__chapter__inner__content__expire-group__half-wrap
+                    .m-card-information-container__chapter__inner__content__expire-group__half-wrap--month
+                      %select#exp_month.select-default
+                        %option{value: "1"}01
+                        %option{value: "2"}02
+                        %option{value: "3"}03
+                        %option{value: "4"}04
+                        %option{value: "5"}05
+                        %option{value: "6"}06
+                        %option{value: "7"}07
+                        %option{value: "8"}08
+                        %option{value: "9"}09
+                        %option{value: "10"}10
+                        %option{value: "11"}11
+                        %option{value: "12"}12
+                      %i.fas.fa-chevron-down
+                      %span 月
+                  .m-card-information-container__chapter__inner__content__expire-group__half-wrap
+                    .m-card-information-container__chapter__inner__content__expire-group__half-wrap--year
+                      %select#exp_year.select-default
+                        %option{value: "2019"}19
+                        %option{value: "2020"}20
+                        %option{value: "2021"}21
+                        %option{value: "2022"}22
+                        %option{value: "2023"}23
+                        %option{value: "2024"}24
+                        %option{value: "2025"}25
+                        %option{value: "2026"}26
+                        %option{value: "2027"}27
+                        %option{value: "2028"}28
+                        %option{value: "2029"}29
+                      %i.fas.fa-chevron-down
+                      %span 年
+
+                .m-card-information-container__chapter__inner__content__code-group
+                  = f.label :security_code, "セキュリティコード"
+                  %span 必須
+                  = f.text_field :security_code, class: "form-group", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+                #card_token
+
+                .m-card-information-container__chapter__inner__content__help#help-text
+                  %i.fas.fa-question-circle
+                  カード裏面の番号とは？
+
+                .m-card-information-container__chapter__inner__content__btn
+                  = f.submit "追加する", id: "token_submit", class: "btn-default" 
+            .m-card-information-container__chapter__inner__help-fig.hide-help-fig#help-fig
+              .m-card-information-container__chapter__inner__help-fig__content
+                カードの裏面をご参照ください。
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?3466462615', height: '105px', width: '240px', class: 'help-fig-margin'
+  %footer.ta-ad__footer
+    %nav.ta-ad__footer__nav
+      %div.ta-ad__footer__a
+        = link_to "プライバシーポリシー","#",class: "ta-single__footer__c"
+        = link_to "メルカリ利用規約","#",class: "ta-single__footer__c"
+        = link_to "特定商取引に関する表記","#",class: "ta-single__footer__c"
+    = link_to "#" do
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567",class: "ta-ad__footer__logo"
+    %p.ta-ad__footer__b 2019 Mercari
+

@@ -38,16 +38,6 @@ class RegistrationsController < ApplicationController
   #   @address.save
   # end
 
-  # def new5
-  #   session[:post_address] = address_params[:post_address]
-  #   session[:prefecture] = address_params[:prefecture]
-  #   session[:city] = address_params[:city]
-  #   session[:house_number] = address_params[:house_number]
-  #   session[:building_name] = address_params[:building_name]
-  #   session[:tel] = address_params[:tel]
-  #   @user = User.new
-  #   binding.pry
-  # end
 
   def create
     @user = User.new(
