@@ -1,6 +1,12 @@
 = render 'layouts/main_header'
+
+.y-bread
+  %span
+    - breadcrumb :credit
+    = render "user/bread"
 %main.m-payment-container
-  = render 'user/mypage_sidebar'
+  .m-payment-container__side
+    = render 'user/mypage_sidebar'
   %section.m-payment-container__content
     .m-payment-container__content__head
       %h2 支払い方法
