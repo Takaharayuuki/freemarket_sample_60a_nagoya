@@ -92,7 +92,7 @@ body {
   display: block;
   &__container {
     width: 700px;
-    min-height: 1550px;
+    min-height: 1500px;
     margin: 0 auto;
     background-color: white;
     &__logo {
@@ -261,7 +261,11 @@ body {
           width: 340px;
           font-size: 14px;
           margin-top: 30px;
+          &:hover {
+            opacity: 1.0;
+          }
         }
+
         &__link {
           margin-top: 30px;
           margin-left: 160px;
