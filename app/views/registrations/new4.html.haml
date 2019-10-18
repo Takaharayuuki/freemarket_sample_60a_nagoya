@@ -29,7 +29,7 @@
             クレジットカード情報入力
           .m-card-information-container__chapter__inner
             .m-card-information-container__chapter__inner__content
-              = form_with url: cards_path, method: :post, class: "card-information-form", id: "card_form" do |f|
+              = form_with url: registrations_path, method: :post, class: "card-information-form", id: "card_form" do |f|
                 .m-card-information-container__chapter__inner__content__number-group
                   = f.label :card_number, "カード番号"
                   %span 必須

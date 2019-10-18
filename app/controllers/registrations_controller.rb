@@ -27,19 +27,23 @@ class RegistrationsController < ApplicationController
 
   def new3
     session[:tel] = user_params[:tel]
-    @user = User.new
-    @user.build_address
+    @address = Address.new
   end
   
-  # def new4
-  #   @user = User.new
-  #   @user.build_address
-  #   @address = Address.new
-  #   @address.save
-  # end
+  def new4
+    session[:post_address] = address_params[:post_address]
+    session[:prefecture] = address_params[:prefecture]
+    session[:city] = address_params[:city]
+    session[:house_number] = address_params[:house_number]
+    session[:building_name] = address_params[:building_name]
+    session[:tel] = address_params[:tel]
+    binding.pry
+    @card = Card.new
+  end
 
 
   def create
+    session[:payjp_token] = params['payjp-token']
     @user = User.new(
       id: session[:id],
       nickname: session[:nickname],
@@ -55,14 +59,31 @@ class RegistrationsController < ApplicationController
       birth_month: session[:birth_month],
       tel: session[:tel]
     )
-    @user.build_address(user_params[:address_attributes])
   
     if @user.save
       session[:id] = @user.id
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      if session[:payjp_token].blank?
+        redirect_to action: "new4"
+      else
+        customer = Payjp::Customer.create(
+          description: "test",
+          email: session[:email],
+          card: session[:payjp_token],
+          metadata: {user_id: @user.id}
+        )
+        @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+        if @card.save
+          sign_in @user
+        else
+          render new4_registrations_path
+        end
+      end
+      else
+        render new1_registrations_path 
+      end
       redirect_to  new5_registrations_path
-    else
-      render new1_registrations_path 
-    end
+  
   end
 
   def new5
