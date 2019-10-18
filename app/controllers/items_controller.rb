@@ -9,13 +9,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(create_params)
     # binding.pry
-    if @item.save
-      render 'index'
-    else
-      render 'new'
-    end
+    Item.create(create_params)
+    redirect_to :root
   end
 
   def confirm
@@ -33,7 +29,7 @@ class ItemsController < ApplicationController
   private
 
   def create_params
-    params.require(:item).permit(:name, :price, :size, :condition, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id)
+    params.require(:item).permit(:name, :price, :condition, :delivery_fee, :shipping_method, :burden, :description, :user_id).merge(user_id: current_user.id)
   end
 
 end

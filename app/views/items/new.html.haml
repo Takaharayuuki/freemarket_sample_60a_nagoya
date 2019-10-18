@@ -24,8 +24,8 @@
                         %ul
                     .y-sell-upload-drop-box.have-item-0
                       %label.y-sell-upload-drop-file
-                        = f.file_field :images, type: "file", multiple: true, class: "y-upload-files"
-                        = image_tag "", alt: "Image preview"
+                        -# = f.file_field :image, type: "file", multiple: true, class: "y-upload-files"
+                        -# = image_tag "", alt: "Image preview"
                       %pre.y-visible-pc
                         ドラッグアンドドロップ
                         またはクリックしてファイルをアップロード
@@ -50,7 +50,7 @@
                     %div
                       .y-select-wrap
                         %i.fas.fa-chevron-down
-                        = f.select :category,[],{},{ class: "y-select-option"}
+                        = f.select :category,[],{},{ class: "y-select-option" }
                     .y-sell-content__form-group
                       %label
                         商品の状態
