@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @prefecture = Prefecture.all
     @item = Item.new
   end
 
@@ -29,7 +30,7 @@ class ItemsController < ApplicationController
   private
 
   def create_params
-    params.require(:item).permit(:name, :price, :condition, :delivery_fee, :shipping_method, :burden, :description, :user_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :condition, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id).merge(user_id: current_user.id)
   end
 
 end

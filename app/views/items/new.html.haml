@@ -76,7 +76,7 @@
                         %span.y-form-require 必須
                       .y-select-wrap
                         %i.fas.fa-chevron-down
-                        = f.select :prefecture,{},{},{class:"y-select-option"}
+                        = f.select :indication, options_from_collection_for_select(Prefecture.all, :name, :name), {}, { class: "y-select-option"}
                     .y-sell-content__form-group
                       %label
                         配送までの日数
