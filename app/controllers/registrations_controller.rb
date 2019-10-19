@@ -37,7 +37,6 @@ class RegistrationsController < ApplicationController
     session[:house_number] = address_params[:house_number]
     session[:building_name] = address_params[:building_name]
     session[:tel] = address_params[:tel]
-    binding.pry
     @card = Card.new
   end
 
@@ -61,29 +60,41 @@ class RegistrationsController < ApplicationController
     )
   
     if @user.save
-      session[:id] = @user.id
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      if session[:payjp_token].blank?
-        redirect_to action: "new4"
-      else
-        customer = Payjp::Customer.create(
-          description: "test",
-          email: session[:email],
-          card: session[:payjp_token],
-          metadata: {user_id: @user.id}
-        )
-        @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
-        if @card.save
-          sign_in @user
+      session[:user_id] = @user.id
+      @address = Address.new(
+        post_address: session[:post_address],
+        prefecture: session[:prefecture],
+        city: session[:city],
+        house_number: session[:house_number],
+        building_name: session[:building_name],
+        tel: session[:tel],
+        user_id: session[:user_id]
+      )
+      if @address.save
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        if session[:payjp_token].blank?
+          redirect_to action: "new4"
         else
-          render new4_registrations_path
+          customer = Payjp::Customer.create(
+            description: "test",
+            email: session[:email],
+            card: session[:payjp_token],
+            metadata: {user_id: @user.id}
+          )
+          @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+          if @card.save
+            sign_in @user
+          else
+            render new4_registrations_path
+          end
         end
-      end
       else
-        render new1_registrations_path 
+        render new3_registrations_path
       end
-      redirect_to  new5_registrations_path
-  
+    else
+      render new1_registrations_path
+    end
+    render new5_registrations_path
   end
 
   def new5
