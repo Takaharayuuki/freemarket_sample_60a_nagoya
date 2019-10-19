@@ -26,7 +26,7 @@
       .ta-re-main__container__logo
         会員情報入力
 
-      = form_for @user, url: new2_registrations_path,method: :get do |f| 
+      = form_with model:@user, url: new2_registrations_path, local: true, method: :get do |f| 
         .ta-re-main__container__form__content
           .ta-re-main__container__form__content__group
             = render "layouts/error_message"
