@@ -1,7 +1,7 @@
 class RegistrationsController < ApplicationController
-  before_action :validates_step1, only: :new2
-  before_action :validates_step2, only: :new3
-  before_action :redirect_to_root_user_signed_in
+  # before_action :validates_step1, only: :new2
+  # before_action :validates_step2, only: :new3
+  before_action :redirect_to_root_user_signed_in, except: :new5
 
 
   def new

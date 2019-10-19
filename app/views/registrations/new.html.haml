@@ -16,12 +16,11 @@
 
           %button.ta-single__container__signup__facebook
             %i.ta.fab.fa-facebook-square
-            %p.login__font
-              Facebookで登録する
+            = link_to "Facebookで登録する", user_facebook_omniauth_authorize_path
           %button.ta-single__container__signup__google
             = image_tag "google.jpg",size: "27x27",class:"ta_google"
-            %p.login__font
-              Googleで登録する
+            = link_to "Googleで登録する", user_google_oauth2_omniauth_authorize_path
+              
 
       %footer.ta-single__footer
         %nav.ta-single__footer__nav
