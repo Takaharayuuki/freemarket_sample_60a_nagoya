@@ -40,7 +40,7 @@
               都道府県
               %span
               必須
-            = f.text_field :prefecture
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
             .ta-ad-main__container__form__content__group
             %label  
               市区町村

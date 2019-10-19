@@ -1,7 +1,7 @@
 class RegistrationsController < ApplicationController
   before_action :validates_step1, only: :new2
   before_action :validates_step2, only: :new3
-  before_action :redirect_to_root_user_signed_in
+  # before_action :redirect_to_root_user_signed_in, except: :new5
 
 
   def new
@@ -34,7 +34,7 @@ class RegistrationsController < ApplicationController
   
   def new4
     session[:post_address] = address_params[:post_address]
-    session[:prefecture] = address_params[:prefecture]
+    session[:prefecture_id] = address_params[:prefecture_id]
     session[:city] = address_params[:city]
     session[:house_number] = address_params[:house_number]
     session[:building_name] = address_params[:building_name]
@@ -65,7 +65,7 @@ class RegistrationsController < ApplicationController
       session[:user_id] = @user.id
       @address = Address.new(
         post_address: session[:post_address],
-        prefecture: session[:prefecture],
+        prefecture_id: session[:prefecture_id],
         city: session[:city],
         house_number: session[:house_number],
         building_name: session[:building_name],
