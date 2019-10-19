@@ -21,7 +21,7 @@
         %button#google-login.ta-single__main__login__google
           = image_tag "google.jpg",size: "27x27",class:"ta_google"
           %p.login__font
-          = link_to "Googleでログイン",class: "facebook_btn"
+          = link_to "Googleでログイン",user_google_oauth2_omniauth_authorize_path,class: "facebook_btn"
             
          
 

@@ -32,7 +32,7 @@ ja:
         last_name_kana: "名前のカナ"
         birth_day: "誕生日"
         birth_month: "誕生月"
-        birth_year: "西暦で誕生年"
+        birth_year: "誕生年"
         tel: "電話番号"
     models:
       user: "ユーザ"

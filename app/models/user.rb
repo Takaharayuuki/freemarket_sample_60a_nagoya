@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable
+         :recoverable, :rememberable, :validatable, :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
 
   has_one :card
   has_one :address, dependent: :destroy
@@ -20,41 +20,41 @@ class User < ApplicationRecord
   validates :last_name, presence: true, format: { with: VALID_KANZI_REGEX } ,on: :validates_step1
   validates :first_name_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }, on: :validates_step1
   validates :last_name_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }, on: :validates_step1
-  validates :birth_day, presence: true,numericality: { only_integer: true }, on: :validates_step1
-  validates :birth_month, presence: true,numericality: { only_integer: true }, on: :validates_step1
-  validates :birth_year, presence: true, numericality: { only_integer: true }, on: :validates_step1
+  validates :birth_day, presence: true,numericality: { only_integer: true },length: {maximum: 2}, on: :validates_step1
+  validates :birth_month, presence: true,numericality: { only_integer: true },length: {maximum: 2}, on: :validates_step1
+  validates :birth_year, presence: true, numericality: { only_integer: true },length: {maximum: 4}, on: :validates_step1
   validates :tel, presence: true, format: { with: VALID_PHONE_REGEX } ,on: :validates_step2
 
-  def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
- 
-    unless user
-      user = User.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    auth.info.email,
-        password: Devise.friendly_token[0, 20]
-      )
+  def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    if snscredential.present?
+      user = User.where(id: snscredential.user_id).first
+    else
+      user = User.where(email: auth.info.email).first
+      if user.present?
+        SnsCredential.create(
+          uid: uid,
+          provider: provider,
+          user_id: user.id
+          )
+      else
+        user = User.create(
+          nickname: auth.info.name,
+          email:    auth.info.email,
+          password: Devise.friendly_token[0, 20],
+        
+          )
+        SnsCredential.create(
+          uid: uid,
+          provider: provider,
+          user_id: user.id
+          )
+      end
     end
- 
-    user
+    return user
   end
-
-  # protected
-  # def self.find_for_google(auth)
-  #   user = User.find_by(email: auth.info.email)
-
-  #   unless user
-  #     user = User.create(name:     auth.info.name,
-  #                        provider: auth.provider,
-  #                        uid:      auth.uid,
-  #                        token:    auth.credentials.token,
-  #                        password: Devise.friendly_token[0, 20],
-  #                        meta:     auth.to_yaml)
-  #   end
-  #   user
-  # end
-
 
 
 

@@ -3,7 +3,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
+  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
   # config.omniauth :google_oauth2, ENV['30063901192-8mp3os9c9b6ikmi7544iq01er7qkjsht.apps.googleusercontent.com'], ENV['z5ww_hMQcgwkpoDgZQeGLi-Q'],name: :google,scope: %w(email) 
 
   # The secret key used by Devise. Devise uses this key to generate
@@ -263,7 +263,12 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
+  config.omniauth :google_oauth2,
+                  Rails.application.credentials.google[:google_client_id],
+                  Rails.application.credentials.google[:google_client_secret]
+  config.omniauth :facebook,
+                  Rails.application.credentials.facebook[:facebook_app_id],
+                  Rails.application.credentials.facebook[:facebook_app_secret]
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

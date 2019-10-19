@@ -69,6 +69,7 @@ class RegistrationsController < ApplicationController
   
     if @user.save
       session[:id] = @user.id
+      
       redirect_to  new5_registrations_path
     else
       render new1_registrations_path 
