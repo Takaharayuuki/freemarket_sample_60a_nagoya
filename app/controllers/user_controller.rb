@@ -9,5 +9,7 @@ class UserController < ApplicationController
   end
 
   def identification
+    @prefecture = Prefecture.all
+    @user = User.find(params[:id])
   end
 end

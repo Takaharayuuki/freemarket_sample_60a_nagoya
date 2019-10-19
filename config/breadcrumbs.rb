@@ -13,8 +13,13 @@ crumb :logout do
 end
 
 crumb :credit do
-  link "支払い方法"
+  link "支払い方法", cards_path
   parent :user
+end
+
+crumb :new_credit do
+  link "クレジットカード情報入力", new_card_path
+  parent :credit
 end
 
 crumb :person_registration do

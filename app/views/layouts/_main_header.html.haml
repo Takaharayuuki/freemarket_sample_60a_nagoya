@@ -18,6 +18,7 @@
           = link_to "#" do
             %i.fas.fa-tag
             ブランドから探す
+
       - if user_signed_in?    
         %ul.m-container__bottom__right
           %li.m-container__bottom__right__likes
@@ -33,7 +34,7 @@
               %i.fas.fa-check
               やることリスト
           %li.m-container__bottom__right__my-page
-            = link_to "#" do
+            = link_to user_path(current_user) do
               = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', class: "my-icon", size: "32x32"
               マイページ
       - else

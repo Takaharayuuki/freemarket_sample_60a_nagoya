@@ -175,6 +175,9 @@
 
         &__btn {
           margin-top: 32px;
+          & input {
+            cursor: pointer;
+          }
 
           .btn-default {
             background: #ea253d;
@@ -223,4 +226,11 @@
       }
     }
   }
+  &__chapter.sign-up {
+    height: 532px;
+  }
+}
+
+.m-card-information-container.sign-up {
+  margin: 0 auto;
 }
