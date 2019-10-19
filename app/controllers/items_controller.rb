@@ -5,8 +5,9 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @prefecture = Prefecture.all
     @item = Item.new
+    @prefecture = Prefecture.all
+    @category = Category.where(ancestry: nil)
   end
 
   def create

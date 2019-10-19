@@ -50,7 +50,7 @@
                     %div
                       .y-select-wrap
                         %i.fas.fa-chevron-down
-                        = f.select :category,[],{},{ class: "y-select-option" }
+                        = f.collection_select :category, @category, :id, :name,{prompt: "---"}, class: "y-select-default", id: "y-parent-form", name: 'item[category_ids][]'
                     .y-sell-content__form-group
                       %label
                         商品の状態
@@ -83,7 +83,7 @@
                         %span.y-form-require 必須
                       .y-select-wrap
                         %i.fas.fa-chevron-down
-                        = f.select :shipping_method,[["---",""],["1日〜2日で発送","1日〜2日で発送]"],["2日〜3日で発送","2日〜3日で発送"],["4日〜7日で発送","4日〜7日で発送"]],{},{ class:"y-select-option"}
+                        = f.select :shipping_method,[["---",""],["1日〜2日で発送","1日〜2日で発送"],["2日〜3日で発送","2日〜3日で発送"],["4日〜7日で発送","4日〜7日で発送"]],{},{ class:"y-select-option"}
                 .y-sell-content.y-clearfix
                   %h3.y-sell-content__head 販売価格(300~9,999,999)
                   = link_to "#", target: "__blank", class:"y-form-question" do

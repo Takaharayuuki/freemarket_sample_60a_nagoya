@@ -24,8 +24,7 @@ gem 'gretel'
 gem 'rails-i18n'
 gem 'payjp'
 gem 'active_hash'
-
-
+gem 'ancestry'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
