@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  
   devise_for :users
-  resources :items
+  root "items#index"
+
+  resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+    end
+  end
+
   resources :user do
     member do
       get 'identification'
@@ -23,10 +29,6 @@ Rails.application.routes.draw do
       post :create
     end
   end
-
-  resources :user
-  
-  root "items#index"
   
   resources :cards, only: %i[index new create destroy show]
 

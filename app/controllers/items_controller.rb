@@ -7,7 +7,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @prefecture = Prefecture.all
-    @category = Category.where(ancestry: nil)
+    @category_parent_array = ["---"]
+    @category = Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
@@ -27,6 +30,10 @@ class ItemsController < ApplicationController
       currency: 'jpy'
     )
   end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+ end
 
   private
 
