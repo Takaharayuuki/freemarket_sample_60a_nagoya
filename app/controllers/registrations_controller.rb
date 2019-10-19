@@ -1,6 +1,8 @@
 class RegistrationsController < ApplicationController
   before_action :validates_step1, only: :new2
   before_action :validates_step2, only: :new3
+  before_action :redirect_to_root_user_signed_in
+
 
   def new
   end
@@ -161,6 +163,10 @@ class RegistrationsController < ApplicationController
 
     def address_params
       params.require(:address).permit(:post_address,:prefecture,:city,:house_number,:building_name,:tel)
+    end
+
+    def redirect_to_root_user_signed_in
+      redirect_to root_path if user_signed_in?
     end
 
 end
