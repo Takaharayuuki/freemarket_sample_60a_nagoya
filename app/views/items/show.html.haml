@@ -1,0 +1,205 @@
+= render "layouts/main_header"
+
+.ta_wrapper-container
+  .ta_wrapper-container__box
+    %h1.ta_item-name
+      少年ジャンプ1981年47号
+    %p.ta_item-word
+      『少年ジャンプ 1981年 47号』は、253回の取引実績を持つガリガリガリ君さんから出品されました。少
+      年漫画/本・音楽・ゲームの商品で、北海道から4~7日で発送されます。
+    .ta_wrapper-container__box__content
+      .ta_wrapper-container__box__content__photo
+        = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161"
+        .ta_wrapper-container__box__content__photo__mini
+      %table.ta_wrapper-container__box__content__table
+        %tbody
+          %tr
+            %th
+              出品者
+            %td
+              = link_to "ガリガリガリ君","#"
+              .ta_user-evaluations
+                .evaluation
+                  %i.fas.fa-laugh
+                  %span 100
+                .evaluation
+                  %i.fas.fa-meh
+                  %span 0
+                .evaluation
+                  %ifas.fas.fa-frown-open
+                  %span 0
+          %tr
+            %th
+              カテゴリー
+            %td
+              =link_to "親カテゴリ","#"
+              =link_to "子カテゴリ","#"
+              =link_to "孫カテゴリ","#"
+          %tr
+            %th
+              ブランド
+            %td
+          %tr
+            %th
+              商品の状態
+            %td
+              全体的に状態が悪い
+          %tr
+            %th
+              配送料の負担
+            %td
+              送料込み(出品者負担)
+          %tr
+            %th
+              配送の方法
+            %td
+              ゆうゆうメルカリ便
+          %tr
+            %th
+              配送元地域
+            %td
+              =link_to "北海道"
+          %tr
+            %th
+              発送日の目安
+            %td
+              4~7日で発送
+
+    .ta_wrapper-container__box__price
+      %span.ta_price
+        ¥2000
+      %span.ta_tax
+        (税込)
+      %span.ta_fee
+        送料込み
+    =link_to "購入画面に進む", "#",class:"ta_wrapper-container__box__btn"
+    
+    %p.ta_wrapper-container__box__text
+      この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+    
+    .ta_wrapper-container__box__item-description
+      %p
+        表紙:キャプテン翼
+        新連載:イカロスの拳 夏目恵二
+        集英社 週刊 少年 ジャンプ 
+        昭和 1981年 47号 80年代物
+
+        即購入OK。
+        ※30年以上経過している中古のため、傷・日焼け・汚れ・歪み・シミ・折れetc有り。
+        ※状態は悪いです。
+        ※画像を拡大して確認してください。
+        ゆうパケット又は、ネコポスにて発送予定。
+
+        自宅保管になりますので完璧をお求めの方、神経質な方はご遠慮とご理解願います。
+        ご不明な点は、ご質問下さい。
+    .ta_wrapper-container__box__item-btnbox
+      .left-btn
+        =link_to do
+          %i.far.fa-heart
+          %span
+            いいね!
+      
+      .right-btn
+        =link_to do
+          %i.fas.fa-flag-checkered
+          %span
+            不適切な商品の報告
+      .right_text
+        =link_to do
+          %i.fas.fa-unlock-alt
+          %span
+            あんしん・あんぜんへの取り組み
+  %ul.ta_wrapper-container__nav
+    %li.prev
+      = link_to "#" do
+        %i.fas.fa-chevron-left
+        %p
+          コンバース converse ALL STAR LIGHT HI
+    %li.next
+      = link_to "#"do
+        %i.fas.fa-chevron-right
+        %p
+          鈴丸みんた
+  .ta_wrapper-container__sns
+    .ta_wrapper-container__sns__btn
+      %ul
+        = link_to "#" do 
+          %li
+            %i.fab.fa-facebook-square
+        = link_to "#" do 
+          %li
+            %i.fab.fa-twitter-square
+        = link_to "#" do 
+          %li
+            %i.fab.fa-pinterest-square
+  .ta-items
+    .ta-items__box
+      %h2
+        =link_to "〇〇さんのその他の出品","#" 
+    .ta-items__contents
+      = render "items/item_content"
+      = render "items/item_content"
+      = render "items/item_content"
+      = render "items/item_content"
+      = render "items/item_content"
+      = render "items/item_content"
+  
+  .ta-relation-items
+    .ta-relation-items__box
+      %h3
+        =link_to "関連のその他の出品","#" 
+    .ta-relation-items__contents
+      = render "items/item_content"
+      = render "items/item_content"
+      = render "items/item_content"
+      = render "items/item_content"
+      = render "items/item_content"
+      = render "items/item_content"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+= render "main_aside"
+= render "layouts/main_footer"

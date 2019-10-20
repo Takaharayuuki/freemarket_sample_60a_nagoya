@@ -1,0 +1,408 @@
+.ta_wrapper-container {
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+}
+
+
+
+.ta_wrapper-container__box {
+  width: 620px;
+  height: 1160px;
+  background-color:white; 
+  padding: 24px 40px 40px;
+  margin: 40px auto 0;
+  & .ta_item-name {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+  }
+  & .ta_item-word {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.5;
+    margin: 8px 0 0;
+  }
+  &__content {
+    height: 420px;
+    width: 620px;
+    margin: 16px 0 0 0;
+    &__photo {
+      height:420px;
+      width: 300px;
+      margin: 0;
+      float: left;
+      & img {
+          height: 300px;
+          width: 300px;
+      }
+      &__mini {
+        height: 120px;
+        width: 300px;
+        background-color: #888;
+      }
+    }
+    &__table {
+      float: right;
+      height: 420px;
+      width: 300px;
+      border-collapse: collapse;
+      border: 1px solid #f5f5f5;
+      & th {
+        width: 39%;
+        text-align: left;
+        font-weight: 400;
+        background: #fafafa;
+        border: 1px solid #f5f5f5;
+        padding: 8px;
+      }
+      & td {
+        border-collapse: collapse;
+        border: 1px solid #f5f5f5;
+        width: 61%;
+        padding: 16px 8px;
+        & a {
+          display: block;
+        }
+      }
+    }
+  }
+  &__price{
+    text-align: center;
+    margin: 24px 0 0;
+    & .ta_price  {
+      font-size: 50px;
+      margin: 0 16px 0 0;
+      font-weight: 600;
+    }
+    & .ta_tax {
+      font-size: 10px;
+    }
+    & .ta_fee {
+      font-size: 16px;
+      display: inline-block;
+    }
+  }
+  &__btn {
+    display: block;
+    margin-top: 16px;
+    background-color: #ea352d;
+    font-size: 24px;
+    color: #fff;
+    line-height: 60px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    touch-action: manipulation;
+  }
+  &__text {
+    margin-top: 16px;
+    color: red;
+    line-height: 1.5;
+    font-size: 14px;
+    text-align: center;
+  }
+  &__item-description {
+    padding: 24px 0 0;
+    line-height: 1.5;
+    font-size: 14px;
+    & p {
+      white-space: pre-wrap;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  }
+  &__item-btnbox {
+    margin: 16px 0 0;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    & .left-btn {
+      & a {
+        display: inline-block;
+        padding: 8px 16px;
+        color: #333;
+        border: 1px solid #f5f5f5;
+        background: #f5f5f5;
+        border-radius: 40px;
+        text-decoration: none;
+      }
+      & i {
+        font-size: 14px;
+        vertical-align: middle;
+        display: inline-block;
+      }
+    } 
+    & .right-btn {
+      & a {
+        display: inline-block;
+        padding: 8px 16px;
+        color: #333;
+        border: 1px solid #f5f5f5;
+        background: #f5f5f5;
+        border-radius: 40px;
+        text-decoration: none;
+        margin-left: 12px;
+      }
+      & i {
+        font-size: 14px;
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+    & .right_text {
+      margin-left: auto;
+      margin-top: 10px;
+      & a {
+        display: inline-block;
+        color: #0099e8;
+        text-decoration: none;
+        touch-action: manipulation;
+       
+      }
+      & i {
+        font-size: 14px;
+        vertical-align: middle;
+      }
+      & span {
+        display: inline-block;
+        margin: 1px 0 0 8px;
+        font-size: 14px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.ta_wrapper-container__nav {
+  margin: 24px auto 0;
+  list-style: none;
+  width: 700px;
+  height: 40px;
+  & .prev {
+    
+    position: relative;
+    width: 43%;
+    word-wrap: break-word;
+    float: left;
+    padding: 0 0 0 14px;
+    & a {
+      color: #0099e8;
+      text-decoration: none;
+      
+    }
+    & .fas.fa-chevron-left {
+      float: left;
+      font-size: 14px;
+    }
+  }
+  & .next {
+    position: relative;
+    width: 43%;
+    word-wrap: break-word;
+    float: right;
+    padding: 0 14px 0 0;
+    text-align: right;
+    & a {
+      color: #0099e8;
+      text-decoration: none;
+    }
+    & .fas.fa-chevron-right {
+      color: #0099e8;
+      float: right;
+      font-size: 14px;
+    }
+  }
+}
+
+.ta_wrapper-container__sns {
+  margin: 0 auto 24px;
+  padding: 32px 0 24px;
+  width: 700px;
+  height: 82px;
+  background-color: white;
+  text-align: center;
+  position: relative;
+  &__btn {
+    position: absolute;
+    bottom: 20px;
+    left: 260px;
+  }
+  & li {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    vertical-align: middle;
+    text-align: center;
+    & .fab.fa-facebook-square {
+      color: #385185;
+    }
+    & .fab.fa-twitter-square {
+      color: #5d9dc9;
+    }
+    & .fab.fa-pinterest-square {
+      color: #aa262a;
+    }
+    & i {
+      font-size: 50px;
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      line-height: 44px;
+      }
+    }
+  }
+
+  .ta-items {
+    height: 720px; 
+    width: 700px;
+    margin:0 auto;
+    &__box {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      & h2 {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 1.4;
+      }
+    }
+    &__contents {
+      height: 700px;
+      width: 700px;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      flex-wrap:wrap;
+
+      &__content {
+        width:30%;
+        height:330px;
+        margin: 0 20px 20px 0;
+        background-color: white;
+        box-sizing: border-box;
+        & img {
+          width: 220px;
+          height:220px;
+        }
+        &__body {
+            height: 110px;
+            width: 220px;
+            background-color: white;
+          & h3 {
+            font-size: 16px;
+            color: black;
+            line-height: 1.5;
+            white-space: normal;
+            word-break: break-word;
+            margin-top: 0px;
+            margin-left: 10px;
+            padding-top: 20px;
+          }
+          & .ta-itemprice {
+            font-size: 17px;
+            font-weight: 600;
+            color: black;
+            margin-left: 10px;
+            margin-top: 10px;
+          }
+          & .ta-like {
+            float: right;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .ta-relation-items {
+    height: 810px; 
+    width: 700px;
+    margin:0 auto;
+    &__box {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      & h2 {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 1.4;
+      }
+    }
+    &__contents {
+      height: 700px;
+      width: 700px;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      flex-wrap:wrap;
+
+      &__content {
+        width:30%;
+        height:330px;
+        margin: 0 20px 20px 0;
+        background-color: white;
+        box-sizing: border-box;
+        & img {
+          width: 220px;
+          height:220px;
+        }
+        &__body {
+            height: 110px;
+            width: 220px;
+            background-color: white;
+          & h3 {
+            font-size: 16px;
+            color: black;
+            line-height: 1.5;
+            white-space: normal;
+            word-break: break-word;
+            margin-top: 0px;
+            margin-left: 10px;
+            padding-top: 20px;
+          }
+          & .ta-itemprice {
+            font-size: 17px;
+            font-weight: 600;
+            color: black;
+            margin-left: 10px;
+            margin-top: 10px;
+          }
+          & .ta-like {
+            float: right;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+
+.ta_user-evaluations {
+  & .evaluation {
+    display: inline-block;
+    & .fas.fa-laugh {
+      font-size: 16px;
+      color: #ef5185;
+      vertical-align: middle;
+      margin: 8px 0 0 5px;
+    }
+    & .fas.fa-meh {
+      font-size: 16px;
+      color:#fba933;
+      vertical-align: middle;
+      margin: 8px 0 0 14px;
+    }
+    
+    & .fas.fa-frown-open {
+      font-size: 16px;
+      color: #6ab5d8;
+      vertical-align: middle;
+      margin: 8px 0 0 14px;
+    }
+    
+    & span {
+      vertical-align: middle;
+      margin: 10px 0 0 0px;
+    }
+  }
+}
