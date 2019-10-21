@@ -1,9 +1,10 @@
 class CardsController < ApplicationController
+  before_action :redirect_to_login_form_unless_signed_in
   before_action :set_card, only: %i[index new show destroy]
   require "payjp"
 
   def index
-    redirect_to card_path(current_user.id) if @card
+    redirect_to card_path(current_user) if @card
   end
 
   def new
@@ -23,7 +24,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to card_path(current_user.id)
+        redirect_to card_path(current_user)
       else
         render :new
       end
@@ -49,7 +50,7 @@ class CardsController < ApplicationController
 
   private
   def set_card
-    @card = current_user.card
+    @card = current_user.card if user_signed_in?
   end
 
 end
