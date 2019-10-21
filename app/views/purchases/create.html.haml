@@ -20,7 +20,7 @@
     .m-purchase-confirm-container__user-info__box
       配送先
       .m-purchase-confirm-container__user-info__box__address
-        〒000-0000
+        = "〒#{current_user.address.post_address}"
         %br ************************
         name
   .m-purchase-container__content__buy-user-info-last
@@ -52,7 +52,3 @@
       .m-purchase-confirm-container__guide__box__mypage
         = link_to user_path(current_user) do
           マイページへ戻る
-
-
-
-  renderで持ってくるheader

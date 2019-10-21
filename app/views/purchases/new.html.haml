@@ -27,7 +27,7 @@
       .m-purchase-container__content__buy-user-info__inner
         %h3 配送先
         .m-purchase-container__content__buy-user-info__address
-          〒111-1111
+          = "〒#{@post_num_first}-#{@post_num_second}"
           %br address**********
           name
         .m-purchase-container__content__buy-user-info__change

@@ -4,6 +4,8 @@ class PurchasesController < ApplicationController
     @item = Item.find(1)
     @address = current_user.address
     @card = current_user.card
+    @post_num_first = @address.post_address.to_s.slice(0, 3)
+    @post_num_second = @address.post_address.to_s.slice(3, 7)
     if @card
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
