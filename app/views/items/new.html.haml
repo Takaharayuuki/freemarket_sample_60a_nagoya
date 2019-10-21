@@ -12,7 +12,7 @@
             .y-sell-container__inner
               .y-single-head 商品の情報を入力
 
-              = form_with model: @item, url: items_path, class: "y-sell-form", method: :post, local: true do |f|
+              = form_with model: @item, url: items_path, class: "y-sell-form", method: :post, local:true do |f|
                 .y-sell-container__upload-box
                   %h3.y-sell-container__upload-head
                     出品画像
@@ -50,7 +50,7 @@
                     %div
                       .y-select-wrap
                         %i.fas.fa-chevron-down
-                        = f.collection_select :category, @category, :id, :name,{prompt: "---"}, class: "y-select-default", id: "y-parent-form", name: 'item[category_ids][]'
+                        = f.collection_select :category, @category, :id, :name, {prompt: "---"}, class: "y-select-default", id: "y-parent-form", name: 'category-id'
                     .y-sell-content__form-group
                       %label
                         商品の状態
