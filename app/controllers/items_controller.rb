@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   require "payjp"
 
   def index
+    @items = Item.order("created_at DESC").limit(15)
   end
 
   def new
