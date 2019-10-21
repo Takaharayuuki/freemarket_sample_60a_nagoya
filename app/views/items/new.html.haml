@@ -29,28 +29,30 @@
                       %pre.y-visible-pc
                         ドラッグアンドドロップ
                         またはクリックしてファイルをアップロード
+
                 .y-sell-content
                   .y-sell-content__form-group
                     %label
                       商品名
                       %span.y-form-require 必須
                     = f.text_field :name, class: "y-input-default-item", value: "", placeholder: "商品名(必須 40文字まで)"
+
                   .y-sell-content__form-group
                     %label
                       商品の説明
                       %span.y-form-require 必須
                     = f.text_area :description, class: "y-textarea-default", row: "5", placeholder: "商品の説明(必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
+                
                 .y-sell-content.y-clearfix
                   %h3.y-sell-content__head 商品の詳細
                   .y-sell-content__form-box
-                    .y-sell-content__form-group
-                      %label
-                        カテゴリー
-                        %span.y-form-require 必須
-                    %div
-                      .y-select-wrap
-                        %i.fas.fa-chevron-down
-                        = f.collection_select :category, @category, :id, :name, {prompt: "---"}, class: "y-select-default", id: "y-parent-form", name: 'category-id'
+                    .listing-product-detail__category
+                      = f.label 'カテゴリー', class: 'y-sell-label'
+                      %span.y-form-require 必須
+                      .listing-select-wrapper
+                        .listing-select-wrapper__box
+                          = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                          %i.fas.fa-chevron-down
                     .y-sell-content__form-group
                       %label
                         商品の状態
@@ -58,6 +60,7 @@
                       .y-select-wrap
                         %i.fas.fa-chevron-down
                         = f.select :condition, [["---", ""], ["新品", "新品"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]],{},{ class: "y-select-option" }
+                
                 .y-sell-content.y-clearfix
                   %h3.y-sell-content__head 配送について
                   = link_to "#", target: "__blank", class:"y-form-question" do

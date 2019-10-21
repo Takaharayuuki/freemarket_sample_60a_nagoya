@@ -7,7 +7,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @prefecture = Prefecture.all
-    @category = Category.where(ancestry: nil)
+    @category_parent_array = ["---"]
+    @category = Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
@@ -32,10 +35,14 @@ class ItemsController < ApplicationController
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
-#   private
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
 
-#   def create_params
-#     params.require(:item).permit(:name, :price, :condition, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id).merge(user_id: current_user.id)
-#   end
+  private
+
+  def create_params
+    params.require(:item).permit(:name, :price, :condition, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id).merge(user_id: current_user.id)
+  end
 
 end
