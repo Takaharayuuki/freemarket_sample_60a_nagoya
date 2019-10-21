@@ -11,18 +11,18 @@
   .m-purchase-confirm-container__buy-item
     .m-purchase-confirm-container__buy-item__inner
       %h3= image_tag 'https://static.mercdn.net/thumb/photos/m84431990341_1.jpg?1570765723', height: '148px', width: '148px'
-      %p 鯖缶
+      %p= @item.name
   .m-purchase-confirm-container__price
     .m-purchase-confirm-container__price__box
-      ¥1,000
+      = "¥#{@item.price.to_s(:delimited)}"
       %span 送料込み
   .m-purchase-confirm-container__user-info
     .m-purchase-confirm-container__user-info__box
       配送先
       .m-purchase-confirm-container__user-info__box__address
-        = "〒#{current_user.address.post_address}"
-        %br ************************
-        name
+        = "〒#{@post_num_first}-#{@post_num_last}"
+        %br= @address
+        = "#{current_user.last_name} #{current_user.first_name}"
   .m-purchase-container__content__buy-user-info-last
     .m-purchase-container__content__buy-user-info__inner
       %h3 支払い方法
