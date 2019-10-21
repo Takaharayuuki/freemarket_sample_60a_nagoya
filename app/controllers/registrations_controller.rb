@@ -38,7 +38,7 @@ class RegistrationsController < ApplicationController
     session[:city] = address_params[:city]
     session[:house_number] = address_params[:house_number]
     session[:building_name] = address_params[:building_name]
-    session[:tel] = address_params[:tel]
+    session[:tell] = address_params[:tell]
     @card = Card.new
   end
 
@@ -69,7 +69,7 @@ class RegistrationsController < ApplicationController
         city: session[:city],
         house_number: session[:house_number],
         building_name: session[:building_name],
-        tel: session[:tel],
+        tell: session[:tell],
         user_id: session[:user_id]
       )
       if @address.save
@@ -162,7 +162,7 @@ class RegistrationsController < ApplicationController
     end
 
     def address_params
-      params.require(:address).permit(:post_address,:prefecture_id,:city,:house_number,:building_name,:tel)
+      params.require(:address).permit(:post_address,:prefecture_id,:city,:house_number,:building_name,:tell)
     end
 
     def redirect_to_root_user_signed_in

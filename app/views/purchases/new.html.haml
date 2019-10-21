@@ -11,7 +11,7 @@
         %p.m-purchase-container__content__buy-item__inner__item-name
           item-nameitem-nameitem-nameitem-nameitem-nameitem-nameitem-nameitem-name
         %p.m-purchase-container__content__buy-item__inner__item-price
-          ¥1,000
+          = "¥#{@item.price}"
           %span 送料込み
         .m-purchase-container__content__buy-item__inner__point
           ポイントはありません
@@ -19,7 +19,7 @@
           .m-purchase-container__content__buy-item__inner__price-table__price-left
             支払い金額
           .m-purchase-container__content__buy-item__inner__price-table__price-right
-            ¥1,000
+            = "¥#{@item.price}"
         .m-purchase-container__content__buy-item__inner__purchase-btn
           = link_to purchases_path, method: :post do
             購入する
@@ -28,8 +28,8 @@
         %h3 配送先
         .m-purchase-container__content__buy-user-info__address
           = "〒#{@post_num_first}-#{@post_num_second}"
-          %br address**********
-          name
+          %br= @address
+          = "#{current_user.last_name} #{current_user.first_name}"
         .m-purchase-container__content__buy-user-info__change
           = link_to "#" do
             変更する
