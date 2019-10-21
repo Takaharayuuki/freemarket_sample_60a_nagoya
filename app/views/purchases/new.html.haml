@@ -9,9 +9,9 @@
         %h3
           = image_tag 'https://static.mercdn.net/thumb/photos/m84431990341_1.jpg?1570765723', width: '64px'
         %p.m-purchase-container__content__buy-item__inner__item-name
-          item-nameitem-nameitem-nameitem-nameitem-nameitem-nameitem-nameitem-name
+          = @item.name
         %p.m-purchase-container__content__buy-item__inner__item-price
-          = "¥#{@item.price}"
+          = "¥#{@item.price.to_s(:delimited)}"
           %span 送料込み
         .m-purchase-container__content__buy-item__inner__point
           ポイントはありません
@@ -19,7 +19,7 @@
           .m-purchase-container__content__buy-item__inner__price-table__price-left
             支払い金額
           .m-purchase-container__content__buy-item__inner__price-table__price-right
-            = "¥#{@item.price}"
+            = "¥#{@item.price.to_s(:delimited)}"
         .m-purchase-container__content__buy-item__inner__purchase-btn
           = link_to purchases_path, method: :post do
             購入する
