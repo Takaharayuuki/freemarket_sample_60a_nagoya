@@ -108,12 +108,12 @@
           position: relative;
           padding-right: 10px;
 
-          a {
+          & a {
             @include header_left_menu;
             font-weight: 600;
           }
 
-          i {
+          & i {
             color: rgb(234, 53, 45);
             height: 12px;
             margin-right: 4px;
@@ -124,16 +124,44 @@
           cursor: pointer;
           height: 44px;
           padding-left: 10px;
+          position: relative;
 
-          a {
+          & a {
             @include header_left_menu;
             font-weight: 600;
           }
 
-          i {
+          & i {
             color: rgb(234, 53, 45);
             height: 12px;
             margin-right: 4px;
+          }
+          //ブランドのドロップダウンメニュー
+          .brand-drop-down {
+            background: #fff;
+            position: absolute;
+            top: 44px;
+            left: 0;
+            z-index: 1;
+            display: none;
+            &__menu {
+              width: 224px;
+              box-shadow: rgba(0, 0, 0, .18) 0 2px 4px;
+              &__list {
+                & a {
+                  display: block;
+                  font-weight: normal;
+                  font-size: 14px;
+                  line-height: 44px;
+                  white-space: nowrap;
+                  padding: 0 16px;
+                  &:hover {
+                    background: rgb(234, 53, 45);
+                    color: #fff;
+                  }
+                }
+              }
+            }
           }
         }
       }
