@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :last_name,:first_name,:last_name_kana,:first_name_kana,:birth_year,:birth_month,:birth_day])
   end
+
+  def redirect_to_login_form_unless_signed_in
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
 end
