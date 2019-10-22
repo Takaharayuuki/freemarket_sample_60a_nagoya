@@ -3,20 +3,32 @@
 .ta_wrapper-container
   .ta_wrapper-container__box
     %h1.ta_item-name
-      = @item.name
+      -# = @item.name
     %p.ta_item-word
       『少年ジャンプ 1981年 47号』は、253回の取引実績を持つガリガリガリ君さんから出品されました。少
       年漫画/本・音楽・ゲームの商品で、北海道から4~7日で発送されます。
     .ta_wrapper-container__box__content
-      .ta_mainimage
-        = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161",alt:"翼"
-        .ta_thumbnails
-          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161",alt:"翼2"
-          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_3.jpg?1568022161",alt:"翼3" 
-          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_4.jpg?1568022161",alt:"翼4"
-          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_5.jpg?1568022161",alt:"翼5"
-          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_6.jpg?1568022161",alt:"翼6"
-          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_7.jpg?1568022161",alt:"翼7"
+      .ta_mainimage#flickscroll
+        %ul
+          %li
+            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161",alt:"翼"
+          %li
+            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_4.jpg?1568022161",alt:"翼2"
+          %li
+            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_3.jpg?1568022161",alt:"翼3" 
+          %li
+            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_5.jpg?1568022161",alt:"翼4"
+      .ta_thumbnails#flickthumb
+        %ul
+          %li
+            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161",alt:"翼",width:"60", height:"60"
+          %li
+            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_4.jpg?1568022161",alt:"翼4",width:"60", height:"60"
+          %li
+            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_3.jpg?1568022161",alt:"翼3",width:"60", height:"60"
+          %li
+            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_5.jpg?1568022161",alt:"翼4",width:"60", height:"60"
+         
 
       %table.ta_wrapper-container__box__content__table
         %tbody
@@ -50,17 +62,17 @@
             %th
               商品の状態
             %td
-              = @item.condition
+              -# = @item.condition
           %tr
             %th
               配送料の負担
             %td
-              = @item.burden
+              -# = @item.burden
           %tr
             %th
               配送の方法
             %td
-              = @item.shipping_method
+              -# = @item.shipping_method
           %tr
             %th
               配送元地域
@@ -70,11 +82,11 @@
             %th
               発送日の目安
             %td
-              = @item.indication
+              -# = @item.indication
 
     .ta_wrapper-container__box__price
       %span.ta_price
-        ¥2000
+        ¥2,000
       %span.ta_tax
         (税込)
       %span.ta_fee
@@ -86,7 +98,7 @@
     
     .ta_wrapper-container__box__item-description
       %p
-        = @item.description
+        -# = @item.description
     .ta_wrapper-container__box__item-btnbox
       .left-btn
         =link_to do
