@@ -175,6 +175,7 @@
 
         &__btn {
           margin-top: 32px;
+
           & input {
             cursor: pointer;
           }
@@ -219,6 +220,7 @@
             bottom: 100%;
             right: 32px;
           }
+
           .help-fig-margin {
             margin-top: 8px;
           }
@@ -226,6 +228,7 @@
       }
     }
   }
+
   &__chapter.sign-up {
     height: 532px;
   }

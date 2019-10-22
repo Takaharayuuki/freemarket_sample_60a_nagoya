@@ -1,5 +1,5 @@
 body {
-  background-color:rgb(245, 245, 245);
+  background-color: rgb(245, 245, 245);
 }
 
 .ta-re-header {
@@ -7,55 +7,69 @@ body {
   height: 128px;
   display: flex;
   margin: 0 auto;
+
+
   &__logo {
-    
-    margin: 40px 0 0 ;
-  
+
+    margin: 40px 0 0;
+
     &:hover {
       opacity: 0.7;
     }
+
     & img {
       width: 185px;
       height: 60px;
-      
+
     }
   }
+
   &__progress {
     margin: 40px 0 0 55px;
     width: 100%;
+
     & ul {
       display: flex;
       justify-content: space-between;
-      .through{
+
+      .through {
         .bubble {
           background-color: red;
-          &::before{
+
+          &::before {
             background-color: red;
           }
+
           &::after {
             background-color: red;
           }
         }
       }
-    .active {
-      color: red;
-      .bubble {
-        background-color: red;
-        &::before {
+
+      .active {
+        color: red;
+
+        .bubble {
           background-color: red;
+
+          &::before {
+            background-color: red;
+          }
         }
       }
-    }
-    li {
-      font-size: 12px;
-      color: #777;
-      .bubble {
-        background-color: #ccc;
+
+      li {
+        font-size: 12px;
+        color: #777;
+
+        .bubble {
+          background-color: #ccc;
           height: 12px;
           width: 12px;
           border-radius: 50%;
           margin: 8px auto;
           position: relative;
+
           &::before {
             width: 70px;
             height: 2px;
@@ -65,58 +79,70 @@ body {
             top: 5px;
             right: 100%;
             background-color: #ccc;
+          }
+
+          &::after {
+            width: 70px;
+            height: 2px;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 100%;
+            background-color: #ccc;
+          }
+        }
+
+        .bubble-first::before {
+          content: none;
+        }
+
+        .bubble-last::after {
+          content: none;
+        }
       }
-      &::after {
-        width: 70px;
-        height: 2px;
-        content: "";
-        display: block;
-        position: absolute;
-        top: 5px;
-        left: 100%;
-        background-color: #ccc;
-      }
     }
-    .bubble-first::before {
-      content: none;
-    }
-    .bubble-last::after {
-      content: none;
-    }
-  }
-}
   }
 }
 
 .ta-re-main {
   display: block;
+
   &__container {
     width: 700px;
     height: 1280px;
-    
+
     margin: 0 auto;
     background-color: white;
+
     &__logo {
       font-size: 22px;
       text-align: center;
       padding: 32px;
       font-weight: bold;
     }
+
     &__form {
       border-top: 1px solid #f5f5f5;
       padding: 11px 40px 64px;
+
       &__content {
         width: 343px;
         height: 851px;
         margin: 0 auto;
         max-width: 343px;
+
         &__group {
           margin-top: 30px;
+
+
+
           & label {
             font-weight: bold;
             display: inline-block;
             font-size: 14px;
           }
+
           & span {
             background: #ea352d;
             margin: 0 0 0 8px;
@@ -126,6 +152,7 @@ body {
             font-size: 12px;
             vertical-align: top;
           }
+
           & input {
             margin: 5px 0 0;
             height: 27px;
@@ -137,30 +164,39 @@ body {
             line-height: 1.5;
             font-size: 16px;
           }
+
+
+
           & h3 {
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 5px;
           }
+
           & p {
             font-size: 15px;
-          }  
+          }
         }
+
         &__half {
           margin-top: 30px;
           margin-bottom: 30px;
+
           & .box {
             display: flex;
             display: -webkit-flex;
+
             & .right {
               margin-left: 10px;
             }
           }
+
           & label {
             font-weight: bold;
             display: inline-block;
             font-size: 14px;
           }
+
           & span {
             background: #ea352d;
             margin: 0 0 0 8px;
@@ -170,6 +206,7 @@ body {
             font-size: 12px;
             vertical-align: top;
           }
+
           & input {
             margin: 8px 0px 0;
             height: 27px;
@@ -180,42 +217,49 @@ body {
             background: #fff;
             line-height: 1.5;
             font-size: 16px;
-            
+
           }
         }
+
         &__birth {
-            margin-top: 20px;
+          margin-top: 20px;
+
           &__bigbox {
             display: flex;
             display: -webkit-flex;
+
             & .year {
               height: 50px;
               background-color: white;
               border: 1px solid #ccc;
-              width:99px;
+              width: 99px;
               margin-top: 8px;
             }
+
             & .month {
               height: 50px;
               background-color: white;
               border: 1px solid #ccc;
-              width:85px;
+              width: 85px;
               margin-top: 8px;
             }
+
             & .day {
               height: 50px;
               background-color: white;
               border: 1px solid #ccc;
-              width:85px;
+              width: 85px;
               margin-top: 8px;
             }
           }
-          
+
           & label {
             font-weight: bold;
             display: inline-block;
             font-size: 14px;
+
           }
+
           &__span {
             background: #ea352d;
             margin: 0 0 0 8px;
@@ -224,10 +268,12 @@ body {
             color: #fff;
             font-size: 12px;
             vertical-align: top;
+
             &__text {
               line-height: 60px;
             }
           }
+
           &__box {
             width: 80px;
             height: 43px;
@@ -237,23 +283,27 @@ body {
             margin-top: 5px;
           }
         }
+
         &__text {
           font-size: 14px;
           color: #888;
           margin-top: 10px;
           margin-bottom: 40px;
         }
+
         &__robot {
           height: 70px;
           width: 300px;
           background-color: #888;
           margin-top: 20px;
         }
+
         &__centertext {
           margin-top: 40px;
           text-align: center;
           font-size: 14px;
         }
+
         &__btnred {
           background-color: #ea352d;
           border: 1px solid #ea352d;
@@ -263,6 +313,7 @@ body {
           font-size: 14px;
           margin-top: 30px;
         }
+
         &__link {
           margin-top: 30px;
           margin-left: 160px;
@@ -279,6 +330,7 @@ body {
   width: 425px;
   height: 200px;
   margin: 0 auto;
+
   &__a {
     text-align: center;
     color: #333;
@@ -286,16 +338,19 @@ body {
     font-size: 12px;
     margin-top: 40px;
   }
+
   &__logo {
     width: 80px;
     height: 65px;
     margin: 20px 20px 5px 170px;
   }
+
   &__b {
     text-align: center;
     font-size: 12px;
   }
-  &__c{
+
+  &__c {
     margin-top: 40px;
     margin-left: 15px;
     color: #333;
@@ -307,10 +362,40 @@ body {
 
 .chat-group-form__errors {
   margin-bottom: 20px;
+
   & h1 {
     color: red;
   }
+
   & li {
-    color:red;
+    color: red;
+  }
+}
+
+.m-select {
+  display: flex;
+  position: relative;
+
+  #address_prefecture_id {
+    z-index: 2;
+    width: 334px;
+    height: 47px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: solid 1px #ccc;
+    background: 0;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-appearance: none;
+    margin-top: 5px;
+    box-sizing: border-box;
+    
+  }
+  i {
+    font-size: 19px;
+    color: #888;
+    position: absolute;
+    right: 15px;
+    top: 35%;
   }
 }

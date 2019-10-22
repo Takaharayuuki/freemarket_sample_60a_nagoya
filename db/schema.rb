@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_111955) do
+ActiveRecord::Schema.define(version: 2019_10_21_051358) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_address"
-    t.string "prefecture"
     t.string "city"
-    t.integer "house_number"
     t.string "building_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "tel"
+    t.integer "prefecture_id", null: false
+    t.string "house_number"
+    t.string "tell"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -34,12 +34,11 @@ ActiveRecord::Schema.define(version: 2019_10_16_111955) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "path"
     t.string "category"
-    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_categories_on_item_id"
+    t.string "name"
+    t.string "ancestry"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,7 +90,6 @@ ActiveRecord::Schema.define(version: 2019_10_16_111955) do
   end
 
   add_foreign_key "cards", "users"
-  add_foreign_key "categories", "items"
   add_foreign_key "images", "items"
   add_foreign_key "images", "users"
   add_foreign_key "items", "users"
