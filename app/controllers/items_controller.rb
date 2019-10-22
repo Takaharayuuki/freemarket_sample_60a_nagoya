@@ -9,6 +9,10 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def show
+    @item = Item.first
+  end
+
   def create
     # binding.pry
     Item.create(create_params)

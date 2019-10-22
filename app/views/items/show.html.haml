@@ -3,14 +3,21 @@
 .ta_wrapper-container
   .ta_wrapper-container__box
     %h1.ta_item-name
-      少年ジャンプ1981年47号
+      = @item.name
     %p.ta_item-word
       『少年ジャンプ 1981年 47号』は、253回の取引実績を持つガリガリガリ君さんから出品されました。少
       年漫画/本・音楽・ゲームの商品で、北海道から4~7日で発送されます。
     .ta_wrapper-container__box__content
-      .ta_wrapper-container__box__content__photo
-        = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161"
-        .ta_wrapper-container__box__content__photo__mini
+      .ta_mainimage
+        = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161",alt:"翼"
+        .ta_thumbnails
+          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161",alt:"翼2"
+          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_3.jpg?1568022161",alt:"翼3" 
+          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_4.jpg?1568022161",alt:"翼4"
+          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_5.jpg?1568022161",alt:"翼5"
+          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_6.jpg?1568022161",alt:"翼6"
+          = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_7.jpg?1568022161",alt:"翼7"
+
       %table.ta_wrapper-container__box__content__table
         %tbody
           %tr
@@ -43,17 +50,17 @@
             %th
               商品の状態
             %td
-              全体的に状態が悪い
+              = @item.condition
           %tr
             %th
               配送料の負担
             %td
-              送料込み(出品者負担)
+              = @item.burden
           %tr
             %th
               配送の方法
             %td
-              ゆうゆうメルカリ便
+              = @item.shipping_method
           %tr
             %th
               配送元地域
@@ -63,7 +70,7 @@
             %th
               発送日の目安
             %td
-              4~7日で発送
+              = @item.indication
 
     .ta_wrapper-container__box__price
       %span.ta_price
@@ -79,19 +86,7 @@
     
     .ta_wrapper-container__box__item-description
       %p
-        表紙:キャプテン翼
-        新連載:イカロスの拳 夏目恵二
-        集英社 週刊 少年 ジャンプ 
-        昭和 1981年 47号 80年代物
-
-        即購入OK。
-        ※30年以上経過している中古のため、傷・日焼け・汚れ・歪み・シミ・折れetc有り。
-        ※状態は悪いです。
-        ※画像を拡大して確認してください。
-        ゆうパケット又は、ネコポスにて発送予定。
-
-        自宅保管になりますので完璧をお求めの方、神経質な方はご遠慮とご理解願います。
-        ご不明な点は、ご質問下さい。
+        = @item.description
     .ta_wrapper-container__box__item-btnbox
       .left-btn
         =link_to do
