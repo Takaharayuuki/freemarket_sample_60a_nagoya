@@ -101,14 +101,14 @@
                           .y-right.y-sell-price-input
                             ¥
                             %div
-                              = f.text_field :price,{class: "y-input-default", value:"", placeholder: "例）300"}
+                              = f.text_field :price,{class: "y-input-default", id: "y-sell-input-main", value:"", placeholder: "例）300"}
                       %li.y-clearfix
                         .y-left
                           販売手数料（10%）
-                        .y-right -
+                        #y-sell-fee.y-right -
                       %li.y-clearfix
                         .y-left-bold 販売利益
-                        .y-right-bold -
+                        #y-sell-profit.y-right-bold -
                 .y-sell-content.y-btn-box
                   %p.y-sell-btn-box
                     = link_to "禁止されている出品", "#", target: "_blank"
