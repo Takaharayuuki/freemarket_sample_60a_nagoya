@@ -43,19 +43,19 @@
           %li.m-container__bottom__right__likes
             = link_to "#", id: "likes-box" do
               %i.far.fa-heart
-              いいね！一覧
+              %p.likes-text いいね！一覧
           %li.m-container__bottom__right__notice
-            = link_to "#" do
+            = link_to "#", id: "notice-box" do
               %i.far.fa-bell
-              お知らせ
+              %p.notice-text お知らせ
           %li.m-container__bottom__right__list
-            = link_to "#" do
+            = link_to "#", id: "list-box" do
               %i.fas.fa-check
-              やることリスト
+              %p.list-text やることリスト
           %li.m-container__bottom__right__my-page
-            = link_to user_path(current_user) do
+            = link_to user_path(current_user), id: "mypage-box" do
               = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', class: "my-icon", size: "32x32"
-              マイページ
+              %p.m-text マイページ
       - else
         %ul.m-container__bottom__right
           %li.m-container__bottom__right__signup-btn
