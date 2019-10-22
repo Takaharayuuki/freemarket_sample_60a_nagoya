@@ -33,9 +33,13 @@ class CardsController < ApplicationController
   end
 
   def show
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    @card_information = customer.cards.retrieve(@card.card_id)
+    if @card
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
+    else
+      render :index
+    end
   end
 
   def destroy
