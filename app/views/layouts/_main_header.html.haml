@@ -13,11 +13,17 @@
         .m-container__bottom__left__category
           = link_to "#" do
             %i.fas.fa-list-ul
-            カテゴリーから探す
+            %span.m-category-text カテゴリーから探す
+          .m-category-list
+            .m-category-list__parents
+              - @parents.each do |parent|
+                = link_to "#{parent.name}", root_path
+              .m-category-list__parents__children
+
         .m-container__bottom__left__brand
           = link_to "#" do
             %i.fas.fa-tag
-            ブランドから探す
+            %span.m-brand-text ブランドから探す
           .brand-drop-down
             %ul.brand-drop-down__menu
               %li.brand-drop-down__menu__list
@@ -49,9 +55,9 @@
               %i.far.fa-bell
               %p.notice-text お知らせ
           %li.m-container__bottom__right__list
-            = link_to "#", id: "list-box" do
+            = link_to "#", id: "todo-box" do
               %i.fas.fa-check
-              %p.list-text やることリスト
+              %p.todo-text やることリスト
           %li.m-container__bottom__right__my-page
             = link_to user_path(current_user), id: "mypage-box" do
               = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', class: "my-icon", size: "32x32"

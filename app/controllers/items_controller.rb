@@ -3,6 +3,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order("created_at DESC").limit(15)
+    @parents = Category.where(ancestry: nil)
+    # @parents = []
+    # parent_categories.each do |parent|
+    #   @parents.push(parent.name)
+    # end
   end
 
   def new

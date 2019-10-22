@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  //検索ボックス
   $('#input-box').focusin(function() {
     $(this).css({
       'border-color': '#038de3',
@@ -10,8 +11,7 @@ $(document).on('turbolinks:load', function() {
     })
   })
 
-
-
+  //いいね一覧
   $("#likes-box").hover(function() {
     $(".fa-heart").css({
       "color": "#038de3"
@@ -29,7 +29,7 @@ $(document).on('turbolinks:load', function() {
     });
   })
 
-
+  //お知らせ一覧
   $("#notice-box").hover(function() {
     $(".fa-bell").css({
       "color": "#038de3"
@@ -47,12 +47,12 @@ $(document).on('turbolinks:load', function() {
     });
   })
 
-
-  $("#list-box").hover(function() {
+  //やることリスト
+  $("#todo-box").hover(function() {
     $(".fa-check").css({
       "color": "#038de3"
     });
-    $(".list-text").css({
+    $(".todo-text").css({
       "color": "#038de3",
       "transition": ".3s"
     });
@@ -60,12 +60,12 @@ $(document).on('turbolinks:load', function() {
     $(".fa-check").css({
       "color": "rgb(204, 204, 204)"
     });
-    $(".list-text").css({
+    $(".todo-text").css({
       "color": ""
     });
   })
 
-
+  //マイページ
   $("#mypage-box").hover(function() {
     $(".m-text").css({
       "color": "#038de3",
@@ -77,17 +77,28 @@ $(document).on('turbolinks:load', function() {
     });
   })
 
+  //カテゴリーのドロップダウンメニュー
   $(".m-container__bottom__left__category").hover(function() {
-    console.log("ok");
+    $(".m-category-text").css({
+      "color": "#038de3"
+    });
   }, function() {
-    console.log("ok");
+    $(".m-category-text").css({
+      "color": ""
+    });
   });
 
 
-  // ブランドのドロップダウンメニュー
+  //ブランドのドロップダウンメニュー
   $(".m-container__bottom__left__brand").hover(function() {
     $(".brand-drop-down").show();
+    $(".m-brand-text").css({
+      "color": "#038de3"
+    });
   }, function() {
     $(".brand-drop-down").hide();
+    $(".m-brand-text").css({
+      "color": ""
+    });
   });
 })

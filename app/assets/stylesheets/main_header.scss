@@ -118,6 +118,31 @@
             height: 12px;
             margin-right: 4px;
           }
+          .m-category-list {
+            position: absolute;
+            top: 44px;
+            left: 0;
+            z-index: 1;
+            &__parents {
+              // display: none;
+              background-color: #fff;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              width: 224px;
+              & a {
+                display: block;
+                font-size: 14px;
+                line-height: 44px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 0 16px;
+                font-weight: normal;
+                &:hover {
+                  background: rgb(234, 53, 45);
+                  color: #fff;
+                }
+              }
+            }
+          }
         }
 
         &__brand {
