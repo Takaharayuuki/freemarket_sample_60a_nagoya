@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :set_item, only: %i[create]
 
   def new
     @item = Item.find(1)
@@ -13,7 +14,6 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @address = current_user.address.prefecture[:name] + current_user.address.city + current_user.address.house_number + current_user.address.building_name
     @post_num_first = current_user.address.post_address.to_s.slice(0, 3)
     @post_num_last = current_user.address.post_address.to_s.slice(3, 7)
@@ -26,6 +26,12 @@ class PurchasesController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy'
     )
+  end
+
+  private
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
 end
