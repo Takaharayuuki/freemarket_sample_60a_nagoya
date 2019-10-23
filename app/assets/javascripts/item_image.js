@@ -1,77 +1,111 @@
-// プレビューに挿入するHTMLの作成
-function buildImage(loadedImageUri){
-  var html =
-  `<li>
-    <img src=${loadedImageUri}>
-    <div class="item__images__container__preview__box">
-      <div class="item__images__container__preview__box__edit" >
-        編集
-      </div>
-      <div>
-        <a class="item__images__container__preview__box__delete">削除</a>
-      </div>
-    </div>
-  </li>`
-  return html
-};
-// 画像を管理するための配列を定義する。
-var files_array = [];
-// 通常のドラッグオーバイベントを止める。
-$('.y-sell-container__file-area').on('dragover',function(e){
-    e.preventDefault();
-});
-// ドロップ時のイベントの作成
-$('.y-sell-container__file-area').on('drop',function(event){
-  event.preventDefault();
-    // 何故か、dataTransferがうまくいかなかったので、originalEventから読み込んでいます。
-    // ここで、イベントによって得たファイルを配列で取り込んでいます。
-  files = event.originalEvent.dataTransfer.files;
-    // 画像のファイルを一つづつ、先ほどの画像管理用の配列に追加する。
-  for (var i=0; i<files.length; i++) {
-    files_array.push(files[i]);
-    var fileReader = new FileReader();
-    // ファイルが読み込まれた際に、行う動作を定義する。
-    fileReader.onload = function( event ) {
-    // 画像のurlを取得します。
-    var loadedImageUri = event.target.result;
-    // 取得したURLを利用して、ビューにHTMLを挿入する。
-    $(buildImage(loadedImageUri,)).appendTo(".y-sell-container__file-area ul").trigger("create");
-    };
-    // ファイルの読み込みを行う。
-    fileReader.readAsDataURL(files[i]);
-  }
-});
+$(document).on('turbolinks:load', function(){
+  $(function() {
+    var dropzone = $('.dropzone-area');
+    var images = [];
+    var inputs  =[];
+    var input_area = $('.input_area');
+    var preview = $('#preview');
 
-$(document).on('click','.y-sell-container__file-area a', function(){
-  // index関数を利用して、クリックされたaタグが、div内で何番目のものか特定する。
-  var index = $(".y-sell-container__file-area a").index(this);
-  // クリックされたaタグの順番から、削除すべき画像を特定し、配列から削除する。
-  files_array.splice(index - 1, 1);
-  // クリックされたaタグが含まれるli要素をHTMLから削除する。
-  $(this).parent().parent().parent().remove();
-});
+    // ファイルの読み込みとプレビュー画像の生成
+    $(document).on('change', 'input[type= "file"].upload-image',function(event) {
+      var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      inputs.push($(this));
+      var img = $(`<div class= "img_view"><img class="preview" width="114px" height="114px"></div>`);
+      reader.onload = function(e) {
+        var btn_edit_wrapper = $('<div class="btn_wrapper"><div class="edit">編集</div></div>');
+        var btn_delete_wrapper = $('<div class="btn_wrapper"><div class="delete">削除</div></div>');
+        img.append(btn_edit_wrapper);
+        img.append(btn_delete_wrapper);
+        img.find('img').attr({
+          src: e.target.result
+        })
+      }
+      reader.readAsDataURL(file);
+      images.push(img);
 
-// submitボタンが押された際のイベント
-$('y-sell-form').on('submit', function(e){
-  e.preventDefault();
-  // そのほかのform情報を以下の記述でformDataに追加
-  var formData = new FormData($(this).get(0));
-  // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
-  files_array.forEach(function(file){
-   formData.append("image[images][]" , file)
-  });
-  $.ajax({
-    url:         '/items',
-    type:        "POST",
-    data:        formData,
-    contentType: false,
-    processData: false,
-    dataType:   'json',
-  })
-  .done(function(data){
-    alert('出品に成功しました！');
-  })
-  .fail(function(XMLHttpRequest, textStatus, errorThrown){
-    alert('出品に失敗しました！');
+      if(images.length <= 5){
+          $('#preview').empty();
+          $.each(images, function(index, image) {
+            image.attr('data-image', index);
+            preview.append(image);
+          })
+          dropzone.css({
+            'width': `calc(100% - (114px * ${images.length}))`
+          })
+        }
+        if(images.length >= 1) {
+          $('.image-drop-text').css({
+            'width': '100%'
+          })
+        }
+
+        if(images.length >= 3) {
+          dropzone.find('pre').replaceWith('<i class="fa fa-camera"></i>');
+        }
+      if(images.length == 5) {
+        dropzone.css({
+          'display': 'none'
+        })
+        return;
+      }
+      var new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+      input_area.prepend(new_image);
+      // 透明化している画像フォームを触れないようにする
+      var before_image = images.length - 1;
+      $(`input[data-image= "${before_image}"]`).css({
+        'display': `none`
+      })
+    });
+
+    // 削除動作
+    $(document).on('click', '.delete', function() {
+      var target_image = $(this).parent().parent();
+      $.each(inputs, function(index, input){
+        if ($(this).data('image') == target_image.data('image')){
+          $(this).remove();
+          target_image.remove();
+          var num = $(this).data('image');
+          images.splice(num, 1);
+          inputs.splice(num, 1);
+          if(inputs.length == 0) {
+            $('input[type= "file"].upload-image').attr({
+              'data-image': 0
+            })
+          }
+        }
+      })
+      $('input[type= "file"].upload-image:first').attr({
+        'data-image': inputs.length
+      })
+      $.each(inputs, function(index, input) {
+        var input = $(this)
+        input.attr({
+          'data-image': index
+        })
+        $('input[type= "file"].upload-image:first').after(input)
+      })
+     
+      if (images.length <= 5){
+        dropzone.css({
+          'display': 'inline-block'
+        })
+        $.each(images, function(index, image) {
+          image.attr('data-image', index);
+          preview.append(image);
+        })
+        dropzone.css({
+          'width': `calc(100% - (114px * ${images.length}))`
+        })
+      }
+
+      if(images.length == 2) {
+        dropzone.find('i').replaceWith('<pre class="image-drop-text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード</pre>')
+      }
+      // 画像フォームを再度触れるようにする
+      $(`input[data-image= "${images.length}"]`).css({
+        'display': `block`
+      })
+    })
   });
 });
