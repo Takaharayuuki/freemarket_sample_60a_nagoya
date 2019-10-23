@@ -18,6 +18,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.first
+  end
+
   def create
     # binding.pry
     Item.create(create_params)
