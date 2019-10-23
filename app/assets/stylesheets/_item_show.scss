@@ -2,8 +2,6 @@
   font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
 }
 
-
-
 .ta_wrapper-container__box {
   width: 620px;
   height: 1160px;
@@ -425,10 +423,6 @@
 
 
 #flickscroll {
-  // margin: 0 auto;
-  // width: 400px;
-  // height: 400px;
-  // text-align: left;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -448,10 +442,9 @@
   overflow: hidden;
 }
 
-/* #flickthumb
---------------------------- */
+
 #flickthumb {
-  // margin: 10px auto;
+  
   width: 300px;
   height: 100px;
  
@@ -476,9 +469,6 @@
 }
 
 
-/* =======================================
-  ClearFixElements
-======================================= */
 #flickscroll ul:after,
 #flickthumb ul:after {
   content: ".";

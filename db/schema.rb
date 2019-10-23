@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_051358) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
     t.bigint "user_id"
