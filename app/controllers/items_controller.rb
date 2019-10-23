@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order("created_at DESC").limit(15)
-    @parents = Category.where(ancestry: nil)
     # @parents = []
     # parent_categories.each do |parent|
     #   @parents.push(parent.name)
@@ -25,17 +24,16 @@ class ItemsController < ApplicationController
     redirect_to :root
   end
 
-  def confirm
+  def category_menu_children
+    @children = Category.find(params[:parent_id]).children
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
-  def payment
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    Payjp::Charge.create(
-      amount: 300,
-      card: params['payjp-token'],
-      currency: 'jpy'
-    )
-  end
+
+
 
   def get_category_children
     @category_children = Category.find_by(name: params[:parent_name], ancestry: nil).children

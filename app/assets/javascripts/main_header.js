@@ -77,15 +77,35 @@ $(document).on('turbolinks:load', function() {
     });
   })
 
-  //カテゴリーのドロップダウンメニュー
+  //親カテゴリーのドロップダウンメニュー
   $(".m-container__bottom__left__category").hover(function() {
+    $(".m-category-list__parents").show();
     $(".m-category-text").css({
       "color": "#038de3"
     });
   }, function() {
+    $(".m-category-list__parents").hide();
     $(".m-category-text").css({
       "color": ""
     });
+  });
+
+  //子カテゴリーのドロップダウンメニュー
+  function buildChildHTML(child) {
+    var html = `<a class="m-child_category" id="${child.id}"
+                href="#">${child.name}</a>`
+  } 
+
+  $(".m-parent-category").on("mouseover", function() {
+    var id = this.id
+    $.ajax({
+      type: "get",
+      url: "/items/category_menu_children",
+      data: {parent_id: id},
+      dataType: "json"
+    }).done(function(children) {
+      
+    })
   });
 
 

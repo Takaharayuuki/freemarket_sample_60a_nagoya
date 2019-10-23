@@ -17,8 +17,9 @@
           .m-category-list
             .m-category-list__parents
               - @parents.each do |parent|
-                = link_to "#{parent.name}", root_path
-              .m-category-list__parents__children
+                = link_to "#{parent.name}", root_path, class: "m-parent-category", id: "#{parent.id}"
+            .m-category-list__children
+            .m-category-list__parents__grand-children
 
         .m-container__bottom__left__brand
           = link_to "#" do
