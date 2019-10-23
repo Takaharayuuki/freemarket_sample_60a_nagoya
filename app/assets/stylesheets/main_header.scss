@@ -21,6 +21,8 @@
 
 
 
+
+
 .m-header {
   height: 100px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
@@ -108,15 +110,82 @@
           position: relative;
           padding-right: 10px;
 
-          a {
+          & a {
             @include header_left_menu;
             font-weight: 600;
           }
 
-          i {
+          & i {
             color: rgb(234, 53, 45);
             height: 12px;
             margin-right: 4px;
+          }
+          //カテゴリーのドロップダウンメニュー
+          .m-category-list {
+            position: absolute;
+            top: 44px;
+            left: 0;
+            z-index: 5;
+            &__parents {
+              display: none;
+              background-color: #fff;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              width: 224px;
+              & a {
+                display: block;
+                font-size: 14px;
+                line-height: 44px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 0 16px;
+                font-weight: normal;
+              }
+              & .now-selected-red {
+                background: rgb(234, 53, 45);
+                color: #fff;
+              }              
+            }
+            &__children {
+              background-color: #fff;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              width: 224px;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              width: 224px;
+              position: absolute;
+              left: 224px;
+              top: 0;
+              & a {
+                display: block;
+                font-size: 14px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 8px 16px;
+                font-weight: normal;
+              }
+              & .now-selected-gray {
+                background: rgb(223, 223, 223);
+              }
+            }
+            &__grand-children {
+              background-color: #fff;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              width: 320px;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              position: absolute;
+              left: 448px;
+              top: 0;
+              & a {
+                display: block;
+                font-size: 14px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 8px 16px;
+                font-weight: normal;
+                &:hover {
+                  background: rgb(223, 223, 223);
+                }
+              }
+            }
           }
         }
 
@@ -124,16 +193,46 @@
           cursor: pointer;
           height: 44px;
           padding-left: 10px;
+          position: relative;
 
-          a {
+          & a {
             @include header_left_menu;
             font-weight: 600;
           }
 
-          i {
+          & i {
             color: rgb(234, 53, 45);
             height: 12px;
             margin-right: 4px;
+          }
+
+
+          //ブランドのドロップダウンメニュー
+          .brand-drop-down {
+            background: #fff;
+            position: absolute;
+            top: 44px;
+            left: 0;
+            z-index: 1;
+            display: none;
+            &__menu {
+              width: 224px;
+              box-shadow: rgba(0, 0, 0, .18) 0 2px 4px;
+              &__list {
+                & a {
+                  display: block;
+                  font-weight: normal;
+                  font-size: 14px;
+                  line-height: 44px;
+                  white-space: nowrap;
+                  padding: 0 16px;
+                  &:hover {
+                    background: rgb(234, 53, 45);
+                    color: #fff;
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
   before_action :set_item, only: %i[create]
 
   def new
-    @item = Item.find(1)
+    @item = Item.find(20)
     @address = current_user.address.prefecture[:name] + current_user.address.city + current_user.address.house_number + current_user.address.building_name 
     @card = current_user.card
     @post_num_first = current_user.address.post_address.to_s.slice(0, 3)
