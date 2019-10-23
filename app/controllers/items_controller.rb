@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
     @category = Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+    @item.images.build
   end
 
   def show
@@ -20,8 +21,12 @@ class ItemsController < ApplicationController
 
   def create
     # binding.pry
-    Item.create(create_params)
-    redirect_to :root
+    @item = Item.new(create_params)
+      if @item.save
+        redirect_to controller: :items, action: :index
+      else
+        render "new"
+      end
   end
 
   def category_menu_children
@@ -46,7 +51,7 @@ class ItemsController < ApplicationController
   private
 
   def create_params
-    params.require(:item).permit(:name, :price, :condition, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :condition, :category_id, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
 end

@@ -49,7 +49,7 @@
                       %span.y-form-require 必須
                       .listing-select-wrapper
                         .listing-select-wrapper__box
-                          = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                           %i.fas.fa-chevron-down
                     .y-sell-content__form-group
                       %label
