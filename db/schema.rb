@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2019_10_23_041555) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "path"
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.string "ancestry"
   end
 
@@ -69,17 +69,6 @@ ActiveRecord::Schema.define(version: 2019_10_23_041555) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.bigint "user_id"
-    t.bigint "address_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_sns_credentials_on_address_id"
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -97,8 +86,6 @@ ActiveRecord::Schema.define(version: 2019_10_23_041555) do
     t.string "first_name_kana"
     t.string "last_name_kana"
     t.string "tel"
-    t.string "uid"
-    t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -107,6 +94,4 @@ ActiveRecord::Schema.define(version: 2019_10_23_041555) do
   add_foreign_key "images", "items"
   add_foreign_key "images", "users"
   add_foreign_key "items", "users"
-  add_foreign_key "sns_credentials", "addresses"
-  add_foreign_key "sns_credentials", "users"
 end

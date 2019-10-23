@@ -85,29 +85,64 @@ $(document).on('turbolinks:load', function() {
     });
   }, function() {
     $(".m-category-list__parents").hide();
+    $(".m-child_category").remove();
+    $(".m-grand_child_category").remove();
     $(".m-category-text").css({
       "color": ""
     });
+    $(".now-selected-red").removeClass("now-selected-red");
   });
 
   //子カテゴリーのドロップダウンメニュー
   function buildChildHTML(child) {
     var html = `<a class="m-child_category" id="${child.id}"
-                href="#">${child.name}</a>`
+                href="#">${child.name}</a>`;
+    return html;
   } 
 
   $(".m-parent-category").on("mouseover", function() {
-    var id = this.id
+    var id = this.id;
+    $(".now-selected-red").removeClass("now-selected-red");
+    $("#" + id).addClass("now-selected-red");
+    $(".m-child_category").remove();
+    $(".m-grand_child_category").remove();
     $.ajax({
       type: "get",
       url: "/items/category_menu_children",
       data: {parent_id: id},
       dataType: "json"
     }).done(function(children) {
-      
-    })
+      children.forEach(function(child) {
+        var html = buildChildHTML(child);
+        $(".m-category-list__children").append(html);
+      });
+    });
   });
 
+  //孫カテゴリーのドロップダウンメニュー
+  function buildGrandChildHTML(child) {
+    var html = `<a class="m-grand_child_category" id="${child.id}"
+                href="#">${child.name}</a>`;
+    return html;
+  }
+
+  $(document).on("mouseover", ".m-child_category", function() {
+    var id = this.id;
+    $(".m-grand_child_category").remove();
+    $(".now-selected-gray").removeClass("now-selected-gray");
+    $("#" + id).addClass("now-selected-gray");
+    $.ajax({
+      type: "get",
+      url: "/items/category_menu_children",
+      data: {parent_id: id},
+      dataType: "json"
+    }).done(function(children) {
+      children.forEach(function(child) {
+        var html = buildGrandChildHTML(child);
+        $(".m-category-list__grand-children").append(html);
+      });
+    });
+  });
 
   //ブランドのドロップダウンメニュー
   $(".m-container__bottom__left__brand").hover(function() {

@@ -21,6 +21,8 @@
 
 
 
+
+
 .m-header {
   height: 100px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
@@ -118,11 +120,12 @@
             height: 12px;
             margin-right: 4px;
           }
+          //カテゴリーのドロップダウンメニュー
           .m-category-list {
             position: absolute;
             top: 44px;
             left: 0;
-            z-index: 1;
+            z-index: 5;
             &__parents {
               display: none;
               background-color: #fff;
@@ -136,9 +139,50 @@
                 white-space: nowrap;
                 padding: 0 16px;
                 font-weight: normal;
+              }
+              & .now-selected-red {
+                background: rgb(234, 53, 45);
+                color: #fff;
+              }              
+            }
+            &__children {
+              background-color: #fff;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              width: 224px;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              width: 224px;
+              position: absolute;
+              left: 224px;
+              top: 0;
+              & a {
+                display: block;
+                font-size: 14px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 8px 16px;
+                font-weight: normal;
+              }
+              & .now-selected-gray {
+                background: rgb(223, 223, 223);
+              }
+            }
+            &__grand-children {
+              background-color: #fff;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              width: 320px;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              position: absolute;
+              left: 448px;
+              top: 0;
+              & a {
+                display: block;
+                font-size: 14px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 8px 16px;
+                font-weight: normal;
                 &:hover {
-                  background: rgb(234, 53, 45);
-                  color: #fff;
+                  background: rgb(223, 223, 223);
                 }
               }
             }
@@ -161,6 +205,8 @@
             height: 12px;
             margin-right: 4px;
           }
+
+
           //ブランドのドロップダウンメニュー
           .brand-drop-down {
             background: #fff;
