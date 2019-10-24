@@ -13,30 +13,56 @@
         .m-container__bottom__left__category
           = link_to "#" do
             %i.fas.fa-list-ul
-            カテゴリーから探す
+            %span.m-category-text カテゴリーから探す
+          .m-category-list
+            .m-category-list__parents
+              - @parents.each do |parent|
+                = link_to "#{parent.name}", root_path, class: "m-parent-category", id: "#{parent.id}"
+            .m-category-list__children
+            .m-category-list__grand-children
+
         .m-container__bottom__left__brand
           = link_to "#" do
             %i.fas.fa-tag
-            ブランドから探す
-
+            %span.m-brand-text ブランドから探す
+          .brand-drop-down
+            %ul.brand-drop-down__menu
+              %li.brand-drop-down__menu__list
+                = link_to "", class: "list-text" do
+                  シャネル
+              %li.brand-drop-down__menu__list
+                = link_to "", class: "list-text" do
+                  ナイキ
+              %li.brand-drop-down__menu__list
+                = link_to "", class: "list-text" do
+                  ルイヴィトン
+              %li.brand-drop-down__menu__list
+                = link_to "", class: "list-text" do
+                  シュプリーム
+              %li.brand-drop-down__menu__list
+                = link_to "", class: "list-text" do
+                  アディダス
+              %li.brand-drop-down__menu__list
+                = link_to "", class: "list-text" do
+                  ブランド一覧
       - if user_signed_in?    
         %ul.m-container__bottom__right
           %li.m-container__bottom__right__likes
             = link_to "#", id: "likes-box" do
               %i.far.fa-heart
-              いいね！一覧
+              %p.likes-text いいね！一覧
           %li.m-container__bottom__right__notice
-            = link_to "#" do
+            = link_to "#", id: "notice-box" do
               %i.far.fa-bell
-              お知らせ
+              %p.notice-text お知らせ
           %li.m-container__bottom__right__list
-            = link_to "#" do
+            = link_to "#", id: "todo-box" do
               %i.fas.fa-check
-              やることリスト
+              %p.todo-text やることリスト
           %li.m-container__bottom__right__my-page
-            = link_to user_path(current_user) do
+            = link_to user_path(current_user), id: "mypage-box" do
               = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', class: "my-icon", size: "32x32"
-              マイページ
+              %p.m-text マイページ
       - else
         %ul.m-container__bottom__right
           %li.m-container__bottom__right__signup-btn
