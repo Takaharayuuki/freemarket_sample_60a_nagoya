@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_one :card
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
+  has_many :items
+
 
   VALID_EMAIL_REGEX =  /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/

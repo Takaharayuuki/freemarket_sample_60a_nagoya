@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item_image = @item.images.build
     @prefecture = Prefecture.all
     @category_parent_array = ["---"]
     @category = Category.where(ancestry: nil).each do |parent|
@@ -16,12 +17,18 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.first
+    @images = @item.images
+    @other_items = Item.where("user_id = #{@item.user.id}").order('id DESC').limit(6)
+    @addres = @item.user.address.prefecture[:name]
   end
 
   def create
-    # binding.pry
-    Item.create(create_params)
-    redirect_to :root
+    @item = Item.new(create_params)
+    if @item.save
+      redirect_to controller: :items, action: :index
+    else
+      render :new
+    end
   end
 
   def category_menu_children
@@ -31,9 +38,6 @@ class ItemsController < ApplicationController
       format.json
     end
   end
-
-
-
 
   def get_category_children
     @category_children = Category.find_by(name: params[:parent_name], ancestry: nil).children
@@ -46,7 +50,7 @@ class ItemsController < ApplicationController
   private
 
   def create_params
-    params.require(:item).permit(:name, :price, :condition, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :condition, :category_id, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
 end
