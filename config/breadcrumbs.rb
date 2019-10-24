@@ -36,3 +36,8 @@ crumb :detail_item do |item|
   link item.name
   parent :root
 end
+
+crumb :item_show_page do
+  item = Item.first
+  link item.name, item_path(item.id), data: {"turbolinks": false}
+end
