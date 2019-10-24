@@ -126,6 +126,7 @@
             top: 44px;
             left: 0;
             z-index: 5;
+            
             &__parents {
               display: none;
               background-color: #fff;
@@ -159,8 +160,9 @@
                 font-size: 14px;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                padding: 8px 16px;
+                padding: 0 16px;
                 font-weight: normal;
+                line-height: 34px;
               }
               & .now-selected-gray {
                 background: rgb(223, 223, 223);
@@ -179,8 +181,9 @@
                 font-size: 14px;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                padding: 8px 16px;
+                padding: 0 16px;
                 font-weight: normal;
+                line-height: 34px;
                 &:hover {
                   background: rgb(223, 223, 223);
                 }

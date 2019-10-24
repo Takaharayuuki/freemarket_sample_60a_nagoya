@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   require "payjp"
 
   def index
-    redirect_to card_path(current_user) if @card
+    redirect_to card_path(current_user) if @card.present?
   end
 
   def new
