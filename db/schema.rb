@@ -34,11 +34,14 @@ ActiveRecord::Schema.define(version: 2019_10_24_080154) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.string "category"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "ancestry"
+    t.string "name"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,21 +68,12 @@ ActiveRecord::Schema.define(version: 2019_10_24_080154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id", null: false
+
     t.bigint "image_id"
     t.index ["image_id"], name: "index_items_on_image_id"
+
     t.index ["name"], name: "index_items_on_name"
     t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.bigint "user_id"
-    t.bigint "address_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_sns_credentials_on_address_id"
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,8 +93,6 @@ ActiveRecord::Schema.define(version: 2019_10_24_080154) do
     t.string "first_name_kana"
     t.string "last_name_kana"
     t.string "tel"
-    t.string "uid"
-    t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -110,6 +102,4 @@ ActiveRecord::Schema.define(version: 2019_10_24_080154) do
   add_foreign_key "images", "users"
   add_foreign_key "items", "images"
   add_foreign_key "items", "users"
-  add_foreign_key "sns_credentials", "addresses"
-  add_foreign_key "sns_credentials", "users"
 end
