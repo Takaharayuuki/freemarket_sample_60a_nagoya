@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_051358) do
+ActiveRecord::Schema.define(version: 2019_10_24_080154) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_address"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2019_10_21_051358) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "path"
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.string "ancestry"
   end
 
@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(version: 2019_10_21_051358) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.bigint "image_id"
+    t.index ["image_id"], name: "index_items_on_image_id"
     t.index ["name"], name: "index_items_on_name"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -105,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_051358) do
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "images", "users"
+  add_foreign_key "items", "images"
   add_foreign_key "items", "users"
   add_foreign_key "sns_credentials", "addresses"
   add_foreign_key "sns_credentials", "users"

@@ -1,7 +1,7 @@
 - @other_items.each do |item|
   .ta-items__contents__content
     = link_to "#" do
-      - item.image.each_with_index do|image,index|
+      - item.images.each_with_index do|image,index|
         - if index == 0
           = image_tag ("#{image.image}")
           .ta-items__contents__content__body
