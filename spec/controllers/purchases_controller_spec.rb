@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe PurchasesController, type: :controller do
+
   describe 'GET #new' do
     it "renders the :new template" do
       user = create(:user)
@@ -22,4 +23,5 @@ describe PurchasesController, type: :controller do
       expect(response).to render_template :new
     end
   end
+  
 end
