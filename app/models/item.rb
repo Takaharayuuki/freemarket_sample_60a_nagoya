@@ -8,6 +8,6 @@ class Item < ApplicationRecord
   belongs_to :user
   # belongs_to :status
   # belongs_to :brand
-
+  has_many :images
   # mount_uploaders :images, ImageUploader
 end
