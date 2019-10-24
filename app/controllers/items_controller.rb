@@ -7,12 +7,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item_image = @item.images.build
     @prefecture = Prefecture.all
     @category_parent_array = ["---"]
     @category = Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
-    @item.images.build
   end
 
   def show
@@ -22,11 +22,11 @@ class ItemsController < ApplicationController
   def create
     # binding.pry
     @item = Item.new(create_params)
-      if @item.save
-        redirect_to controller: :items, action: :index
-      else
-        render "new"
-      end
+    if @item.save
+      redirect_to controller: :items, action: :index
+    else
+      render :new
+    end
   end
 
   def category_menu_children
@@ -36,9 +36,6 @@ class ItemsController < ApplicationController
       format.json
     end
   end
-
-
-
 
   def get_category_children
     @category_children = Category.find_by(name: params[:parent_name], ancestry: nil).children

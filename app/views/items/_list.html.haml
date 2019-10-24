@@ -12,7 +12,7 @@
           .m-items__container__products__product
             .m-items__container__products__product__image
               = image_tag 'https://static.mercdn.net/thumb/photos/m84431990341_1.jpg?1570765723', height: '188px', width: '188px'
-              -# %span.price= "¥#{item.price.to_s(:delimited)}"
+              %span.price= "¥#{item.price.to_s}"
             .m-items__container__products__product__caption
               .m-items__container__products__product__caption__text
                 = item.name

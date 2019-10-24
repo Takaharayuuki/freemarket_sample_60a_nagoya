@@ -11,8 +11,6 @@
           .y-sell-container__reactroot
             .y-sell-container__inner
               .y-single-head 商品の情報を入力
-
-
               = form_with model: @item, url: items_path, class: "y-sell-form", method: :post, local:true do |f|
                 .y-sell-container__upload-box
                   %h3.y-sell-container__upload-head
@@ -26,7 +24,7 @@
                       .dropzone-area
                         = i.label :image, class: "dropzone-box", for: "upload-image", style: "margin: 0" do
                           .input_area
-                            = i.file_field :image, multiple: true, name: 'images[image][]',id: "upload-image", class: 'upload-image', 'data-image': 0
+                            = i.file_field :image, multiple: true, name: "item[images_attributes][0][image]",id: "upload-image", class: 'upload-image', 'data-image': 0
                             %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
 
                 .y-sell-content
@@ -35,7 +33,6 @@
                       商品名
                       %span.y-form-require 必須
                     = f.text_field :name, class: "y-input-default-item", value: "", placeholder: "商品名(必須 40文字まで)"
-
                   .y-sell-content__form-group
                     %label
                       商品の説明
