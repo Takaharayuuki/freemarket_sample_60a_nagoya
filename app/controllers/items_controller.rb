@@ -16,6 +16,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.first
+    @images = Image.all
+    @other_items = Item.where("user_id = #{@item.user.id}").order('id DESC').limit(6)
+    @addres = @item.user.address.prefecture[:name]
   end
 
   def create

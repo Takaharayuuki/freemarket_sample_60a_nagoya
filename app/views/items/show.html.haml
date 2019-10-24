@@ -1,42 +1,27 @@
 = render "layouts/main_header"
-
+- breadcrumb :item_show_page
 .ta_wrapper-container
   .ta_wrapper-container__box
     %h1.ta_item-name
-      -# = @item.name
-    %p.ta_item-word
-      『少年ジャンプ 1981年 47号』は、253回の取引実績を持つガリガリガリ君さんから出品されました。少
-      年漫画/本・音楽・ゲームの商品で、北海道から4~7日で発送されます。
+      = @item.name
     .ta_wrapper-container__box__content
       .ta_mainimage#flickscroll
         %ul
-          %li
-            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161",alt:"翼"
-          %li
-            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_4.jpg?1568022161",alt:"翼2"
-          %li
-            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_3.jpg?1568022161",alt:"翼3" 
-          %li
-            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_5.jpg?1568022161",alt:"翼4"
+          - @images.each do |image|
+            %li
+              = image_tag "#{image.image}",alt:"翼"
       .ta_thumbnails#flickthumb
         %ul
-          %li
-            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_1.jpg?1568022161",alt:"翼",width:"60", height:"60"
-          %li
-            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_4.jpg?1568022161",alt:"翼4",width:"60", height:"60"
-          %li
-            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_3.jpg?1568022161",alt:"翼3",width:"60", height:"60"
-          %li
-            = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m70810739906_5.jpg?1568022161",alt:"翼4",width:"60", height:"60"
-         
-
+          - @images.each do |image|
+            %li
+              = image_tag src="#{image.image}",alt:"翼",width:"60", height:"60"
       %table.ta_wrapper-container__box__content__table
         %tbody
           %tr
             %th
               出品者
             %td
-              = link_to "ガリガリガリ君","#"
+              = link_to "#{@item.user.nickname}","/users/#{@item.user.id}"
               .ta_user-evaluations
                 .evaluation
                   %i.fas.fa-laugh
@@ -51,9 +36,9 @@
             %th
               カテゴリー
             %td
-              =link_to "親カテゴリ","#"
-              =link_to "子カテゴリ","#"
-              =link_to "孫カテゴリ","#"
+              =link_to "#{@item.category.name}","#"
+              =link_to "#{@item.category.parent.name}","#"
+              =link_to "#{@item.category.parent.parent.name}","#"
           %tr
             %th
               ブランド
@@ -62,31 +47,32 @@
             %th
               商品の状態
             %td
-              -# = @item.condition
+              = @item.condition
           %tr
             %th
               配送料の負担
             %td
-              -# = @item.burden
+              = @item.burden
           %tr
             %th
               配送の方法
             %td
-              -# = @item.shipping_method
+              = @item.shipping_method
           %tr
             %th
               配送元地域
             %td
-              =link_to "北海道"
+              = @addres
           %tr
             %th
               発送日の目安
             %td
-              -# = @item.indication
+              = @item.indication
 
     .ta_wrapper-container__box__price
       %span.ta_price
-        ¥2,000
+        ¥
+        = @item.price.to_s(:delimited)
       %span.ta_tax
         (税込)
       %span.ta_fee
@@ -98,7 +84,7 @@
     
     .ta_wrapper-container__box__item-description
       %p
-        -# = @item.description
+        = @item.description
     .ta_wrapper-container__box__item-btnbox
       .left-btn
         =link_to do
@@ -145,23 +131,18 @@
         =link_to "〇〇さんのその他の出品","#" 
     .ta-items__contents
       = render "items/item_content"
-      = render "items/item_content"
-      = render "items/item_content"
-      = render "items/item_content"
-      = render "items/item_content"
-      = render "items/item_content"
+      
   
-  .ta-relation-items
-    .ta-relation-items__box
-      %h3
-        =link_to "関連のその他の出品","#" 
-    .ta-relation-items__contents
-      = render "items/item_content"
-      = render "items/item_content"
-      = render "items/item_content"
-      = render "items/item_content"
-      = render "items/item_content"
-      = render "items/item_content"
+  -# .ta-relation-items
+  -#   .ta-relation-items__box
+  -#     %h3
+  -#       =link_to "関連のその他の出品","#" 
+  -#   .ta-relation-items__contents
+  -#     = render "items/item_content"
+  -#     = render "items/item_content"
+  -#     = render "items/item_content"
 
+  .ta-breadcrumbs
+    = render "user/bread"
 = render "main_aside"
 = render "layouts/main_footer"
