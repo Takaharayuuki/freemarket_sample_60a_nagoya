@@ -1,16 +1,17 @@
 - @other_items.each do |item|
-  .ta-items__contents__content
-    = link_to "#" do
-      - item.images.each_with_index do|image,index|
-        - if index == 0
-          = image_tag ("#{image.image}")
-          .ta-items__contents__content__body
-            %h3
-              = item.name
-            .ta-itemprice
-              ¥
-              = item.price.to_s(:delimited)
-            .ta-like
-              %i.far.fa-heart
-              %span
-                2    
+  - if item.id != @item.id
+    .ta-items__contents__content
+      = link_to item_path(item.id) do
+        - item.images.each_with_index do|image,index|
+          - if index == 0
+            = image_tag ("#{image.image}")
+            .ta-items__contents__content__body
+              %h3
+                = item.name
+              .ta-itemprice
+                ¥
+                = item.price.to_s(:delimited)
+              .ta-like
+                %i.far.fa-heart
+                %span
+                  2    
