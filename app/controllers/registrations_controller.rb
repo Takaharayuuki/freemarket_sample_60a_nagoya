@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   before_action :validates_step1, only: :new2
-  before_action :validates_step2, only: :new3
+  before_action :validates_step2, only: :new4
   before_action :redirect_to_root_user_signed_in, except: :new5
 
 
@@ -134,23 +134,21 @@ class RegistrationsController < ApplicationController
   end
 
   def validates_step2
-    session[:tel] = user_params[:tel]
-    @user = User.new(
-      id: session[:id],
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      last_name: session[:last_name],
-      first_name: session[:first_name],
-      last_name_kana: session[:last_name_kana],
-      first_name_kana: session[:first_name_kana],
-      birth_day: session[:birth_day],
-      birth_year: session[:birth_year],
-      birth_month: session[:birth_month],
-      tel: session[:tel]
+    session[:user_id] = address_params[:user_id]
+    session[:post_address] = address_params[:post_address]
+    session[:prefecture_id] = address_params[:prefecture_id]
+    session[:city] = address_params[:city]
+    session[:house_number] = address_params[:house_number]
+    
+    @address = Address.new(
+      user_id: "1",
+      post_address: session[:post_address],
+      prefecture_id: session[:prefecture_id],
+      city: session[:city],
+      house_number: session[:house_number]
     )
-    render new2_registrations_path unless @user.valid?(:validates_step2)
+    
+    render new3_registrations_path unless @address.valid?(:validates_step2)
   end
 
   
@@ -158,11 +156,11 @@ class RegistrationsController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nickname,:email,:password,:password_confirmation,:encrypted_password,:reset_password_token,:reset_password_sent_at,:remember_created_at,:last_name,:first_name,:last_name_kana,:first_name_kana,:birth_day,:birth_month,:birth_year,:tel,address_attributes: [:post_address,:prefecture,:city,:house_number,:building_name,:tel])
+      params.require(:user).permit(:nickname,:email,:password,:password_confirmation,:encrypted_password,:reset_password_token,:reset_password_sent_at,:remember_created_at,:last_name,:first_name,:last_name_kana,:first_name_kana,:birth_day,:birth_month,:birth_year,:tel)
     end
 
     def address_params
-      params.require(:address).permit(:post_address,:prefecture_id,:city,:house_number,:building_name,:tell)
+      params.require(:address).permit(:post_address,:prefecture_id,:city,:house_number,:building_name,:tell,:user_id)
     end
 
     def redirect_to_root_user_signed_in

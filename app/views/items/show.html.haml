@@ -9,12 +9,12 @@
         %ul
           - @images.each do |image|
             %li
-              = image_tag "#{image.image}",alt:"翼"
+              = image_tag "#{image.image.url}",alt:"画像"
       .ta_thumbnails#flickthumb
         %ul
           - @images.each do |image|
             %li
-              = image_tag src="#{image.image}",alt:"翼",width:"60", height:"60"
+              = image_tag src="#{image.image.url}",alt:"サムネイル",width:"60", height:"60"
       %table.ta_wrapper-container__box__content__table
         %tbody
           %tr
@@ -25,7 +25,7 @@
               .ta_user-evaluations
                 .evaluation
                   %i.fas.fa-laugh
-                  %span 100
+                  %span 0
                 .evaluation
                   %i.fas.fa-meh
                   %span 0
@@ -36,9 +36,9 @@
             %th
               カテゴリー
             %td
-              =link_to "#{@item.category.name}","#"
-              =link_to "#{@item.category.parent.name}","#"
-              =link_to "#{@item.category.parent.parent.name}","#"
+              -# =link_to "#{@item.category.name}","#"
+              -# =link_to "#{@item.category.parent.name}","#"
+              -# =link_to "#{@item.category.parent.parent.name}","#"
           %tr
             %th
               ブランド
@@ -72,7 +72,7 @@
     .ta_wrapper-container__box__price
       %span.ta_price
         ¥
-        = @item.price.to_s(:delimited)
+        = @item.price
       %span.ta_tax
         (税込)
       %span.ta_fee

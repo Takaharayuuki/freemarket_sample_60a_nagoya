@@ -110,7 +110,7 @@ body {
 
   &__container {
     width: 700px;
-    height: 1280px;
+    min-height: 1400px;
 
     margin: 0 auto;
     background-color: white;
@@ -369,6 +369,7 @@ body {
 
   & li {
     color: red;
+    list-style: none;
   }
 }
 
@@ -399,3 +400,7 @@ body {
     top: 35%;
   }
 }
+
+.error_zone {
+  color: red;
+} 

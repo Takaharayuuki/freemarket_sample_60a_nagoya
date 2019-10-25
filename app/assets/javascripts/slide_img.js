@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   var $setMainId = $('#flickscroll');
   var $setThumbId  = $('#flickthumb');
   var scrollSpeed  = 300;
