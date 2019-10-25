@@ -24,8 +24,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true, on: :validates_step1
   validates :first_name_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }, on: :validates_step1
   validates :last_name_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }, on: :validates_step1
-  validates :birth_day, presence: true, on: :validates_step1
-  validates :birth_month, presence: true, on: :validates_step1
-  validates :birth_year, presence: true, on: :validates_step1
+  validates :birth_day, presence: true,numericality: true, on: :validates_step1
+  validates :birth_month, presence: true,numericality: true, on: :validates_step1
+  validates :birth_year, presence: true,numericality: true, on: :validates_step1
   validates :tel, presence: true, format: { with: VALID_PHONE_REGEX } ,on: :validates_step2
 end
