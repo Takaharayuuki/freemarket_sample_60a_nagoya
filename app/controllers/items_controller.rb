@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item_image = @item.images.build
+    @item.images.build
     @prefecture = Prefecture.all
     @category_parent_array = ["---"]
     @category = Category.where(ancestry: nil).each do |parent|
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(create_params)
+    @item = current_user.items.build(create_params)
     if @item.save
       redirect_to controller: :items, action: :index
     else
