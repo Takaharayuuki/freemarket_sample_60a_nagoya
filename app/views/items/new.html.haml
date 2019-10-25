@@ -12,6 +12,7 @@
             .y-sell-container__inner
               .y-single-head 商品の情報を入力
               = form_with model: @item, url: items_path, class: "y-sell-form", method: :post, local:true do |f|
+                = render 'layouts/model_error_messages', model: f.object
                 .y-sell-container__upload-box
                   %h3.y-sell-container__upload-head
                     出品画像

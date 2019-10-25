@@ -30,8 +30,8 @@ class User < ApplicationRecord
     with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/,
     message: "全角カタカナのみで入力して下さい"
   }, on: :validates_step1
-  validates :birth_day, presence: true,length: {maximum: 2}, on: :validates_step1
-  validates :birth_month, presence: true,length: {maximum: 2}, on: :validates_step1
-  validates :birth_year, presence: true,length: {maximum: 4}, on: :validates_step1
+  validates :birth_day, presence: true,length: {maximum: 2},numericality: true, on: :validates_step1
+  validates :birth_month, presence: true,length: {maximum: 2},numericality: true, on: :validates_step1
+  validates :birth_year, presence: true,length: {maximum: 4},numericality: true, on: :validates_step1
   validates :tel, presence: true, format: { with: VALID_PHONE_REGEX } ,on: :validates_step2
 end
