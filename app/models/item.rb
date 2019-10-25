@@ -12,15 +12,8 @@ class Item < ApplicationRecord
     validates :shipping_method
     validates :indication
     validates :price
-    # validates :size
-    # validates :delivery_fee
   end
   
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10000000}
 
-  # has_many :comments, dependent: :destroy
-  # has_many :likes, dependent: :destroy
-  # belongs_to :category
-  # belongs_to :status
-  # belongs_to :brand
 end
