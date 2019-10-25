@@ -8,7 +8,7 @@ describe PurchasesController, type: :controller do
       address = create(:address, user: user)
       sign_in(user)
       item = create(:item, user: user)
-      get :new
+      get :new, params: {item_id: item.id}
       expect(response).to render_template :new
     end
   end
@@ -19,9 +19,9 @@ describe PurchasesController, type: :controller do
       address = create(:address, user: user)
       sign_in(user)
       item = create(:item, user: user)
-      post :create,params: {item_id: item.id}
+      post :create, params: {item_id: item.id}
       expect(response).to render_template :new
     end
   end
-  
+
 end
