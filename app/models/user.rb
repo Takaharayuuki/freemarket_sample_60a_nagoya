@@ -22,17 +22,14 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, length: { in: 7..128 }, on: :validates_step1
   validates :first_name, presence: true, on: :validates_step1
   validates :last_name, presence: true, on: :validates_step1
-
   validates :first_name_kana, presence: true,format: {
     with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/,
     message: "全角カタカナのみで入力して下さい"
   }, on: :validates_step1
-
   validates :last_name_kana, presence: true,format: {
     with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/,
     message: "全角カタカナのみで入力して下さい"
   }, on: :validates_step1
-
   validates :birth_day, presence: true,length: {maximum: 2}, on: :validates_step1
   validates :birth_month, presence: true,length: {maximum: 2}, on: :validates_step1
   validates :birth_year, presence: true,length: {maximum: 4}, on: :validates_step1

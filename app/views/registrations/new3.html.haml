@@ -27,7 +27,6 @@
     .ta-ad-main__container__logo
       住所入力
       = form_with model:@address, url: new4_registrations_path, method: :get, local: true, class: "ta-ad-main__container__form" do |f| 
-        = render "layouts/error_message"
         .ta-ad-main__container__form__content
           .ta-ad-main__container__form__content__group
             %label
@@ -35,6 +34,9 @@
             %span
               必須
               = f.text_field :post_address, placeholder: "例) 123-4567"
+              .error_zone
+                %p.error_message
+                  = @address.errors.full_messages_for(:post_address)[0]
             .ta-ad-main__container__form__content__group
             %label  
               都道府県
@@ -44,30 +46,45 @@
               .m-select
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name
                 %i.fas.fa-chevron-down
+                .error_zone
+                  %p.error_message
+                    = @address.errors.full_messages_for(:prefecture_id)[0]
             .ta-ad-main__container__form__content__group
             %label  
               市区町村
               %span
                 必須
               = f.text_field :city
+              .error_zone
+                %p.error_message
+                  = @address.errors.full_messages_for(:city)[0]
             .ta-ad-main__container__form__content__group
             %label  
               番地
               %span
                 必須
                 = f.text_field :house_number,placeholder: "例）青山1-1-1"
+                .error_zone
+                  %p.error_message
+                    = @address.errors.full_messages_for(:house_number)[0]
             .ta-ad-main__container__form__content__group__grey
             %label  
               建物名
               %span
                 任意
                 = f.text_field :building_name, placeholder: "例）柳ビル103"
+                .error_zone
+                  %p.error_message
+                    = @address.errors.full_messages_for(:building_name)[0]
             .ta-ad-main__container__form__content__group__grey
             %label  
               電話
               %span
                 任意
                 = f.text_field :tell, placeholder: "例）09012345678"
+                .error_zone
+                  %p.error_message
+                    = @address.errors.full_messages_for(:tell)[0]
           = f.submit '次へ進む',class: "ta-ad-main__container__form__content__btnred"
           
           

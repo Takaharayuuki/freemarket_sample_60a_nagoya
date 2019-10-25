@@ -1,5 +1,5 @@
-- if @user.errors.any?
+- if @address.errors.any?
   .chat-group-form__errors
     %ul
-      - @user.errors.full_messages.each do |message|
+      - @address.errors.full_messages.each do |message|
         %li= message
