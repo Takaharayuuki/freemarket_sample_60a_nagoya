@@ -8,7 +8,7 @@
           %i.fa.fa-chevron-right
     .m-items__container__products.fadein
       - @items.each do |item|
-        = link_to "#" do
+        = link_to item_path(item.id) do
           .m-items__container__products__product
             .m-items__container__products__product__image
               = image_tag 'https://static.mercdn.net/thumb/photos/m84431990341_1.jpg?1570765723', height: '188px', width: '188px'
