@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to :category
 
   with_options presence: true do
+    validates :name
+    validates :description
     validates :category_id
     validates :condition
     validates :burden
@@ -15,6 +17,8 @@ class Item < ApplicationRecord
     validates :price
   end
   
+  validates :name, length: { maximum: 40 }
+  validates :description, length: { maximum: 1000 }
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10000000}
 
 end
