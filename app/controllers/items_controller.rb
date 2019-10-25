@@ -2,12 +2,12 @@ class ItemsController < ApplicationController
   require "payjp"
 
   def index
-    @items = Item.order("created_at DESC").limit(15)
+    @items = Item.order('created_at DESC').limit(15)
   end
 
   def new
     @item = Item.new
-    @item.images.build
+    @item_image = @item.images.build
     @prefecture = Prefecture.all
     @category_parent_array = ["---"]
     @category = Category.where(ancestry: nil).each do |parent|
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = current_user.items.build(create_params)
+    @item = Item.new(create_params)
     if @item.save
       redirect_to controller: :items, action: :index
     else
