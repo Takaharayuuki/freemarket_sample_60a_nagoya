@@ -71,12 +71,22 @@
         text-decoration: none;
         color: #fff;
       }
+      &__border {
+        height: 254px;
+        width: 190px;
+        margin-top: 16px;
+        border: solid 1px transparent;
+        &:hover {
+          border: solid 1px #038de3;
+          transition: .2s;
+        }
+      }
       &__product {
         background-color: white;
         height: 252px;
         width: 188px;
         box-shadow: 1px 3px 3px rgba(0, 0, 0, .2);
-        margin-top: 16px;
+        margin: auto;
         &__image {
           height: 188px;
           width: 188px;

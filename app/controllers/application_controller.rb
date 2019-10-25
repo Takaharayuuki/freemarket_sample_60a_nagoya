@@ -27,4 +27,9 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_path unless user_signed_in?
   end
 
+  def set_card
+    @card = current_user.card
+  end
+
+
 end

@@ -52,9 +52,4 @@ class CardsController < ApplicationController
     end
   end
 
-  private
-  def set_card
-    @card = current_user.card
-  end
-
 end
