@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :category_parent_array, only: %i[new create edit update]
   require "payjp"
 
   def index
@@ -9,7 +10,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item_image = @item.images.build
     @prefecture = Prefecture.all
-    @category_parent_array = ["---"]
     @category = Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @item = Item.new(create_params)
     if @item.save
       redirect_to controller: :items, action: :index
@@ -45,6 +46,10 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
+  end
+
+  def category_parent_array
+    @category_parent_array = ["---"]
   end
 
   private
