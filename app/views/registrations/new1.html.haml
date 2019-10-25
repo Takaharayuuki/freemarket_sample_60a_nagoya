@@ -33,9 +33,9 @@
             %span
               必須
             = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
-             .error_zone
-              %p.error_message
-                = @user.errors.full_messages_for(:nickname)[0]
+            .error_zone
+            %p.error_message
+              = @user.errors.full_messages_for(:nickname)[0]
           .ta-re-main__container__form__content__group
             = f.label :email ,"メールアドレス"
             %span
