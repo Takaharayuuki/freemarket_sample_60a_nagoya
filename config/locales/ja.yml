@@ -36,6 +36,16 @@ ja:
         tel: "電話番号"
     models:
       user: "ユーザ"
+    attributes:
+      item:
+        name: "商品名"
+        price: "価格"
+        condition: "商品の状態"
+        shipping_method: "配送元の地域"
+        indication: "配送までの日数"
+        burden: "配送料の負担"
+        description: "商品の説明"
+        category_id: "カテゴリー"
   devise:
     confirmations:
       new:
