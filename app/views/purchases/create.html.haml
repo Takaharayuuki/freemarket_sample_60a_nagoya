@@ -10,7 +10,7 @@
     購入が完了しました
   .m-purchase-confirm-container__buy-item
     .m-purchase-confirm-container__buy-item__inner
-      %h3= image_tag 'https://static.mercdn.net/thumb/photos/m84431990341_1.jpg?1570765723', height: '148px', width: '148px'
+      %h3= image_tag @item.images.first.image.url, height: '148px', width: '148px'
       %p= @item.name
   .m-purchase-confirm-container__price
     .m-purchase-confirm-container__price__box
