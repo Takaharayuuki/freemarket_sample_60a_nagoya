@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :category_parent_array, only: %i[new create edit update]
+  before_action :redirect_to_login_form_unless_signed_in, only: %i[new]
   require "payjp"
 
   def index
