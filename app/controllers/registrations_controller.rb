@@ -12,7 +12,6 @@ class RegistrationsController < ApplicationController
   end
 
   def new2
-    session[:id] = user_params[:id]
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -25,6 +24,7 @@ class RegistrationsController < ApplicationController
     session[:birth_year] = user_params[:birth_year]
     session[:birth_month] = user_params[:birth_month]
     @user = User.new
+    
   end
 
   def new3
@@ -46,7 +46,6 @@ class RegistrationsController < ApplicationController
   def create
     session[:payjp_token] = params['payjp-token']
     @user = User.new(
-      id: session[:id],
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
@@ -104,7 +103,6 @@ class RegistrationsController < ApplicationController
   end
 
   def validates_step1
-    session[:id] = user_params[:id]
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -117,7 +115,6 @@ class RegistrationsController < ApplicationController
     session[:birth_year] = user_params[:birth_year]
     session[:birth_month] = user_params[:birth_month]
     @user = User.new(
-      id: session[:id],
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
@@ -134,14 +131,25 @@ class RegistrationsController < ApplicationController
   end
 
   def validates_step2
-    session[:user_id] = address_params[:user_id]
     session[:post_address] = address_params[:post_address]
     session[:prefecture_id] = address_params[:prefecture_id]
     session[:city] = address_params[:city]
     session[:house_number] = address_params[:house_number]
-    
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      birth_day: session[:birth_day],
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+    )
     @address = Address.new(
-      user_id: "1",
+      user: @user,
       post_address: session[:post_address],
       prefecture_id: session[:prefecture_id],
       city: session[:city],
@@ -160,7 +168,7 @@ class RegistrationsController < ApplicationController
     end
 
     def address_params
-      params.require(:address).permit(:post_address,:prefecture_id,:city,:house_number,:building_name,:tell,:user_id)
+      params.require(:address).permit(:post_address,:prefecture_id,:city,:house_number,:building_name,:tell)
     end
 
     def redirect_to_root_user_signed_in
