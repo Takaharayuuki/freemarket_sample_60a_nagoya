@@ -7,6 +7,9 @@
     .ta_wrapper-container__box__content
       .ta_mainimage#flickscroll
         %ul
+          - if @item.buyer.present?
+            .m-sold-icon-l
+              %span SOLD
           - @images.each do |image|
             %li
               = image_tag "#{image.image.url}",alt:"画像"
@@ -128,7 +131,7 @@
   .ta-items
     .ta-items__box
       %h2
-        =link_to "〇〇さんのその他の出品","#" 
+        =link_to "#{@item.user.nickname}さんのその他の出品","#" 
     .ta-items__contents
       = render "items/item_content"
 

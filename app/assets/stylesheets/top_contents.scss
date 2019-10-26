@@ -156,7 +156,6 @@
   position: absolute;
   top: 0;
   left: 0;
-
   &::after {
     border-width: 60px 60px 0 0;
     border-color: #ff0211 transparent transparent;
@@ -170,7 +169,6 @@
     width: 0;
     z-index: 3;
   }
-
   & span {
     z-index: 4;
     color: #fff;

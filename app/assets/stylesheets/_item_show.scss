@@ -30,6 +30,7 @@
       height:300px;
       width: 300px;
       margin: 0;
+      position: relative;
       float: left;
       display: inline-block;
       & img {
@@ -38,13 +39,6 @@
           display: inline-block;
       }
       & .ta_thumbnails {
-        // height: 120px;
-        // width: 300px;
-        // background-color: #f5f5f5;
-        // display:block;
-        // display: -webkit-flex;
-        // display: flex;
-        // flex-wrap: wrap;
         & img {
           height: 60px;
           width: 60px;
@@ -498,4 +492,34 @@
 #flickthumb ul {
   display: inline-block;
   overflow: hidden;
+}
+
+.m-sold-icon-l {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  &::after {
+    border-width: 120px 120px 0 0;
+    border-color: #ff0211 transparent transparent;
+    border-style: solid;
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 3;
+  }
+  & span {
+    z-index: 4;
+    color: #fff;
+    font-weight: 600;
+    position: absolute;
+    top: 24px;
+    font-size: 28px;
+    transform: rotate(-45deg);
+  }
 }
