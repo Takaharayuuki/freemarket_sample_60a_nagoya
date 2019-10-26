@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @images = @item.images
     @other_items = Item.where("user_id = #{@item.user.id}").order('id DESC').limit(6)
-    @addres = @item.user.address.prefecture[:name]
+    @address = @item.user.address.prefecture[:name]
   end
 
   def create
@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
   private
 
   def create_params
-    params.require(:item).permit(:name, :price, :condition, :category_id, :delivery_fee, :shipping_method, :indication, :burden, :description, :user_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :size, :condition, :shipping_method, :indication, :burden, :description, :category_id, :brand, :delivery_area, :user_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
 end
