@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item_image = @item.images.build
+    @image = @item.images.build
     @prefecture = Prefecture.all
     @category = Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -27,6 +27,9 @@ class ItemsController < ApplicationController
     category = Category.find_by(name: params[:category_id])
     @item[:category_id] = category.id
     if @item.save
+      params[:item]['image'].each do |i|
+        @image = @item.images.create!(image: i)
+      end
       redirect_to controller: :items, action: :index
     else
       render :new

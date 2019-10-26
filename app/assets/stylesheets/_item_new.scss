@@ -59,6 +59,10 @@
   background: #fff;
   line-height: 1.5;
   font-size: 16px;
+  outline: none;
+  &:focus {
+    border-color: #038de3;
+  }  
 }
 
 .y-sell-container{
@@ -162,6 +166,10 @@
       background: #fff;
       font-size: 16px;
       line-height: 1.5;
+      outline: none;
+      &:focus {
+        border-color: #038de3;
+      }  
     }
   }
   &__form-box{
@@ -212,6 +220,10 @@
   background: 0;
   line-height: 1.5;
   cursor: pointer;
+  outline: none;
+  &:focus {
+    border-color: #038de3;
+  }  
   &__brand{
     position: relative;
     z-index: 2;
@@ -222,11 +234,11 @@
     background: 0;
     line-height: 1.5;
     width: 366px;
+    outline: none;
+    &:focus {
+      border-color: #038de3;
+    }  
   }
-}
-
-.y-select-option-brand{
-  
 }
 
 .y-form-question{
@@ -274,6 +286,10 @@
     margin: 0 10px 0 0;
     text-align: right;
     width: 126px;
+    outline: none;
+    &:focus {
+      border-color: #038de3;
+    }  
   }
 }
 
@@ -385,6 +401,10 @@ label{
   background: 0;
   line-height: 1.5;
   cursor: pointer;
+  outline: none;
+  &:focus {
+    border-color: #038de3;
+  }  
   .fas.fa-chevron-down{
     position: absolute;
     right: 16px;

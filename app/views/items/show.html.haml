@@ -7,12 +7,12 @@
     .ta_wrapper-container__box__content
       .ta_mainimage#flickscroll
         %ul
-          - @images.each do |image|
+          - @images.reverse_each do |image|
             %li
               = image_tag "#{image.image.url}",alt:"画像"
       .ta_thumbnails#flickthumb
         %ul
-          - @images.each do |image|
+          - @images.reverse_each do |image|
             %li
               = image_tag src="#{image.image.url}",alt:"サムネイル",width:"60", height:"60"
       %table.ta_wrapper-container__box__content__table
@@ -63,7 +63,7 @@
             %th
               配送元地域
             %td
-              = @address
+              = @item.delivery_area
           %tr
             %th
               発送日の目安
