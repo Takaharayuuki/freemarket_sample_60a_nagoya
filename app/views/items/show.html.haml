@@ -80,9 +80,6 @@
         送料込み
     =link_to "購入画面に進む", new_purchase_path(item_id: @item), class:"ta_wrapper-container__box__btn"
     
-    %p.ta_wrapper-container__box__text
-      この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-    
     .ta_wrapper-container__box__item-description
       %p
         = @item.description
