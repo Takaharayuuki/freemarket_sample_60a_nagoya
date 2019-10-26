@@ -78,8 +78,10 @@
         (税込)
       %span.ta_fee
         送料込み
-    =link_to "購入画面に進む", new_purchase_path(item_id: @item), class:"ta_wrapper-container__box__btn"
-    
+    - if @seller.id != current_user.id
+      =link_to "購入画面に進む", new_purchase_path(item_id: @item), class:"ta_wrapper-container__box__btn"
+    - else
+      =link_to "編集画面に進む", "#", class:"ta_wrapper-container__box__btn"
     .ta_wrapper-container__box__item-description
       %p
         = @item.description

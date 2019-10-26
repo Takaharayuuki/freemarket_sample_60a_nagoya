@@ -26,6 +26,8 @@ class PurchasesController < ApplicationController
         customer: @card.customer_id,
         currency: 'jpy'
       )
+      @item[:buyer_id] = current_user.id
+      @item.save
     else
       render :new
     end
