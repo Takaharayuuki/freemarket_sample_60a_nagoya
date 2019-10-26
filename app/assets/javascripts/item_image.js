@@ -33,30 +33,16 @@ $(document).on('turbolinks:load', function(){
           dropzone.css({
             'width': `calc(100% - (114px * ${images.length}))`
           })
-        }
-        if(images.length >= 1) {
-          $('.image-drop-text').css({
-            'width': '100%'
+        if(images.length == 5) {
+          dropzone.css({
+            'display': 'none'
           })
+          return;
         }
-
-        if(images.length >= 3) {
-          dropzone.find('pre').replaceWith('<i class="fa fa-camera"></i>');
-        }
-      if(images.length == 5) {
-        dropzone.css({
-          'display': 'none'
-        })
-        return;
-      }
-      var new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+      var new_image = $(`<input multiple= "multiple" name="item[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
       input_area.prepend(new_image);
-      // 透明化している画像フォームを触れないようにする
-      var before_image = images.length - 1;
-      $(`input[data-image= "${before_image}"]`).css({
-        'display': `none`
-      })
-    });
+    }
+  });
 
     // 削除動作
     $(document).on('click', '.delete', function() {
@@ -98,13 +84,9 @@ $(document).on('turbolinks:load', function(){
           'width': `calc(100% - (114px * ${images.length}))`
         })
       }
-
-      if(images.length == 2) {
-        dropzone.find('i').replaceWith('<pre class="image-drop-text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード</pre>')
-      }
       // 画像フォームを再度触れるようにする
       $(`input[data-image= "${images.length}"]`).css({
-        'display': `block`
+        'display': `none`
       })
     })
   });

@@ -23,10 +23,12 @@
                     .dropzone-container.clearfix
                       .preview#preview
                       .dropzone-area
-                        = i.label :image, class: "dropzone-box", for: "upload-image", style: "margin: 0" do
+                        = i.label :image, class: "dropzone-box", for: "upload-image" do
                           .input_area
-                            = i.file_field :image, multiple: true, name: "item[images_attributes][][image]",id: "upload-image", class: 'upload-image', 'data-image': 0
-                            %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                            = i.file_field :image, multiple: true, name: "item[image][]", id: "upload-image", class: 'upload-image', 'data-image': 0
+                            %pre.image-drop-text
+                              ドラッグアンドドロップ
+                              またはクリックしてファイルをアップロード
 
                 .y-sell-content
                   .y-sell-content__form-group
