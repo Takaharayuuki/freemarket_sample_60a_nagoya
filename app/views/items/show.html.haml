@@ -43,6 +43,7 @@
             %th
               ブランド
             %td
+              = @item.brand
           %tr
             %th
               商品の状態
@@ -72,7 +73,7 @@
     .ta_wrapper-container__box__price
       %span.ta_price
         ¥
-        = @item.price
+        = @item.price.to_s(:delimited)
       %span.ta_tax
         (税込)
       %span.ta_fee

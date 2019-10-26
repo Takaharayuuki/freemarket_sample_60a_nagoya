@@ -62,7 +62,7 @@
                         ブランド
                         %span.y-form-require 必須
                       .y-select-wrap
-                        = f.text_field :brand, class: "y-select-option", value: "", placeholder: "例）シャネル"
+                        = f.text_field :brand, class: "y-select-option__brand", placeholder: "例）シャネル"
                     .y-sell-content__form-group
                       %label
                         商品の状態
@@ -96,14 +96,14 @@
                         %span.y-form-require 必須
                       .y-select-wrap
                         %i.fas.fa-chevron-down
-                        = f.select :indication, options_from_collection_for_select(Prefecture.all, :name, :name), {}, { class: "y-select-option"}
+                        = f.select :delivery_area, options_from_collection_for_select(Prefecture.all, :name, :name), {}, { class: "y-select-option"}
                     .y-sell-content__form-group
                       %label
                         配送までの日数
                         %span.y-form-require 必須
                       .y-select-wrap
                         %i.fas.fa-chevron-down
-                        = f.select :shipping_method,[["---",""],["1日〜2日で発送","1日〜2日で発送"],["2日〜3日で発送","2日〜3日で発送"],["4日〜7日で発送","4日〜7日で発送"]],{},{ class:"y-select-option"}
+                        = f.select :indication,[["---",""],["1日〜2日で発送","1日〜2日で発送"],["2日〜3日で発送","2日〜3日で発送"],["4日〜7日で発送","4日〜7日で発送"]],{},{ class:"y-select-option"}
                 .y-sell-content.y-clearfix
                   %h3.y-sell-content__head 販売価格(300~9,999,999)
                   = link_to "#", target: "__blank", class:"y-form-question" do
