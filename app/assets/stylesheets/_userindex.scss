@@ -89,7 +89,7 @@
   display: block;
   &__container {
     width: 700px;
-    height: 1100px;
+    min-height: 800px;
     margin: 0 auto;
     background-color: white;
     &__logo {
@@ -103,7 +103,7 @@
       padding: 11px 40px 64px;
       &__content {
         width: 343px;
-        height: 851px;
+        min-height: 700px;
         margin: 0 auto;
         max-width: 343px;
         &__group {

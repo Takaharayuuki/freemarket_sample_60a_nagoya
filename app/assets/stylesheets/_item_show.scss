@@ -4,10 +4,11 @@
 
 .ta_wrapper-container__box {
   width: 620px;
-  height: 1160px;
+  min-height: 900px;
   background-color:white; 
   padding: 24px 40px 40px;
   margin: 40px auto 0;
+  position: relative;
   & .ta_item-name {
     font-size: 24px;
     font-weight: bold;
@@ -130,6 +131,9 @@
     display: -webkit-flex;
     -webkit-justify-content: flex-start;
     justify-content: flex-start;
+    position: absolute;
+    bottom: 40px;
+
     & .left-btn {
       & a {
         display: inline-block;
@@ -164,7 +168,7 @@
       }
     }
     & .right_text {
-      margin-left: auto;
+      margin-left: 70px;
       margin-top: 10px;
       & a {
         display: inline-block;
