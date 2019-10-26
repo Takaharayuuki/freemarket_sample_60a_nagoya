@@ -44,7 +44,7 @@
     width: 1020px;
     box-sizing: border-box;
     margin: 0 auto;
-    
+
 
     &__new {
       width: 100%;
@@ -57,6 +57,7 @@
 
       &__more {
         font-size: 14px;
+
         a {
           color: #0095ee;
           text-decoration: none;
@@ -64,33 +65,41 @@
         }
       }
     }
+
     &__products {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      a{
+
+      a {
         text-decoration: none;
         color: #fff;
       }
+
       &__border {
         height: 254px;
         width: 190px;
         margin-top: 16px;
         border: solid 1px transparent;
+
         &:hover {
           border: solid 1px #038de3;
           transition: .2s;
         }
       }
+
       &__product {
         background-color: white;
         height: 252px;
         width: 188px;
         box-shadow: 1px 3px 3px rgba(0, 0, 0, .2);
         margin: auto;
+        position: relative;
+
         &__image {
           height: 188px;
           width: 188px;
           position: relative;
+
           .price {
             font-size: 17px;
             display: inline-flex;
@@ -106,6 +115,7 @@
             height: 28px;
           }
         }
+
         &__caption {
           height: 64px;
           padding: 0 12px;
@@ -116,6 +126,7 @@
           line-height: 1.4em;
           display: flex;
           align-items: center;
+
           &__text {
             overflow: hidden;
             height: 2.8em;
@@ -133,7 +144,40 @@
   transform: translate(0, 50px);
   transition: 900ms;
 }
+
 .fadein.scrollin {
   opacity: 1;
   transform: translate(0, 0);
+}
+
+.m-sold-icon {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &::after {
+    border-width: 60px 60px 0 0;
+    border-color: #ff0211 transparent transparent;
+    border-style: solid;
+    content: "";
+    display: block;
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    z-index: 3;
+  }
+
+  & span {
+    z-index: 4;
+    color: #fff;
+    font-weight: 600;
+    position: absolute;
+    top: 14px;
+    left: 3px;
+    transform: rotate(-45deg);
+  }
 }

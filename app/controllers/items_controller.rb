@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
     category = Category.find_by(name: params[:category_id])
     @item[:category_id] = category.id
     @item[:saler_id] = current_user.id
-    binding.pry
     if @item.save
       redirect_to controller: :items, action: :index
     else
