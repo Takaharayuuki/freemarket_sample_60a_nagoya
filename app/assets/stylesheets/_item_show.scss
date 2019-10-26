@@ -102,6 +102,10 @@
     text-decoration: none;
     touch-action: manipulation;
   }
+  .m-sold-btn {
+    background: #888;
+    cursor: not-allowed;
+  }
   &__text {
     margin-top: 16px;
     color: red;
