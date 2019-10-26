@@ -45,7 +45,7 @@ ja:
         indication: "配送までの日数"
         burden: "配送料の負担"
         description: "商品の説明"
-        category_id: "カテゴリー"
+        category: "カテゴリー"
   devise:
     confirmations:
       new:
