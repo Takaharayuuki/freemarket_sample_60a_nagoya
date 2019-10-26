@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
-  before_action :set_item, only: %i[new create]
+  before_action :set_item, only: %i[new create], if: :user_signed_in?
   before_action :set_card, only: %i[new create], if: :user_signed_in?
+  before_action :redirect_to_login_form_unless_signed_in
 
   def new
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -33,7 +34,11 @@ class PurchasesController < ApplicationController
   private
 
   def set_item
-    @item = Item.find(params[:item_id])
+    if params[:item_id].present?
+      @item = Item.find(params[:item_id])
+    else
+      redirect_to root_path
+    end
   end
-
+  
 end
