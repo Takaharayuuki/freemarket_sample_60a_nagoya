@@ -11,7 +11,6 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :description
-    validates :category_id
     validates :condition
     validates :burden
     validates :shipping_method
