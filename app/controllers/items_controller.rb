@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @images = @item.images
     @other_items = Item.where("user_id = #{@item.user.id}").order('id DESC').limit(6)
-    @addres = @item.user.address.prefecture[:name]
+    @address = @item.user.address.prefecture[:name]
   end
 
   def create

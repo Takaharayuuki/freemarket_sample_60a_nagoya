@@ -281,11 +281,8 @@
     &__contents {
       height: 700px;
       width: 700px;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-justify-content: space-between;
-      justify-content: space-between;
-      flex-wrap:wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
 
       &__content {
         width:30%;
