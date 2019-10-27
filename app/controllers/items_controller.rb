@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @seller = @item.saler
     @images = @item.images
-    @other_items = Item.where("user_id = #{@item.user.id}").order('id DESC').limit(6)
+    @other_items = Item.where(user_id: @item.user.id).where.not(id: @item.id ).order('id DESC').limit(6)
     @address = @item.user.address.prefecture[:name]
   end
 

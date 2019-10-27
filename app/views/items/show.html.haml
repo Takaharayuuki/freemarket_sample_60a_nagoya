@@ -81,9 +81,9 @@
         (税込)
       %span.ta_fee
         送料込み
-    - if @seller.id != current_user.id && @item.buyer.blank?
+    - if @seller.id != current_user&.id && @item.buyer.blank?
       =link_to "購入画面に進む", new_purchase_path(item_id: @item), class:"ta_wrapper-container__box__btn"
-    - elsif @seller.id == current_user.id && @item.buyer.blank?
+    - elsif @seller.id == current_user&.id && @item.buyer.blank?
       =link_to "編集画面に進む", "#", class:"ta_wrapper-container__box__btn"
     - else
       .ta_wrapper-container__box__btn.m-sold-btn
