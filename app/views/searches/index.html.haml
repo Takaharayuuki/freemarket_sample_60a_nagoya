@@ -5,6 +5,27 @@
       .m-search__container__content__search-box
         
       .m-search__container__content__search-result
+        .m-search__container__content__search-result__text
+          = @key_word
+          %span= " の検索結果"
+        .m-search__container__content__search-result__num
+          1 - 120件表示
+        .m-search__container__content__search-result__products
+          - @items.each do |item|
+            = link_to item_path(item.id) do
+              .m-search__container__content__search-result__products__border
+                .m-search__container__content__search-result__products__border__product
+                  - if item.buyer.present?
+                    .m-sold-icon
+                      %span SOLD
+                  .m-search__container__content__search-result__products__border__product__image
+                    = image_tag item.images.last.image.url, width: "158px", height: "158px"
+                    %span.price= "¥#{item.price.to_s(:delimited)}"
+                  .m-search__container__content__search-result__products__border__product__caption
+                    .m-search__container__content__search-result__products__border__product__caption__text
+                      = item.name
+
+
 
 
 
