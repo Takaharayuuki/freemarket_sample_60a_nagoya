@@ -1,0 +1,17 @@
+.m-search
+  = render "layouts/main_header"
+  .m-search__container
+    .m-search__container__content
+      .m-search__container__content__search-box
+        
+      .m-search__container__content__search-result
+
+
+
+  = render "items/exhibit_btn"
+  .y-bread
+    %span
+      - breadcrumb :search_result
+      = render "user/bread"
+  = render "items/main_aside"
+  = render "layouts/main_footer"

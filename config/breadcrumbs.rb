@@ -41,3 +41,8 @@ crumb :item_show_page do
   item = Item.first
   link item.name, item_path(item.id), data: {"turbolinks": false}
 end
+
+crumb :search_result do
+  link "検索結果", searches_path
+  parent :root
+end
