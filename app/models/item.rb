@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images
   belongs_to :user, optional:true
   belongs_to :category
+  belongs_to :buyer, foreign_key: "buyer_id", class_name: "User", optional: true
+  belongs_to :saler, foreign_key: "saler_id", class_name: "User"
 
   validates :name ,presence: true, length: { maximum: 40 }
   validates :description ,presence: true, length: { maximum: 1000 }
