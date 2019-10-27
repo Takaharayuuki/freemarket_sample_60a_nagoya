@@ -17,23 +17,24 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
-    attributes:
-      user:
-        current_password: "現在のパスワード"
-        name: 名前
-        email: "メールアドレス"
-        password: "パスワード"
-        password_confirmation: "確認用パスワード"
-        remember_me: "次回から自動的にログイン"
-        nickname: "ニックネーム"
-        first_name: "苗字"
-        last_name: "名前"
-        first_name_kana: "苗字のカナ"
-        last_name_kana: "名前のカナ"
-        birth_day: "誕生日"
-        birth_month: "誕生月"
-        birth_year: "誕生年"
-        tel: "電話番号"
+      models:
+        user:     
+          attributes:
+            user:
+              current_password: "現在のパスワード"
+              name: 名前
+              email: "メールアドレス"
+              password: "パスワード"
+              password_confirmation: "確認用パスワード"
+              remember_me: "次回から自動的にログイン"
+              nickname: "ニックネーム"
+              first_name: "姓"
+              last_name: "名"
+              first_name_kana: "姓カナ "
+              last_name_kana: "名カナ"
+              birthday_yiar: 生年月日(年)
+              birthday_month: 生年月日(月)
+              birthday_day: 生年月日(日)
     models:
       user: "ユーザ"
     attributes:
@@ -102,17 +103,4 @@ ja:
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
-
-  activerecord:
-    models:
-      address: アドレス
-    attributes:
-      address:
-        post_address: 郵便番号
-        city: 市区町村
-        house_number: 番地
-        building_name: 建物名
-
-  recaptcha: 
-    errors: 
-    verification_failed: 'reCAPTCHA認証に失敗しました。' 
+  
