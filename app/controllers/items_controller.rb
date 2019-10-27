@@ -18,8 +18,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @seller = @item.saler
     @images = @item.images
-    @other_items = Item.where("user_id = #{@item.user.id}").order('id DESC').limit(6)
+    @other_items = Item.where(user_id: @item.user.id).where.not(id: @item.id ).order('id DESC').limit(6)
     @address = @item.user.address.prefecture[:name]
   end
 
@@ -27,6 +28,7 @@ class ItemsController < ApplicationController
     @item = Item.new(create_params)
     category = Category.find_by(name: params[:category_id])
     @item[:category_id] = category.id
+    @item[:saler_id] = current_user.id
     if @item.save
       params[:item]['image'].each do |i|
         @image = @item.images.create!(image: i)

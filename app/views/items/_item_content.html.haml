@@ -1,5 +1,8 @@
 - @other_items.each do |item|
   .ta-items__contents__content
+    - if item.buyer.present?
+      .m-sold-icon-m
+        %span SOLD
     = link_to item_path(item.id) do
       = image_tag item.images.last.image.url
       .ta-items__contents__content__body
