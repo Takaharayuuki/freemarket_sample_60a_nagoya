@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
     @item = Item.new(create_params)
     category = Category.find_by(name: params[:category_id])
     @item[:category_id] = category.id
-    # binding.pry
     @item[:saler_id] = current_user.id
     if @item.save
       params[:item]['image'].each do |i|

@@ -17,5 +17,4 @@ class Item < ApplicationRecord
   validates :price ,presence: true
   validates :delivery_area ,presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than: 299, less_than: 10000000 }
-  validates :category_id,  numericality: { only_integer: true, greater_than: 1 }
 end
