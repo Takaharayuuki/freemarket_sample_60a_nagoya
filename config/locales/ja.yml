@@ -112,3 +112,7 @@ ja:
         city: 市区町村
         house_number: 番地
         building_name: 建物名
+
+  recaptcha: 
+    errors: 
+    verification_failed: 'reCAPTCHA認証に失敗しました。' 
