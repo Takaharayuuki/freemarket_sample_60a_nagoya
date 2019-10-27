@@ -26,8 +26,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(create_params)
     category = Category.find_by(name: params[:category_id])
-    @item[:category_id] = category.id
     if @item.save
+      @item[:category_id] = category.id
       params[:item]['image'].each do |i|
         @image = @item.images.create!(image: i)
       end
