@@ -6,6 +6,9 @@
       = @item.name
     .ta_wrapper-container__box__content
       .ta_mainimage#flickscroll
+        - if @item.buyer.present?
+          .m-sold-icon-l
+            %span SOLD
         %ul
           - @images.reverse_each do |image|
             %li
@@ -78,8 +81,13 @@
         (税込)
       %span.ta_fee
         送料込み
-    =link_to "購入画面に進む", new_purchase_path(item_id: @item), class:"ta_wrapper-container__box__btn"
-    
+    - if @seller.id != current_user&.id && @item.buyer.blank?
+      =link_to "購入画面に進む", new_purchase_path(item_id: @item), class:"ta_wrapper-container__box__btn"
+    - elsif @seller.id == current_user&.id && @item.buyer.blank?
+      =link_to "編集画面に進む", "#", class:"ta_wrapper-container__box__btn"
+    - else
+      .ta_wrapper-container__box__btn.m-sold-btn
+        売り切れました
     .ta_wrapper-container__box__item-description
       %p
         = @item.description
@@ -126,7 +134,7 @@
   .ta-items
     .ta-items__box
       %h2
-        =link_to "〇〇さんのその他の出品","#" 
+        =link_to "#{@item.user.nickname}さんのその他の出品","#" 
     .ta-items__contents
       = render "items/item_content"
 

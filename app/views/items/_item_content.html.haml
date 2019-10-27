@@ -1,16 +1,18 @@
 - @other_items.each do |item|
   .ta-items__contents__content
+    - if item.buyer.present?
+      .m-sold-icon-m
+        %span SOLD
     = link_to item_path(item.id) do
-      - item.images.each do|image|
-        = image_tag ("#{image.image.url}")
-        .ta-items__contents__content__body
-          %h3
-            = item.name
-          .ta-itemprice
-            ¥
-            = item.price
-          .ta-like
-            %i.far.fa-heart
-            %span
-              2    
+      = image_tag item.images.last.image.url
+      .ta-items__contents__content__body
+        %h3
+          = item.name
+        .ta-itemprice
+          ¥
+          = item.price
+        .ta-like
+          %i.far.fa-heart
+          %span
+            2    
 
