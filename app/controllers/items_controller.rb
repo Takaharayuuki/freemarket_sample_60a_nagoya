@@ -48,6 +48,9 @@ class ItemsController < ApplicationController
     @prefecture = Prefecture.all
     @category = Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
+    end
+  end
+  
   def destroy
     item = Item.find(params[:id])
     if item.destroy

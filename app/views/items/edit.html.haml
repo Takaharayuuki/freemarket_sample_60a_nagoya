@@ -11,7 +11,6 @@
                 出品画像
                 %span.y-form-require 必須
               %p 最大5枚までアップロードできます
-
               = f.fields_for :images do |i|
                 .dropzone-container.clearfix.item__images__container__wrapper
                   .preview#preview
@@ -33,7 +32,6 @@
                         = i.hidden_field :image_cache, class:"image_cache"
                         %pre.image-drop-text.visible-pc
                           クリックしてファイルをアップロード
-
             .y-sell-content
               .y-sell-content__form-group
                 %label
