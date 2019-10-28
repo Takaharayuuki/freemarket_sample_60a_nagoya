@@ -5,8 +5,7 @@
       .y-sell-container__reactroot
         .y-sell-container__inner
           .y-single-head 商品の情報を入力
-          = form_with model: @item, url: items_path, class: "y-sell-form", method: :post, local:true do |f|
-            = render 'layouts/item_error_messages'
+          = form_with model: @item, url: edit_item_path, class: "y-sell-form", local:true do |f|
             .y-sell-container__upload-box
               %h3.y-sell-container__upload-head
                 出品画像
@@ -14,13 +13,25 @@
               %p 最大5枚までアップロードできます
 
               = f.fields_for :images do |i|
-                .dropzone-container.clearfix
+                .dropzone-container.clearfix.item__images__container__wrapper
                   .preview#preview
-                  .dropzone-area
-                    = i.label :image, class: "dropzone-box", for: "upload-image" do
+                  .dropzone-area.item__images__container__preview
+                    %ul
+                      - @item.images.first(@item.images.length - 1).each.with_index do |item_image,i|
+                        %li{data:{alreadysaved: i}}
+                          .img-box
+                            =image_tag item_image.image.url if item_image.image.url.present?
+                          .item__images__container__preview__box
+                            %div.delete_btn_box2
+                              .item__images__container__preview__box__edit
+                                編集
+                              .item__images__container__preview__box__delete
+                                削除
+                    = i.label :image, class: "dropzone-box", for:"upload-image" do
                       .input_area
-                        = i.file_field :image, multiple: true, name: "item[image][]", id: "upload-image", class: 'upload-image', 'data-image': 0
-                        %pre.image-drop-text
+                        = i.file_field :image, multiple: true, name: 'item[image][]', id: "upload-image", class: "upload-image file-btn", 'data-image': 0
+                        = i.hidden_field :image_cache, class:"image_cache"
+                        %pre.image-drop-text.visible-pc
                           クリックしてファイルをアップロード
 
             .y-sell-content
@@ -28,7 +39,8 @@
                 %label
                   商品名
                   %span.y-form-require 必須
-                = f.text_field :name, class: "y-input-default-item", value: "", placeholder: "商品名(必須 40文字まで)"
+                = f.text_field :name, class: "y-input-default-item", placeholder: "商品名(必須 40文字まで)"
+                = f.hidden_field :image_cache
               .y-sell-content__form-group
                 %label
                   商品の説明
@@ -44,6 +56,13 @@
                     .listing-select-wrapper__box
                       = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                       %i.fas.fa-chevron-down
+                    .listing-select-wrapper__box
+                      = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                      %i.fas.fa-chevron-down
+                    .listing-select-wrapper__box
+                      = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                      %i.fas.fa-chevron-down
+
                 .y-sell-content__form-group
                   %label
                     サイズ
@@ -91,7 +110,7 @@
                     %span.y-form-require 必須
                   .y-select-wrap
                     %i.fas.fa-chevron-down
-                    = f.select :delivery_area, options_from_collection_for_select(Prefecture.all, :name, :name), {}, { class: "y-select-option"}
+                    = f.select :delivery_area, options_from_collection_for_select(Prefecture.all, :name, :name), { selected: @item.delivery_area }, { class: "y-select-option"}
                 .y-sell-content__form-group
                   %label
                     配送までの日数
@@ -123,18 +142,6 @@
                     #y-sell-profit.y-right-bold -
             .y-sell-content.y-btn-box
               %p.y-sell-btn-box
-                = link_to "禁止されている出品", "#", target: "_blank"
-                、
-                = link_to "行為", "#", target: "_blank"
-                を必ずご確認ください。
-              %p
-                またブランド品でシリアルナンバー等がある場合はご記載ください。
-                = link_to "偽ブランドの販売", "#"
-                は犯罪であり処罰される可能性があります。
-              %p
-                また出品をもちまして
-                = link_to "加盟店規約", "#"
-                に同意したことになります。
-              = f.submit "出品する", class: "y-btn-default y-btn-red"
-              = link_to "もどる", "#", class: "y-back-btn"
+              = f.submit "変更する", class: "y-btn-default y-btn-red"
+              = link_to "キャンセル", root_path, class: "y-back-btn"
   = render "item_footer"
