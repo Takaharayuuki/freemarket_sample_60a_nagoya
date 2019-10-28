@@ -1,4 +1,3 @@
-= render "item_header"
 %main.y-single-main
   %section.y-single-container
     .y-sell-container
@@ -121,20 +120,3 @@
                   %li.y-clearfix
                     .y-left-bold 販売利益
                     #y-sell-profit.y-right-bold -
-            .y-sell-content.y-btn-box
-              %p.y-sell-btn-box
-                = link_to "禁止されている出品", "#", target: "_blank"
-                、
-                = link_to "行為", "#", target: "_blank"
-                を必ずご確認ください。
-              %p
-                またブランド品でシリアルナンバー等がある場合はご記載ください。
-                = link_to "偽ブランドの販売", "#"
-                は犯罪であり処罰される可能性があります。
-              %p
-                また出品をもちまして
-                = link_to "加盟店規約", "#"
-                に同意したことになります。
-              = f.submit "出品する", class: "y-btn-default y-btn-red"
-              = link_to "もどる", "#", class: "y-back-btn"
-  = render "item_footer"

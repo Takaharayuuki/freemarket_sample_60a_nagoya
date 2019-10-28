@@ -84,7 +84,7 @@
     - if @seller.id != current_user&.id && @item.buyer.blank?
       = link_to "購入画面に進む", new_purchase_path(item_id: @item), class: "ta_wrapper-container__box__btn"
     - elsif @seller.id == current_user&.id && @item.buyer.blank?
-      = link_to "変更する", "#", class: "ta_wrapper-container__box__btn"
+      =link_to "編集画面に進む", edit_item_path, class:"ta_wrapper-container__box__btn"
       %p.m-or-text or
       = link_to "この商品を削除する", item_path(@item), method: :delete, class: "ta_wrapper-container__box__btn m-delete-btn"
     - else

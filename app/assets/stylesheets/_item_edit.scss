@@ -1,0 +1,111 @@
+.item__images__container__wrapper{
+  display: none;
+}
+
+.item__images__container__wrapper:last-child{
+  display:flex;
+  flex-flow:row;
+  box-sizing: border-box;
+  flex-wrap:wrap;
+  width:100%;
+}
+
+.item__images__container__preview{
+  ul{
+    display:flex;
+    flex-wrap:wrap;
+    li{
+      width:120px;
+      display:flex;
+      flex-flow:column;
+      margin-bottom:10px;
+      position:relative;
+      .img-box{
+        display:block;
+        width:120px;
+        height:120px;
+        img{
+          margin:0 auto;
+          display:block;
+          width:114px;
+          height:114px;
+        }
+      }
+    }
+  }
+}
+
+.item__images__container__preview__box{
+  margin-left: 3px;
+  &__edit{
+  float: left;
+  display: inline-block;
+  line-height: 44px;
+  width: 57px;
+  text-align: center;  
+  color: #0099e8;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+  &__delete{
+  display: inline-block;
+  line-height: 44px;
+  width: 56px;
+  text-align: center;  
+  color: #0099e8;
+  border-left: 1px solid #eee;
+  background: #f5f5f5;
+  cursor: pointer;
+  }
+}
+
+.image-dropzone-area{
+  min-height: 162px;
+  cursor: pointer;
+}
+
+.image-dropzone-box{
+  display: block;
+  width: 40%;
+}
+.image-input_area{
+  width: 100%;
+  margin-left: 0;
+  position: relative;
+  height: 162px;
+  background: #f5f5f5;
+  border: 1px dashed #ccc;
+  text-align: center;
+  -webkit-transition: -webkit-box-shadow ease-out .3s;
+  transition: -webkit-box-shadow ease-out .3s;
+  transition: box-shadow ease-out .3s;
+  transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+  cursor: pointer;
+}
+
+.sell-upload-drop-box {
+  position: relative;
+  display:block;
+  flex:1 1 auto;
+  min-width:20%;
+  min-height: 162px;
+  background: #f5f5f5;
+  border: 1px dashed #ccc;
+  font-size: 0;
+  text-align: center;
+  .visible-pc{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    color:black;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  } 
+  .file-btn{
+    display:none;
+  }   
+}
