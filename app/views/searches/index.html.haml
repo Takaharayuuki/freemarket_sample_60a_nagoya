@@ -1,0 +1,44 @@
+.m-search
+  = render "layouts/main_header"
+  .m-search__container
+    .m-search__container__content
+      .m-search__container__content__search-box
+        .m-search__container__content__search-box__sort
+
+        
+      .m-search__container__content__search-result
+        .m-search__container__content__search-result__text
+          - if @items.count >= 1
+            = @key_word
+            %span= " の検索結果"
+          - else
+            = "検索結果"
+        .m-search__container__content__search-result__num
+          - if @items.count >= 1
+            = "1 - #{@items.count}件表示"
+          - else
+            %p.m-result-none 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        .m-search__container__content__search-result__products
+          - @items.each do |item|
+            = link_to item_path(item.id) do
+              .m-search__container__content__search-result__products__border
+                .m-search__container__content__search-result__products__border__product
+                  - if item.buyer.present?
+                    .m-sold-icon
+                      %span SOLD
+                  .m-search__container__content__search-result__products__border__product__image
+                    = image_tag item.images.last.image.url, width: "158px", height: "158px"
+                    %span.price= "¥#{item.price.to_s(:delimited)}"
+                  .m-search__container__content__search-result__products__border__product__caption
+                    .m-search__container__content__search-result__products__border__product__caption__text
+                      = item.name
+        .m-search__container__content__search-result__pager
+          = paginate @items
+
+  = render "items/exhibit_btn"
+  .y-bread
+    %span
+      - breadcrumb :search_result, @key_word
+      = render "user/bread"
+  = render "items/main_aside"
+  = render "layouts/main_footer"

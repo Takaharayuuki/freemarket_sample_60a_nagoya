@@ -8,18 +8,13 @@ class Item < ApplicationRecord
   belongs_to :buyer, foreign_key: "buyer_id", class_name: "User", optional: true
   belongs_to :saler, foreign_key: "saler_id", class_name: "User"
 
-  with_options presence: true do
-    validates :name
-    validates :description
-    validates :condition
-    validates :burden
-    validates :shipping_method
-    validates :indication
-    validates :price
-  end
-  
-  validates :name, length: { maximum: 40 }
-  validates :description, length: { maximum: 1000 }
-  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10000000}
-
+  validates :name ,presence: true, length: { maximum: 40 }
+  validates :description ,presence: true, length: { maximum: 1000 }
+  validates :condition ,presence: true
+  validates :burden ,presence: true
+  validates :shipping_method ,presence: true
+  validates :indication ,presence: true
+  validates :price ,presence: true
+  validates :delivery_area ,presence: true
+  validates :price, presence: true, numericality: { only_integer: true, greater_than: 299, less_than: 10000000 }
 end

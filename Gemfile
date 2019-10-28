@@ -27,6 +27,8 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'jquery-turbolinks'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'ransack'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

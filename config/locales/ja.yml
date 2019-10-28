@@ -19,24 +19,6 @@ ja:
     too_long: "は%{count}文字以下に設定して下さい。"
     invalid: "は有効でありません。"
     confirmation: "が内容とあっていません。"
-      # models:
-    #   user:     
-    #     attributes:
-    #       user:
-    #         current_password: "現在のパスワード"
-    #         name: 名前
-    #         email: "メールアドレス"
-    #         password: "パスワード"
-    #         password_confirmation: "確認用パスワード"
-    #         remember_me: "次回から自動的にログイン"
-    #         nickname: "ニックネーム"
-    #         first_name: "姓"
-    #         last_name: "名"
-    #         first_name_kana: "姓カナ "
-    #         last_name_kana: "名カナ"
-    #         birthday_yiar: 生年月日(年)
-    #         birthday_month: 生年月日(月)
-    #         birthday_day: 生年月日(日)
   devise:
     confirmations:
       new:

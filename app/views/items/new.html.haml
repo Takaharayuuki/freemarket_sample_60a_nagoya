@@ -12,7 +12,7 @@
             .y-sell-container__inner
               .y-single-head 商品の情報を入力
               = form_with model: @item, url: items_path, class: "y-sell-form", method: :post, local:true do |f|
-                = render 'layouts/model_error_messages', model: f.object
+                = render 'layouts/item_error_messages'
                 .y-sell-container__upload-box
                   %h3.y-sell-container__upload-head
                     出品画像
@@ -27,8 +27,7 @@
                           .input_area
                             = i.file_field :image, multiple: true, name: "item[image][]", id: "upload-image", class: 'upload-image', 'data-image': 0
                             %pre.image-drop-text
-                              ドラッグアンドドロップ
-                              またはクリックしてファイルをアップロード
+                              クリックしてファイルをアップロード
 
                 .y-sell-content
                   .y-sell-content__form-group
@@ -62,7 +61,7 @@
                     .y-sell-content__form-group
                       %label
                         ブランド
-                        %span.y-form-require 必須
+                        %span.y-form-require__any 任意
                       .y-select-wrap
                         = f.text_field :brand, class: "y-select-option__brand", placeholder: "例）シャネル"
                     .y-sell-content__form-group
