@@ -3,10 +3,13 @@
     .m-container__top
       .m-container__top__box
         .m-container__top__box__logo= link_to (image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"), root_path
-      = form_tag('#', method: :post, class: "m-container__top__search") do
-        %input#input-box.m-container__top__search--form(type="text" placeholder="何かお探しですか？")
-        %button.m-container__top__search--btn(type="submit")
-          %i.fas.fa-search.m-container__top__search--btn__icon
+      - if @q.blank?
+        - @q = Item.ransack(params[:q])
+      = search_form_for @q, url: searches_path, class: "m-container__top__search" do |f|
+        = f.search_field :name_cont, id: "input-box", class: "m-container__top__search--form", placeholder: "何かお探しですか？"
+        %label
+          = f.submit class: "m-container__top__search--btn"
+          %i.fas.fa-search.m-container__top__search--icon
 
     .m-container__bottom
       .m-container__bottom__left

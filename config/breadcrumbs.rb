@@ -41,3 +41,12 @@ crumb :item_show_page do
   item = Item.first
   link item.name, item_path(item.id), data: {"turbolinks": false}
 end
+
+crumb :search_result do |key_word|
+  if key_word.present?
+    link key_word
+    parent :root
+  else
+    link "検索結果"
+  end
+end
