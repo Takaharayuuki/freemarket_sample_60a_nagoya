@@ -3,13 +3,22 @@
   .m-search__container
     .m-search__container__content
       .m-search__container__content__search-box
+        -# = search_form_for
+        .m-search__container__content__search-box__sort
+
         
       .m-search__container__content__search-result
         .m-search__container__content__search-result__text
-          = @key_word
-          %span= " の検索結果"
+          - if @items.count >= 1
+            = @key_word
+            %span= " の検索結果"
+          - else
+            = "検索結果"
         .m-search__container__content__search-result__num
-          1 - 120件表示
+          - if @items.count >= 1
+            = "1 - #{@items.count}件表示"
+          - else
+            %p.m-result-none 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
         .m-search__container__content__search-result__products
           - @items.each do |item|
             = link_to item_path(item.id) do
@@ -27,14 +36,10 @@
         .m-search__container__content__search-result__pager
           = paginate @items
 
-
-
-
-
   = render "items/exhibit_btn"
   .y-bread
     %span
-      - breadcrumb :search_result
+      - breadcrumb :search_result, @key_word
       = render "user/bread"
   = render "items/main_aside"
   = render "layouts/main_footer"

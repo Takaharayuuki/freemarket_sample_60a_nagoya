@@ -21,8 +21,7 @@
           .m-purchase-container__content__buy-item__inner__price-table__price-right
             = "¥#{@item.price.to_s(:delimited)}"
         .m-purchase-container__content__buy-item__inner__purchase-btn
-          = link_to purchases_path(item_id: @item), method: :post do
-            購入する
+          = link_to "購入する", purchases_path(item_id: @item), method: :post
     .m-purchase-container__content__buy-user-info
       .m-purchase-container__content__buy-user-info__inner
         %h3 配送先

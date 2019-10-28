@@ -102,6 +102,15 @@
     text-decoration: none;
     touch-action: manipulation;
   }
+  .m-or-text {
+    text-align: center;
+    font-size: 22px;
+    margin: 25px 0;
+  }
+  .m-delete-btn {
+    background: #888;
+    margin: 0;
+  }
   .m-sold-btn {
     background: #888;
     cursor: not-allowed;
