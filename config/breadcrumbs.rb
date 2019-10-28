@@ -32,8 +32,9 @@ crumb :profile do
   parent :user
 end
 
-crumb :detail_item do |item|
-  link item.name
+crumb :detail_item do
+  item = Item.find_by(id: params[:id])
+  link item.name, item_path(item.id)
   parent :root
 end
 

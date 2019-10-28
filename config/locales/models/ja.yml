@@ -9,7 +9,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         last_name: 姓
-        farst_name: 名
+        first_name: 名
         last_name_kana: 姓カナ 
         first_name_kana: 名カナ
         birth_year: 生年月日(年)
