@@ -39,6 +39,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @item.images.build
+    @item.images.each do |item_image|
+      item_image.image.cache!
+    end
+    @prefecture = Prefecture.all
+    @category = Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
+  
   def destroy
     item = Item.find(params[:id])
     if item.destroy
