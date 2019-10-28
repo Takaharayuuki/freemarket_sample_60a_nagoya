@@ -39,6 +39,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
   def category_menu_children
     @children = Category.find(params[:parent_id]).children
     respond_to do |format|

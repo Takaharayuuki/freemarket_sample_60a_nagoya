@@ -36,5 +36,7 @@ Rails.application.routes.draw do
 
   resources :purchases, only: %i[new create]
 
+  resources :searches, only: %i[index]
+
   get "users/logout", to: "users#logout"
 end
