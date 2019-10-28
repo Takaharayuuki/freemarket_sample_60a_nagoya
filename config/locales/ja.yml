@@ -1,52 +1,42 @@
 ja:
   activerecord:
     errors:
-      models:
-        user:
-          attributes:
-            email:
-              taken: "は既に使用されています。"
-              blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
-              invalid: "は有効でありません。"
-            password:
-              taken: "は既に使用されています。"
-              blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
-              invalid: "は有効でありません。"
-              confirmation: "が内容とあっていません。"
-      models:
-        user:     
-          attributes:
-            user:
-              current_password: "現在のパスワード"
-              name: 名前
-              email: "メールアドレス"
-              password: "パスワード"
-              password_confirmation: "確認用パスワード"
-              remember_me: "次回から自動的にログイン"
-              nickname: "ニックネーム"
-              first_name: "姓"
-              last_name: "名"
-              first_name_kana: "姓カナ "
-              last_name_kana: "名カナ"
-              birthday_yiar: 生年月日(年)
-              birthday_month: 生年月日(月)
-              birthday_day: 生年月日(日)
+      messages:
     models:
-      user: "ユーザ"
-    attributes:
-      item:
-        name: "商品名"
-        price: "価格"
-        condition: "商品の状態"
-        shipping_method: "配送元の地域"
-        indication: "配送までの日数"
-        burden: "配送料の負担"
-        description: "商品の説明"
-        category: "カテゴリー"
+      user:
+  attributes:
+    nickname: ニックネーム
+    email:
+    taken: "は既に使用されています。"
+    blank: "が入力されていません。"
+    too_short: "は%{count}文字以上に設定して下さい。"
+    too_long: "は%{count}文字以下に設定して下さい。"
+    invalid: "は有効でありません。"
+    password:
+    taken: "は既に使用されています。"
+    blank: "が入力されていません。"
+    too_short: "は%{count}文字以上に設定して下さい。"
+    too_long: "は%{count}文字以下に設定して下さい。"
+    invalid: "は有効でありません。"
+    confirmation: "が内容とあっていません。"
+      # models:
+    #   user:     
+    #     attributes:
+    #       user:
+    #         current_password: "現在のパスワード"
+    #         name: 名前
+    #         email: "メールアドレス"
+    #         password: "パスワード"
+    #         password_confirmation: "確認用パスワード"
+    #         remember_me: "次回から自動的にログイン"
+    #         nickname: "ニックネーム"
+    #         first_name: "姓"
+    #         last_name: "名"
+    #         first_name_kana: "姓カナ "
+    #         last_name_kana: "名カナ"
+    #         birthday_yiar: 生年月日(年)
+    #         birthday_month: 生年月日(月)
+    #         birthday_day: 生年月日(日)
   devise:
     confirmations:
       new:
@@ -103,4 +93,4 @@ ja:
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
-  
+        
