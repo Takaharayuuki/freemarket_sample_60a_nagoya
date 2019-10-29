@@ -6,19 +6,28 @@ ja:
       user:
   attributes:
     nickname: ニックネーム
-    email:
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード(確認)
+    last_name: 姓
+    first_name: 名
+    last_name_kana: 姓カナ 
+    first_name_kana: 名カナ
+    birth_year: 生年月日(年)
+    birth_month: 生年月日(月)
+    birth_day: 生年月日(日)
     taken: "は既に使用されています。"
     blank: "が入力されていません。"
     too_short: "は%{count}文字以上に設定して下さい。"
     too_long: "は%{count}文字以下に設定して下さい。"
     invalid: "は有効でありません。"
-    password:
     taken: "は既に使用されています。"
     blank: "が入力されていません。"
     too_short: "は%{count}文字以上に設定して下さい。"
     too_long: "は%{count}文字以下に設定して下さい。"
     invalid: "は有効でありません。"
     confirmation: "が内容とあっていません。"
+    
   devise:
     confirmations:
       new:
@@ -75,4 +84,4 @@ ja:
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
-        
+  
