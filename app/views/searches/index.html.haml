@@ -15,7 +15,7 @@
             = "検索結果"
         .m-search__container__content__search-result__num
           - if @items.count >= 1
-            = "1 - #{@items.count}件表示"
+            = "#{@prev_items} - #{@items_count}件表示"
           - else
             %p.m-result-none 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
         .m-search__container__content__search-result__products
