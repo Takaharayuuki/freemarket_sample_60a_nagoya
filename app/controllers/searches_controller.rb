@@ -22,12 +22,12 @@ class SearchesController < ApplicationController
       @prev_items = if page.to_i == 1
                       page.to_i
                     else
-                      (page.to_i - 1) * display_number
+                      (page.to_i - 1) * display_number + 1
                     end
       @items_count = if @prev_items == 1
                         @items.count
                       else
-                        @prev_items + @items.count
+                        @prev_items + @items.count - 1
                       end 
     end
   end
