@@ -420,8 +420,8 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-controller-testing
   rails-i18n
-  recaptcha
   ransack
+  recaptcha
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
