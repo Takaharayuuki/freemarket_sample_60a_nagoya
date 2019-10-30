@@ -16,7 +16,7 @@
                   .preview#preview
                   .dropzone-area.item__images__container__preview
                     %ul
-                      - @item.images.first(@item.images.length - 1).each.with_index do |item_image,i|
+                      - @item.images.first(@item.images.length - 1).reverse_each.with_index do |item_image,i|
                         %li{data:{alreadysaved: i}}
                           .img-box
                             =image_tag item_image.image.url if item_image.image.url.present?
