@@ -26,6 +26,7 @@ gem 'payjp'
 gem 'active_hash'
 gem 'ancestry'
 gem 'jquery-turbolinks'
+gem 'recaptcha', require: "recaptcha/rails"
 gem 'ransack'
 gem 'kaminari'
 

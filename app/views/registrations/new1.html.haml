@@ -34,8 +34,8 @@
               必須
             = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
             .error_zone
-            %p.error_message
-              = @user.errors.full_messages_for(:nickname)[0]
+              %p.error_message
+                = @user.errors.full_messages_for(:nickname)[0]
           .ta-re-main__container__form__content__group
             = f.label :email ,"メールアドレス"
             %span
@@ -77,10 +77,10 @@
               = f.text_field :last_name, autofocus: true, placeholder: "例）山田"
               = f.text_field :first_name, autofocus: true ,class: "right", placeholder: "例）彩"
             .error_zone
-            %p.error_message
-              = @user.errors.full_messages_for(:last_name)[0]
-            %p.error_message
-              = @user.errors.full_messages_for(:first_name)[0]
+              %p.error_message
+                = @user.errors.full_messages_for(:last_name)[0]
+              %p.error_message
+                = @user.errors.full_messages_for(:first_name)[0]
 
           .ta-re-main__container__form__content__half
             = f.label :reading,"お名前カナ(全角)" 
@@ -120,7 +120,7 @@
             修正するにはお時間を頂く場合があります。
 
           .ta-re-main__container__form__content__robot
-            私はロボットではありません
+            = recaptcha_tags 
 
           %p.ta-re-main__container__form__content__centertext
             「次へ進む」のボタンを押すことにより、利用規約に

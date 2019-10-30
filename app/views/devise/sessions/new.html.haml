@@ -34,7 +34,7 @@
           .field
             = f.password_field :password, autocomplete: "current-password", class: "ta-single__main__form__password"
           .ta-check
-            %p 私はロボットではありません
+            = recaptcha_tags 
 
           .field
             = f.submit "ログイン", class:"ta-single__main__form__submit"
