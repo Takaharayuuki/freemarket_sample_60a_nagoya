@@ -70,67 +70,69 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
 
-      a {
-        text-decoration: none;
-        color: #fff;
-      }
-
-      &__border {
-        height: 254px;
-        width: 190px;
-        margin-top: 16px;
-        border: solid 1px transparent;
-
-        &:hover {
-          border: solid 1px #038de3;
-          transition: .2s;
+      &__box {
+        a {
+          text-decoration: none;
+          color: #fff;
         }
-      }
 
-      &__product {
-        background-color: white;
-        height: 252px;
-        width: 188px;
-        box-shadow: 1px 3px 3px rgba(0, 0, 0, .2);
-        margin: auto;
-        position: relative;
+        &__border {
+          height: 254px;
+          width: 190px;
+          margin-top: 16px;
+          border: solid 1px transparent;
 
-        &__image {
-          height: 188px;
-          width: 188px;
-          position: relative;
-
-          .price {
-            font-size: 17px;
-            display: inline-flex;
-            align-items: center;
-            background: rgba(0, 0, 0, .4);
-            border-radius: 0 14px 14px 0;
-            padding: 0 12px;
-            letter-spacing: .2em;
-            position: absolute;
-            bottom: 8px;
-            left: 0;
-            z-index: 2;
-            height: 28px;
+          &:hover {
+            border: solid 1px #038de3;
+            transition: .2s;
           }
         }
 
-        &__caption {
-          height: 64px;
-          padding: 0 12px;
-          font-size: 14px;
-          color: #222;
-          white-space: normal;
-          word-break: break-all;
-          line-height: 1.4em;
-          display: flex;
-          align-items: center;
+        &__product {
+          background-color: white;
+          height: 252px;
+          width: 188px;
+          box-shadow: 1px 3px 3px rgba(0, 0, 0, .2);
+          margin: auto;
+          position: relative;
 
-          &__text {
-            overflow: hidden;
-            height: 2.8em;
-            display: inline-block;
+          &__image {
+            height: 188px;
+            width: 188px;
+            position: relative;
+
+            .price {
+              font-size: 17px;
+              display: inline-flex;
+              align-items: center;
+              background: rgba(0, 0, 0, .4);
+              border-radius: 0 14px 14px 0;
+              padding: 0 12px;
+              letter-spacing: .2em;
+              position: absolute;
+              bottom: 8px;
+              left: 0;
+              z-index: 2;
+              height: 28px;
+            }
+          }
+
+          &__caption {
+            height: 64px;
+            padding: 0 12px;
+            font-size: 14px;
+            color: #222;
+            white-space: normal;
+            word-break: break-all;
+            line-height: 1.4em;
+            display: flex;
+            align-items: center;
+
+            &__text {
+              overflow: hidden;
+              height: 2.8em;
+              display: inline-block;
+            }
           }
         }
       }
@@ -142,7 +144,7 @@
 .fadein {
   opacity: 0;
   transform: translate(0, 50px);
-  transition: 900ms;
+  transition: 600ms;
 }
 
 .fadein.scrollin {
@@ -156,6 +158,7 @@
   position: absolute;
   top: 0;
   left: 0;
+
   &::after {
     border-width: 60px 60px 0 0;
     border-color: #ff0211 transparent transparent;
@@ -169,6 +172,7 @@
     width: 0;
     z-index: 3;
   }
+
   & span {
     z-index: 4;
     color: #fff;
@@ -179,4 +183,3 @@
     transform: rotate(-45deg);
   }
 }
-
