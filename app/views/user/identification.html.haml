@@ -17,17 +17,17 @@
               %i.fas.fa-chevron-right
         .y-identification-form
           %label お名前
-          %p 山本 修二
+          %p #{current_user.last_name} #{current_user.first_name}
         .y-identification-form
           %label お名前カナ
-          %p ヤマモト シュウジ
+          %p #{current_user.last_name_kana} #{current_user.first_name_kana}
         .y-identification-form
           %label{ for:"birthday" } 生年月日
-          %p 1900/06/06
+          %p #{current_user.birth_year}/#{current_user.birth_month}/#{current_user.birth_day}
         .y-identification-form
           %label{ for:"post_address" } 郵便番号
           %span.y-form-arbitrary 任意
-          %input.y-input-default{type: "text", value:"", name:"post_address", placeholder:"例）0987654"}
+          %input.y-input-default{type: "text", value: "", name:"post_address", placeholder:"例）0987654"}
         .y-identification-form
           %label{ for:"prefecture" } 都道府県
           %span.y-form-arbitrary 任意

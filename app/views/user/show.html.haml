@@ -11,7 +11,7 @@
         = link_to "#" do
           %figure
             = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", height: "60"
-          %h2.y-bold 山本修二
+          %h2.y-bold #{current_user.nickname}
           .y-mypage-user__number
             %p.y-mypage-user__evaluation 評価
             %span.y-bold 0
